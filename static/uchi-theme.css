@@ -1,0 +1,41 @@
+/* This is a new CSS file for UchiVibe Music that replaces babyPink (#d2bad8) with the new #08b4c2 color */
+
+.bg-uchi-blue {
+    --tw-bg-opacity: 1 !important;
+    background-color: rgb(8 180 194 / var(--tw-bg-opacity)) !important;
+}
+
+.text-uchi-blue {
+    --tw-text-opacity: 1 !important;
+    color: rgb(8 180 194 / var(--tw-text-opacity)) !important;
+}
+
+.border-uchi-blue {
+    --tw-border-opacity: 1 !important;
+    border-color: rgb(8 180 194 / var(--tw-border-opacity)) !important;
+}
+
+/* Replace babyPink references with uchi-blue */
+.bg-babyPink {
+    --tw-bg-opacity: 1 !important;
+    background-color: rgb(8 180 194 / var(--tw-bg-opacity)) !important;
+}
+
+.text-babyPink {
+    --tw-text-opacity: 1 !important;
+    color: rgb(8 180 194 / var(--tw-text-opacity)) !important;
+}
+
+.border-babyPink {
+    --tw-border-opacity: 1 !important;
+    border-color: rgb(8 180 194 / var(--tw-border-opacity)) !important;
+}
+
+.uchi-brand {
+    --tw-text-opacity: 1 !important;
+    color: rgb(234 54 111 / var(--tw-text-opacity)) !important;
+}
+
+.nav-background {
+    background-color: #08b4c2;
+}
