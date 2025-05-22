@@ -28,7 +28,7 @@ export default function Custom404() {
           </div>
         </div>
       </div>
-      <footer className="w-full gap-4 border-t border-forrestGreen bg-babyBlue uppercase">
+      <footer className="w-full gap-4 border-t border-forrestGreen bg-uchi-blue uppercase">
         <div style={{backgroundSize:'1.5vmin 1.5vmin'}} className="h-full min-h-[20px] w-full bg-forrestGreen bg-[url('/static/checker.svg')] bg-[length:1vim_1vim] md:inline-block"></div>
         <div className="flex w-full items-center gap-4 [&>*]:border-forrestGreen">
           <a className="flex pl-2 text-7xl" href="mailto:info@uchivibe.com">info@uchivibe.com</a>
