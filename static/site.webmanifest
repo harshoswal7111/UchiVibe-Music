@@ -1,6 +1,6 @@
 {
-    "name": "GASS Records",
-    "short_name": "GASS Records",
+    "name": "UchiVibe Music",
+    "short_name": "UchiVibe",
     "icons": [
         {
             "src": "/static/android-chrome-192x192.png",
@@ -15,6 +15,6 @@
     ],
     "theme_color": "#ea366f",
     "background_color": "#ea366f",
-    "start_url": "http://gass.zone",
+    "start_url": "http://uchivibe.com",
     "display": "standalone"
 }
