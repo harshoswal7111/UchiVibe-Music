@@ -10,6 +10,13 @@
     color: rgb(8 180 194 / var(--tw-text-opacity)) !important;
 }
 
+/* Reduce logo size by 33% */
+img[src*="uchi_logo.png"] {
+    max-width: 67% !important;
+    margin: 0 auto !important;
+    display: block !important;
+}
+
 .border-uchi-blue {
     --tw-border-opacity: 1 !important;
     border-color: rgb(8 180 194 / var(--tw-border-opacity)) !important;
