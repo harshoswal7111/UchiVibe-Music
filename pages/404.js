@@ -4,9 +4,8 @@ export default function Custom404() {
   return (
     <div className="pointer-events-none fixed top-[1vh] right-0 z-[99] w-full md:top-0">
       <header className="flex items-center justify-center border-b border-black">
-        <div className="border-[#00220b] text-[5vh] text-[#00220b] lg:text-[15vh]">
-          <div className="border-r border-forrestGreen [&>*]:border-forrestGreen">
-            <div className="bg-[#ea366f] p-4">
+        <div className="border-[#00220b] text-[5vh] text-[#00220b] lg:text-[15vh]">          <div className="border-r border-forrestGreen [&>*]:border-forrestGreen">
+            <div className="bg-[#FFDE59] p-4">
               <img src="/static/uchi_logo.png" alt="UchiVibe Logo" className="w-full h-auto" />
             </div>
             <div className="flex h-full flex-col items-center justify-center border-t p-4 font-semibold uppercase text-[#08b4c2] text-lg md:normal-case md:text-5xl">

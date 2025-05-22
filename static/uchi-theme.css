@@ -1,5 +1,11 @@
 /* This is a new CSS file for UchiVibe Music that replaces babyPink (#d2bad8) with the new #08b4c2 color */
 
+/* Change site background from dark green (#00220b) to yellow (#FFDE59) */
+body {
+    --tw-bg-opacity: 1 !important;
+    background-color: rgb(255 222 89 / var(--tw-bg-opacity)) !important;
+}
+
 .bg-uchi-blue {
     --tw-bg-opacity: 1 !important;
     background-color: rgb(8 180 194 / var(--tw-bg-opacity)) !important;
@@ -45,4 +51,34 @@ img[src*="uchi_logo.png"] {
 
 .nav-background {
     background-color: #08b4c2;
+}
+
+/* Replace forrestGreen background with #FFDE59 */
+.bg-forrestGreen {
+    --tw-bg-opacity: 1 !important;
+    background-color: rgb(255 222 89 / var(--tw-bg-opacity)) !important;
+}
+
+/* Override any inline styles with #00220b background color */
+section[style*="background-color:#00220b"] {
+    background-color: #FFDE59 !important;
+    color: #000000 !important;
+}
+
+/* Update alternate sections */
+section.border-uchi-blue {
+    background-color: #FFDE59 !important;
+    color: #000000 !important;
+}
+
+/* For JavaScript initialized sections */
+*[initial*="backgroundColor:#00220b"] {
+    background-color: #FFDE59 !important;
+    color: #000000 !important;
+}
+
+/* Change any elements with dark green text to black */
+.text-[#00220b], .text-forrestGreen {
+    --tw-text-opacity: 1 !important;
+    color: rgb(0 0 0 / var(--tw-text-opacity)) !important;
 }
