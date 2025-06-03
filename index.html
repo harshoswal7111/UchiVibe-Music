@@ -8,12 +8,14 @@
 
     <!-- SEO and Social Meta Tags -->
     <meta name="robots" content="index,follow" />
-    <meta name="description" content="UchiVibe Music, 2025. The finest electronic music curated for your listening pleasure." />
+    <meta name="description"
+        content="UchiVibe Music, 2025. The finest electronic music curated for your listening pleasure." />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:site" content="@uchivibe" />
     <meta name="twitter:creator" content="@uchivibe" />
     <meta property="og:title" content="UchiVibe Music" />
-    <meta property="og:description" content="UchiVibe Music, 2025. The finest electronic music curated for your listening pleasure." />
+    <meta property="og:description"
+        content="UchiVibe Music, 2025. The finest electronic music curated for your listening pleasure." />
     <meta property="og:url" content="index.html" /> <!-- Assuming this will be the final URL -->
     <meta property="og:image" content="static/og.jpg" />
     <meta property="og:image:alt" content="UchiVibe Music" />
@@ -34,13 +36,14 @@
 
     <!-- Stylesheets -->
     <link rel="stylesheet" href="css/tailwind-output.css"> <!-- Placeholder for 87e3cc9906b404fa.css -->
-    <link rel="stylesheet" href="css/uchi-theme.css">    <!-- Placeholder for static/uchi-theme.css -->
-    <link rel="stylesheet" href="css/style.css">          <!-- For custom styles and marquee -->
+    <link rel="stylesheet" href="css/uchi-theme.css"> <!-- Placeholder for static/uchi-theme.css -->
+    <link rel="stylesheet" href="css/style.css"> <!-- For custom styles and marquee -->
 
     <!-- Typekit Fonts -->
     <link rel="preconnect" href="https://use.typekit.net/" crossorigin />
     <style data-href="https://use.typekit.net/vrn8hbc.css">
         @import url("https://p.typekit.net/p.css?s=1&k=vrn8hbc&ht=tk&f=23760.39494.39495.39498.39499&a=17095688&app=typekit&e=css");
+
         /*
             The actual @font-face rules from Typekit would be dynamically inserted by their JS,
             or you would copy them here if you have them.
@@ -49,38 +52,60 @@
             Assuming Typekit's CSS loading mechanism remains.
         */
         @font-face {
-            font-family:"hwt-bulletin";
-            src:url("https://use.typekit.net/af/26b83a/000000000000000000015264/27/l?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n4&v=3") format("woff2"),url("https://use.typekit.net/af/26b83a/000000000000000000015264/27/d?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n4&v=3") format("woff"),url("https://use.typekit.net/af/26b83a/000000000000000000015264/27/a?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n4&v=3") format("opentype");
-            font-display:auto;font-style:normal;font-weight:400;font-stretch:normal;
+            font-family: "hwt-bulletin";
+            src: url("https://use.typekit.net/af/26b83a/000000000000000000015264/27/l?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n4&v=3") format("woff2"), url("https://use.typekit.net/af/26b83a/000000000000000000015264/27/d?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n4&v=3") format("woff"), url("https://use.typekit.net/af/26b83a/000000000000000000015264/27/a?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n4&v=3") format("opentype");
+            font-display: auto;
+            font-style: normal;
+            font-weight: 400;
+            font-stretch: normal;
         }
+
         @font-face {
-            font-family:"neue-haas-grotesk-display";
-            src:url("https://use.typekit.net/af/2807c7/00000000000000007735bb48/30/l?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n4&v=3") format("woff2"),url("https://use.typekit.net/af/2807c7/00000000000000007735bb48/30/d?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n4&v=3") format("woff"),url("https://use.typekit.net/af/2807c7/00000000000000007735bb48/30/a?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n4&v=3") format("opentype");
-            font-display:auto;font-style:normal;font-weight:400;font-stretch:normal;
+            font-family: "neue-haas-grotesk-display";
+            src: url("https://use.typekit.net/af/2807c7/00000000000000007735bb48/30/l?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n4&v=3") format("woff2"), url("https://use.typekit.net/af/2807c7/00000000000000007735bb48/30/d?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n4&v=3") format("woff"), url("https://use.typekit.net/af/2807c7/00000000000000007735bb48/30/a?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n4&v=3") format("opentype");
+            font-display: auto;
+            font-style: normal;
+            font-weight: 400;
+            font-stretch: normal;
         }
+
         @font-face {
-            font-family:"neue-haas-grotesk-display";
-            src:url("https://use.typekit.net/af/2b59e1/00000000000000007735bb53/30/l?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=i4&v=3") format("woff2"),url("https://use.typekit.net/af/2b59e1/00000000000000007735bb53/30/d?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=i4&v=3") format("woff"),url("https://use.typekit.net/af/2b59e1/00000000000000007735bb53/30/a?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=i4&v=3") format("opentype");
-            font-display:auto;font-style:italic;font-weight:400;font-stretch:normal;
+            font-family: "neue-haas-grotesk-display";
+            src: url("https://use.typekit.net/af/2b59e1/00000000000000007735bb53/30/l?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=i4&v=3") format("woff2"), url("https://use.typekit.net/af/2b59e1/00000000000000007735bb53/30/d?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=i4&v=3") format("woff"), url("https://use.typekit.net/af/2b59e1/00000000000000007735bb53/30/a?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=i4&v=3") format("opentype");
+            font-display: auto;
+            font-style: italic;
+            font-weight: 400;
+            font-stretch: normal;
         }
+
         @font-face {
-            font-family:"neue-haas-grotesk-display";
-            src:url("https://use.typekit.net/af/153042/00000000000000007735bb62/30/l?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n6&v=3") format("woff2"),url("https://use.typekit.net/af/153042/00000000000000007735bb62/30/d?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n6&v=3") format("woff"),url("https://use.typekit.net/af/153042/00000000000000007735bb62/30/a?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n6&v=3") format("opentype");
-            font-display:auto;font-style:normal;font-weight:600;font-stretch:normal;
+            font-family: "neue-haas-grotesk-display";
+            src: url("https://use.typekit.net/af/153042/00000000000000007735bb62/30/l?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n6&v=3") format("woff2"), url("https://use.typekit.net/af/153042/00000000000000007735bb62/30/d?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n6&v=3") format("woff"), url("https://use.typekit.net/af/153042/00000000000000007735bb62/30/a?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n6&v=3") format("opentype");
+            font-display: auto;
+            font-style: normal;
+            font-weight: 600;
+            font-stretch: normal;
         }
+
         @font-face {
-            font-family:"neue-haas-grotesk-display";
-            src:url("https://use.typekit.net/af/8a7571/00000000000000007735bb67/30/l?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=i6&v=3") format("woff2"),url("https://use.typekit.net/af/8a7571/00000000000000007735bb67/30/d?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=i6&v=3") format("woff"),url("https://use.typekit.net/af/8a7571/00000000000000007735bb67/30/a?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=i6&v=3") format("opentype");
-            font-display:auto;font-style:italic;font-weight:600;font-stretch:normal;
+            font-family: "neue-haas-grotesk-display";
+            src: url("https://use.typekit.net/af/8a7571/00000000000000007735bb67/30/l?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=i6&v=3") format("woff2"), url("https://use.typekit.net/af/8a7571/00000000000000007735bb67/30/d?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=i6&v=3") format("woff"), url("https://use.typekit.net/af/8a7571/00000000000000007735bb67/30/a?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=i6&v=3") format("opentype");
+            font-display: auto;
+            font-style: italic;
+            font-weight: 600;
+            font-stretch: normal;
         }
-        .tk-hwt-bulletin { font-family: "hwt-bulletin",sans-serif; }
-        .tk-neue-haas-grotesk-display { font-family: "neue-haas-grotesk-display",sans-serif; }
+
+        .tk-hwt-bulletin {
+            font-family: "hwt-bulletin", sans-serif;
+        }
+
+        .tk-neue-haas-grotesk-display {
+            font-family: "neue-haas-grotesk-display", sans-serif;
+        }
     </style>
 
-<script
-      src="https://unpkg.com/@dotlottie/player-component@2.7.12/dist/dotlottie-player.mjs"
-      type="module"
-    ></script>
+    <script src="https://unpkg.com/@dotlottie/player-component@2.7.12/dist/dotlottie-player.mjs" type="module"></script>
 </head>
 
 <body>
@@ -91,12 +116,13 @@
             <div class="flex">
                 <div style="flex:2.3"></div>
                 <div style="flex:0.19" class="h-full w-full overflow-y-hidden">
-                    
-                    
+
+
                 </div>
             </div>
         </div>
-        <div id="white-circle" class="fixed top-[7vmin] right-[18vw] z-[0] aspect-square w-1/4 rounded-full mix-blend-difference md:top-[6vh]"
+        <div id="white-circle"
+            class="fixed top-[7vmin] right-[18vw] z-[0] aspect-square w-1/4 rounded-full mix-blend-difference md:top-[6vh]"
             style="background:white; opacity:0; transform: translateY(600px) skewY(6deg);">
             <!-- JS will animate this in -->
         </div>
@@ -104,35 +130,34 @@
         <!-- Main Layout Wrapper -->
         <div id="layout-wrapper" class="inset-0 top-0 left-0 z-40 mx-auto" style="opacity: 1;">
             <!-- Header Section -->
-                        <!-- Header Section -->
+            <!-- Header Section -->
             <header id="main-header" class="flex items-center justify-center border-b border-black">
-                <div class="header-logo-column border-[#00220b] text-[5vh] text-[#00220b] lg:text-[15vh]" style="flex:1.8;">
+                <div class="header-logo-column border-[#00220b] text-[5vh] text-[#00220b] lg:text-[15vh]"
+                    style="flex:1.8;">
                     <div class="border-r border-forrestGreen [&>*]:border-forrestGreen">
                         <div class="bg-[#FFDE59] p-4">
                             <img src="static/uchi-ani.gif" alt="UchiVibe Logo" class="w-full h-auto" />
                         </div>
-                        <div class="flex h-full flex-col items-center justify-center border-t p-4 font-semibold uppercase text-lg md:normal-case md:text-5xl">
+                        <div
+                            class="flex h-full flex-col items-center justify-center border-t p-4 font-semibold uppercase text-lg md:normal-case md:text-5xl">
                             MUSIC FOR THE SOUL
                         </div>
                     </div>
                 </div>
-                <div class="header-pattern-column self-stretch bg-blend-difference mix-blend-difference" style="flex:1.5; background:url('static/pattern-c.svg');">
+                <div class="header-pattern-column self-stretch bg-blend-difference mix-blend-difference"
+                    style="flex:1.5; background:url('static/pattern-new.svg');">
                 </div>
 
-                                <!-- Gradient Column with Rotated Lottie Player -->
-                <div class="header-gradient-column self-stretch"
-                     style="flex:0.3;
+                <!-- Gradient Column with Rotated Lottie Player -->
+                <div class="header-gradient-column self-stretch" style="flex:0.3;
                             background:linear-gradient(180deg, rgba(255,255,255,1) 0%, rgba(0,0,0,1) 100%);
                             display: flex;
                             justify-content: center;
                             align-items: center;
                             overflow: hidden; /* Crucial for cropping */
                             position: relative;">
-                    <dotlottie-player
-                      src="https://lottie.host/c47fb2e3-ce6c-4618-9689-ad54c7dee7b8/xn3dnrgzhi.lottie"
-                      background="transparent"
-                      speed="1"
-                      style="
+                    <dotlottie-player src="https://lottie.host/c47fb2e3-ce6c-4618-9689-ad54c7dee7b8/xn3dnrgzhi.lottie"
+                        background="transparent" speed="1" style="
                         width: 600px;   /* This is its original width. After rotation, it's the VISUAL HEIGHT. Make it TALL. */
                         height: 150px;  /* This is its original height. After rotation, it's the VISUAL WIDTH. Make this WIDER. */
                         transform: rotate(90deg);
@@ -144,75 +169,83 @@
                         min-height: 0 !important;
                         position: relative; /* Or absolute if fine-tuning needed, but relative should work with flex parent */
                         z-index: 1;
-                      "
-                      loop
-                      autoplay
-                    ></dotlottie-player>
+                      " loop autoplay></dotlottie-player>
                 </div>
             </header>
 
             <!-- Navigation -->
-<nav id="main-nav" class="custom-navbar">
-    <div class="custom-navbar-content-wrapper">
+            <nav id="main-nav" class="custom-navbar">
+                <div class="custom-navbar-content-wrapper">
 
-        <!-- Logo Area -->
-        <div class="custom-navbar-logo-area">
-            <a href="index.html" aria-label="UchiVibe Music Home">
-                <img src="static/UCHI_lh.png" alt="UchiVibe Music Logo" class="nav-header-logo" />
-            </a>
-        </div>
+                    <!-- Logo Area -->
+                    <div class="custom-navbar-logo-area">
+                        <a href="index.html" aria-label="UchiVibe Music Home">
+                            <img src="static/UCHI_lh.png" alt="UchiVibe Music Logo" class="nav-header-logo" />
+                        </a>
+                    </div>
 
-        <!-- Mobile Menu Toggle Button -->
-        <button id="mobile-menu-toggle" class="custom-navbar-mobile-toggle">
-            Menu
-        </button>
+                    <!-- Mobile Menu Toggle Button -->
+                    <button id="mobile-menu-toggle" class="custom-navbar-mobile-toggle">
+                        Menu
+                    </button>
 
-        <!-- This div will contain items for the mobile dropdown AND desktop inline display -->
-        <div id="navbar-menu-items" class="custom-navbar-menu-items-container">
-            <!-- Desktop Menu Links -->
-            <div class="custom-navbar-links"> <!-- Renamed from id="desktop-menu-links" to a class -->
-                <a href="#section1" class="nav-link" data-target-scroller="section1">About Us</a>
-                <a href="#section2" class="nav-link" data-target-scroller="section2">Upcoming</a>
-                <a href="#section9" class="nav-link" data-target-scroller="section9">Released</a>
-                <a href="#section11" class="nav-link" data-target-scroller="section11">Contact Us</a>
-            </div>
+                    <!-- This div will contain items for the mobile dropdown AND desktop inline display -->
+                    <div id="navbar-menu-items" class="custom-navbar-menu-items-container">
+                        <!-- Desktop Menu Links -->
+                        <div class="custom-navbar-links"> <!-- Renamed from id="desktop-menu-links" to a class -->
+                            <a href="#section1" class="nav-link" data-target-scroller="section1">About Us</a>
+                            <a href="#section2" class="nav-link" data-target-scroller="section2">Upcoming</a>
+                            <a href="#section9" class="nav-link" data-target-scroller="section9">Released</a>
+                            <a href="#section11" class="nav-link" data-target-scroller="section11">Contact Us</a>
+                        </div>
 
-            <!-- Checker Pattern (often hidden on mobile) -->
-            <div class="custom-navbar-checker-pattern">
-                 
-            </div>
-        </div>
-    </div>
-</nav>
+                        <!-- Checker Pattern (often hidden on mobile) -->
+                        <div class="custom-navbar-checker-pattern">
+
+                        </div>
+                    </div>
+                </div>
+            </nav>
             <!-- Main Content Sections -->
             <main>
-                
+
                 <div class="relative border-t border-black uppercase leading-normal tracking-tighter">
 
 
 
-<div class="scroller-container"></div>
+                    <div class="scroller-container"></div>
 
 
 
                 </div>
-                
+
             </main>
 
             <!-- Footer -->
-            <footer class="w-full gap-4 border-t border-forrestGreen bg-uchi-blue uppercase ">
-                <div style="background-size:1.5vmin 1.5vmin" class="h-full min-h-[20px] w-full bg-forrestGreen bg-[url('static/checker.svg')] bg-[length:1vim_1vim] md:inline-block">
-                </div>
-                <div class="flex w-full items-center gap-4 [&>*]:border-forrestGreen">
-                    <a class="flex pl-2 text-7xl" href="mailto:info@uchivibe.com">info@uchivibe.com</a>
-                    <div class="flex items-baseline gap-1 border-l px-4 py-4 font-semibold text-xs">
-                        <div>© </div>
-                        <div><span class="inline md:block">2025 UchiVibe Music.</span></div>
+            <footer class="custom-footer">
+                <!-- Top Checkerboard Border - THIS IS THE CORRECT AND ONLY PLACE FOR IT -->
+                <div class="footer-checkerboard-top"></div>
+
+                <!-- Main Footer Content Area -->
+                <div class="footer-content-area">
+                    <a class="footer-email" href="mailto:info@uchivibe.com">info@uchivibe.com</a>
+                    <div class="footer-youtube-subscribers">
+                        <iframe height="80px" width="300px" frameborder="0"
+                            src="https://livecounts.io/embed/youtube-live-subscriber-counter/UCwn9U-PMMKI5bO0smMs-3kw"
+                            style="border: 0; width:300px; height:80px; display: block; margin: 0 auto;"></iframe>
+                        <!-- Added display:block and margin: 0 auto to iframe style for centering within its container -->
+                    </div>
+                    <div class="footer-copyright">
+                        <div>© 2025 UchiVibe Music.</div>
+                        <div>Developed By Projection Developers.</div>
                     </div>
                 </div>
             </footer>
+
+
         </div>
     </div>
     <script src="js/script.js"></script>
 </body>
+
 </html>

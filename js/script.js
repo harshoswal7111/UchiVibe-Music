@@ -1,5 +1,4 @@
 // js/script.js
-
 document.addEventListener('DOMContentLoaded', () => {
     const scrollerContainer = document.querySelector('.scroller-container');
     if (!scrollerContainer) {
@@ -7,27 +6,27 @@ document.addEventListener('DOMContentLoaded', () => {
         return;
     }
 
-    // ... (Your Brand Colors and sectionsData array remain the same) ...
     const hotPink = '#FF2C84';
     const teal = '#00C7C7';
     const sunshineYellow = '#FFDD4A';
     const brandBlack = '#231F20';
     const brandWhite = '#FFFFFF';
+    const brandOrange = '#FFA500'; // Your orange color
 
     const sectionsData = [
-        // Scroller 1: About Us
+        // Scroller 1: About Us (no release tag)
         {
             id: 'section1',
             mainText: 'About Us',
             bgColor: hotPink,
-            textColor: brandBlack, 
+            textColor: brandBlack,
             aboutUsText: "We're Uchi Vibe Music — Certified Vibe Dealers since day one.\nBorn in Pune, raised by chaos, bass drops, and 3 a.m. brainstorms, we're here to turn your \"maybe this is cool?\" into \"yo, this SLAPS.\"\n\nNo suits. No scripts. Just a bunch of music-heads on a mission to find the unfound, vibe with the unheard, and drop tracks that hit harder than Monday blues.\n\nPull up. Plug in. Welcome to the Uchi side.",
             linksPrefix: null,
             links: [],
             isClickable: true,
             scrollDirection: 'normal'
         },
-        // Scroller 2: Upcoming Releases (Title)
+        // Scroller 2: Upcoming Releases (Title - no release tag)
         {
             id: 'section2',
             mainText: 'Upcoming Releases',
@@ -35,7 +34,7 @@ document.addEventListener('DOMContentLoaded', () => {
             textColor: brandBlack,
             linksPrefix: null,
             links: [],
-            isClickable: false, // This is a title, not clickable itself to expand
+            isClickable: false,
             scrollDirection: 'reverse'
         },
         // Scroller 3: Raatein Halatein (Upcoming Song)
@@ -45,8 +44,8 @@ document.addEventListener('DOMContentLoaded', () => {
             bgColor: sunshineYellow,
             textColor: brandBlack,
             releaseTagText: 'UPCOMING',
-            releaseTagBgColor: brandBlack,
-            releaseTagTextColor: sunshineYellow,
+            releaseTagBgColor: brandOrange, // CHANGED
+            releaseTagTextColor: brandBlack, // CHANGED (or keep sunshineYellow if preferred for this specific one)
             linksPrefix: 'release date:',
             links: [ { text: '20 JULY 2025', url: '#' } ],
             isClickable: true,
@@ -56,11 +55,11 @@ document.addEventListener('DOMContentLoaded', () => {
         {
             id: 'section4',
             mainText: 'Besabri',
-            bgColor: brandBlack, 
+            bgColor: brandBlack,
             textColor: brandWhite,
             releaseTagText: 'UPCOMING',
-            releaseTagBgColor: hotPink, 
-            releaseTagTextColor: brandBlack,
+            releaseTagBgColor: brandOrange, // CHANGED
+            releaseTagTextColor: brandBlack, // CHANGED
             linksPrefix: 'release date:',
             links: [ { text: '20 JULY 2025', url: '#' } ],
             isClickable: true,
@@ -71,10 +70,10 @@ document.addEventListener('DOMContentLoaded', () => {
             id: 'section5',
             mainText: 'Zillat',
             bgColor: hotPink,
-            textColor: brandWhite, 
+            textColor: brandWhite,
             releaseTagText: 'UPCOMING',
-            releaseTagBgColor: brandWhite,
-            releaseTagTextColor: brandBlack,
+            releaseTagBgColor: brandOrange, // CHANGED
+            releaseTagTextColor: brandBlack, // CHANGED
             linksPrefix: 'release date:',
             links: [ { text: '20 JULY 2025', url: '#' } ],
             isClickable: true,
@@ -87,8 +86,8 @@ document.addEventListener('DOMContentLoaded', () => {
             bgColor: teal,
             textColor: brandBlack,
             releaseTagText: 'UPCOMING',
-            releaseTagBgColor: brandBlack,
-            releaseTagTextColor: teal,
+            releaseTagBgColor: brandOrange, // CHANGED
+            releaseTagTextColor: brandBlack, // CHANGED
             linksPrefix: 'release date:',
             links: [ { text: '20 JULY 2025', url: '#' } ],
             isClickable: true,
@@ -101,8 +100,8 @@ document.addEventListener('DOMContentLoaded', () => {
             bgColor: sunshineYellow,
             textColor: brandBlack,
             releaseTagText: 'UPCOMING',
-            releaseTagBgColor: brandBlack,
-            releaseTagTextColor: sunshineYellow,
+            releaseTagBgColor: brandOrange, // CHANGED
+            releaseTagTextColor: brandBlack, // CHANGED
             linksPrefix: 'release date:',
             links: [ { text: '20 JULY 2025', url: '#' } ],
             isClickable: true,
@@ -115,14 +114,14 @@ document.addEventListener('DOMContentLoaded', () => {
             bgColor: brandBlack,
             textColor: brandWhite,
             releaseTagText: 'UPCOMING',
-            releaseTagBgColor: teal, 
-            releaseTagTextColor: brandBlack,
+            releaseTagBgColor: brandOrange, // CHANGED
+            releaseTagTextColor: brandBlack, // CHANGED
             linksPrefix: 'release date:',
             links: [ { text: '20 JULY 2025', url: '#' } ],
             isClickable: true,
             scrollDirection: 'reverse'
         },
-        // Scroller 9: Current Releases (Title)
+        // Scroller 9: Current Releases (Title - no release tag)
         {
             id: 'section9',
             mainText: 'Current Releases',
@@ -130,7 +129,7 @@ document.addEventListener('DOMContentLoaded', () => {
             textColor: brandBlack,
             linksPrefix: null,
             links: [],
-            isClickable: false, // This is a title, not clickable itself to expand
+            isClickable: false,
             scrollDirection: 'normal'
         },
         // Scroller 10: Song One (Released)
@@ -138,10 +137,10 @@ document.addEventListener('DOMContentLoaded', () => {
             id: 'section10',
             mainText: 'Song One',
             bgColor: teal,
-            textColor: brandWhite, 
+            textColor: brandWhite,
             releaseTagText: 'RELEASED',
-            releaseTagBgColor: brandWhite,
-            releaseTagTextColor: brandBlack,
+            releaseTagBgColor: brandOrange, // CHANGED
+            releaseTagTextColor: brandBlack, // CHANGED
             linksPrefix: 'Streaming On:',
             links: [
                 { text: 'Spotify', url: '#' },
@@ -151,13 +150,13 @@ document.addEventListener('DOMContentLoaded', () => {
             isClickable: true,
             scrollDirection: 'reverse'
         },
-        // Scroller 11: Contact Us
+        // Scroller 11: Contact Us (no release tag)
         {
             id: 'section11',
             mainText: 'Contact Us',
             bgColor: sunshineYellow,
             textColor: brandBlack,
-            linksPrefix: null, 
+            linksPrefix: null,
             links: [
                 { text: 'Call Us', url: 'tel:+1234567890' },
                 { text: 'Mail Us', url: 'mailto:info@example.com' }
@@ -167,6 +166,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     ];
 
+    // ... (rest of your script.js code remains the same) ...
 
     const marqueeRepetitions = 4;
     const originalAnimationDuration = 35;
@@ -175,7 +175,7 @@ document.addEventListener('DOMContentLoaded', () => {
     sectionsData.forEach(data => {
         const section = document.createElement('div');
         section.classList.add('scroller-section');
-        section.id = data.id; // Make sure each section has its ID set for # linking
+        section.id = data.id;
         section.style.backgroundColor = data.bgColor;
 
         if (data.isClickable === false) {
@@ -204,6 +204,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 const releaseTagSpan = document.createElement('span');
                 releaseTagSpan.classList.add('release-tag');
                 releaseTagSpan.textContent = data.releaseTagText;
+                // These lines will now use the updated colors from sectionsData
                 releaseTagSpan.style.backgroundColor = data.releaseTagBgColor;
                 releaseTagSpan.style.color = data.releaseTagTextColor;
                 marqueeItem.appendChild(releaseTagSpan);
@@ -233,7 +234,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 const prefixLabel = document.createElement('span');
                 prefixLabel.classList.add('links-prefix');
                 prefixLabel.textContent = data.linksPrefix;
-                prefixLabel.style.color = data.textColor;
+                prefixLabel.style.color = data.textColor; // Use section's main text color for prefix
                 expandableContent.appendChild(prefixLabel);
             }
             data.links.forEach(linkInfo => {
@@ -244,22 +245,18 @@ document.addEventListener('DOMContentLoaded', () => {
                     a.target = '_blank';
                     a.rel = 'noopener noreferrer';
                 }
-                a.style.color = data.textColor;
+                a.style.color = data.textColor; // Use section's main text color for links
                 expandableContent.appendChild(a);
             });
         }
         section.appendChild(expandableContent);
 
         visibleContent.addEventListener('click', () => {
-            // For sections that are just titles (like Upcoming/Current Releases),
-            // their 'isClickable' is false, so this click handler won't run for them.
-            // But About Us and Contact Us are clickable.
             if (data.isClickable === false) {
                 return;
             }
 
             const isExpanded = section.classList.contains('expanded');
-            // Collapse all other sections before expanding the current one
             document.querySelectorAll('.scroller-section.expanded').forEach(expandedSec => {
                 if (expandedSec !== section) {
                     expandedSec.classList.remove('expanded');
@@ -273,7 +270,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
             });
 
-            // Toggle current section
             if (isExpanded) {
                 section.classList.remove('expanded');
                 expandableContent.style.opacity = '0';
@@ -291,9 +287,8 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
         scrollerContainer.appendChild(section);
-    }); // End of sectionsData.forEach
+    });
 
-    // --- White Circle Animation Code ---
     const whiteCircle = document.getElementById('white-circle');
     if (whiteCircle) {
         setTimeout(() => {
@@ -303,7 +298,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }, 50);
     }
 
-    // --- Navigation Link Click Handler ---
     const navLinks = document.querySelectorAll('.nav-link');
     navLinks.forEach(link => {
         link.addEventListener('click', function(event) {
@@ -325,25 +319,21 @@ document.addEventListener('DOMContentLoaded', () => {
                     }
                 }
             }
-            // Close mobile menu after clicking a link
             const menuItemsContainer = document.getElementById('navbar-menu-items');
             if (menuItemsContainer && menuItemsContainer.classList.contains('active')) {
                 menuItemsContainer.classList.remove('active');
-                // Optionally change toggle button text back to "Menu"
                 const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
                 if (mobileMenuToggle) mobileMenuToggle.textContent = 'Menu';
             }
         });
     });
 
-    // --- UPDATED Mobile Menu Toggle ---
     const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
     const menuItemsContainer = document.getElementById('navbar-menu-items');
 
     if (mobileMenuToggle && menuItemsContainer) {
         mobileMenuToggle.addEventListener('click', () => {
             menuItemsContainer.classList.toggle('active');
-            // Optional: Change button text
             if (menuItemsContainer.classList.contains('active')) {
                 mobileMenuToggle.textContent = 'Close';
             } else {
