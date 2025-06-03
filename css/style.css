@@ -1,0 +1,638 @@
+/* css/style.css */
+/* Add any custom styles here, or if uchi-theme.css is comprehensive, this might be minimal */
+
+
+/* css/style.css */
+
+/* ADD THIS AT THE TOP OF YOUR CSS FILE (or near other @font-face rules if you have them) */
+@font-face {
+    font-family: 'Smakaran'; /* You can name this whatever you like for CSS usage */
+    src: url('../static/smakaran.ttf') format('truetype'); /* Path relative to your CSS file */
+    font-weight: normal; /* Adjust if your font file has specific weights */
+    font-style: normal;  /* Adjust if your font file has specific styles */
+}
+
+/* ... (rest of your existing CSS like .marquee-container, .overlay, etc.) ... */
+
+body {
+    /* Keep your existing body font as a general fallback or for other text */
+    font-family: "neue-haas-grotesk-display", sans-serif;
+}
+
+/* ... */
+
+.main-text {
+    /* MODIFIED: Add Smakaran as the primary font, with fallbacks */
+    font-family: 'Smakaran', "neue-haas-grotesk-display", sans-serif;
+    font-size: 3.8rem; /* Slightly adjusted for potentially different font metrics, tune as needed */
+    font-weight: normal; /* Smakaran might have its own inherent weight, adjust if needed */
+    margin-right: 40px;
+    text-transform: uppercase;
+    letter-spacing: 0px;
+    word-spacing: 5px;
+    /* Text color set by JS */
+}
+
+.release-tag {
+    padding: 10px 28px;
+    border-radius: 30px;
+    font-size: 1.2rem; /* Consider if Smakaran is readable here, or keep a more standard font */
+    font-weight: 700; /* For standard fonts, Smakaran might not have a 'bold' */
+    font-family: "neue-haas-grotesk-display", sans-serif; /* Kept standard for readability */
+    text-transform: uppercase;
+    flex-shrink: 0;
+    line-height: 1;
+    /* Background and text color set by JS */
+}
+
+.nav-header-logo {
+  display: block; /* Important for height and width to be respected properly */
+  height: 64px;   /* Default height for smaller screens (equivalent to Tailwind h-16) */
+  width: auto;    /* Maintain aspect ratio */
+  max-width: 100%; /* Ensures it doesn't overflow its container if width is constrained */
+}
+
+/* Responsive size for medium screens and up (Tailwind's 'md' breakpoint is 768px) */
+@media (min-width: 768px) {
+  .nav-header-logo {
+    height: 80px; /* Larger height for medium screens and up (equivalent to Tailwind h-20) */
+  }
+}
+
+/* Marquee CSS from ReactFastMarquee */
+.marquee-container {
+  overflow-x: hidden !important;
+  display: flex !important;
+  flex-direction: row !important;
+  position: relative;
+  width: 100%;
+  --pause-on-hover: running; /* Default state */
+  --pause-on-click: running; /* Default state */
+}
+.marquee-container:hover .marquee { /* Target .marquee directly */
+  animation-play-state: var(--pause-on-hover);
+}
+.marquee-container:active .marquee { /* Target .marquee directly */
+  animation-play-state: var(--pause-on-click);
+}
+
+.overlay {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+.overlay::before, .overlay::after {
+  /* background: linear-gradient(to right, var(--gradient-color)); */ /* Handled by Tailwind if gradient is used */
+  content: "";
+  height: 100%;
+  position: absolute;
+  /* width: var(--gradient-width); */ /* Handled by Tailwind if gradient is used */
+  z-index: 2;
+}
+.overlay::after {
+  right: 0;
+  top: 0;
+  transform: rotateZ(180deg);
+}
+.overlay::before {
+  left: 0;
+  top: 0;
+}
+
+.marquee {
+  flex: 0 0 auto;
+  min-width: 100%; /* Ensure it's wide enough for the animation */
+  z-index: 1;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  animation: scroll var(--duration) linear var(--delay) var(--iteration-count);
+  animation-play-state: var(--play);
+  animation-delay: var(--delay);
+  animation-direction: var(--direction);
+}
+@keyframes scroll {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+/* Styling for entry animations (example) */
+.initial-hidden {
+  opacity: 0;
+  transform: translateY(20px) skewY(2deg);
+}
+.initial-visible {
+  opacity: 1;
+  transform: translateY(0) skewY(0);
+  transition: opacity 1.75s cubic-bezier(0.6, -0.05, 0.01, 0.99), transform 1.75s cubic-bezier(0.6, -0.05, 0.01, 0.99);
+}
+.stagger-children > * {
+  opacity: 0;
+}
+
+/* Streaming links animation */
+.streaming-links-section {
+  overflow: hidden;
+  max-height: 0;
+  transition: max-height 0.5s ease-in-out, opacity 0.5s ease-in-out;
+  opacity: 0;
+  will-change: max-height, opacity; /* Performance hint */
+}
+.streaming-links-section.open {
+  max-height: 500px; /* Adjust as needed, should be larger than content */
+  opacity: 1;
+}
+
+
+/* Wave animation */
+.wave-animation {
+    transition: opacity 2.5s cubic-bezier(0.6, -0.05, 0.01, 0.99), transform 2.5s cubic-bezier(0.6, -0.05, 0.01, 0.99);
+}
+
+/* Cigarette smoke animations */
+.smoke {
+    opacity: 0.3; /* Base opacity */
+}
+.smoke1 {
+    animation: smokeAnim1 25s infinite cubic-bezier(0.6, -0.05, 0.01, 0.99);
+}
+.smoke2 {
+    animation: smokeAnim2 15s infinite cubic-bezier(0.6, -0.05, 0.01, 0.99);
+}
+
+@keyframes smokeAnim1 {
+    0%, 100% { opacity: 0.3; transform: skewY(0deg) scaleY(1); }
+    50% { opacity: 0.5; transform: skewY(20deg) scaleY(4); }
+}
+@keyframes smokeAnim2 {
+    0%, 100% { opacity: 0; transform: skewY(0deg) scaleY(1); }
+    50% { opacity: 0.5; transform: skewY(-20deg) scaleY(3); }
+}
+
+/* General class for elements to animate in on load */
+.animate-in {
+    opacity: 0;
+    transform: translateY(30px); /* Example starting position */
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+.animate-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Section hover effects (can be expanded) */
+/* Section hover is handled by JavaScript dynamically */
+
+/* Styling for the About Us content */
+.about-us-content {
+    font-family: "neue-haas-grotesk-display", sans-serif;
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto;
+    position: relative;
+    padding: 40px 20px;
+    background-color: inherit;
+}
+
+.about-us-content p {
+    margin: 0 auto 2rem;
+    line-height: 1.8;
+    font-size: 1.4rem;
+    text-transform: none;
+    max-width: 700px;
+    text-align: left;
+    font-weight: 400;
+    letter-spacing: 0.5px;
+    word-spacing: 2px;
+    position: relative;
+    z-index: 5;
+    display: block;
+    width: 100%;
+    clear: both;
+}
+
+/* Improved expandable content for About Us */
+.scroller-expandable-content {
+    padding: 0; 
+    box-sizing: border-box;
+    display: block;
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+}
+
+/* Mobile Nav Specific */
+/* #desktop-menu-links.mobile-active {
+    display: flex !important; /* Use flex for md:flex to work as expected */
+/* } */
+
+/* Ensure clsx generated classes apply */
+/* (This file should be mostly Tailwind classes or specific overrides) */
+body {
+    font-family: "neue-haas-grotesk-display", sans-serif; /* Default font */
+}
+.font-perfetto { /* From Next.js: release == t ? "font-perfetto" : "font-bulletin" */
+    font-family: "neue-haas-grotesk-display", sans-serif; /* Assuming perfetto is their default or a specific weight */
+    /* If 'perfetto' is a distinct font, its @font-face would be needed */
+}
+.font-bulletin {
+    font-family: "hwt-bulletin", sans-serif;
+}
+
+/* Text size for marquee, originally lg:text-12xl.
+   Tailwind's default 12xl might not exist or be too large.
+   text-[10vh] uppercase leading-[90%] tracking-tighter text-[#092109] lg:text-[15vh] for main content
+   For marquee: lg:text-12xl
+*/
+.lg-text-12xl { /* Custom class to mimic lg:text-12xl if not standard tailwind */
+    font-size: 12rem; /* Example, adjust as per original design */
+    line-height: 1;
+}
+@media (min-width: 1024px) { /* lg breakpoint */
+    .lg-text-12xl-mq {
+        font-size: 12rem; /* Adjust to match original 12xl */
+    }
+    .lg-text-15vh-mq {
+        font-size: 15vh;
+    }
+}
+
+.text-7xl { /* From footer mailto */
+    font-size: 5rem; /* Adjust based on actual rendering of 'text-7xl' */
+}
+
+
+.scroller-container {
+    width: 100%;
+}
+
+.scroller-section {
+    cursor: pointer;
+    overflow: hidden; /* Essential for the max-height transition and clipping marquee */
+    border-bottom: 1px solid rgba(0,0,0,0.2); /* Subtle separator between sections */
+    /* Background color set by JS */
+}
+
+.scroller-visible-content {
+    display: flex; /* Aligns items if needed, but marquee-content handles layout */
+    align-items: center;
+    height: 130px; /* Taller bands for better spacing */
+    overflow: hidden; /* Crucial for the marquee effect within the band */
+    position: relative; /* For potential absolute positioning inside if needed */
+    min-height: 130px; /* Ensure consistent height across sections */
+}
+
+.marquee-content {
+    display: flex; /* Lays out marquee-items side-by-side */
+    white-space: nowrap; /* Prevents items from wrapping */
+    /* animation: marqueeAnimation 35s linear infinite; /* Original animation line */
+    animation-name: marqueeAnimation; /* Keep name */
+    animation-timing-function: linear; /* Keep timing function */
+    animation-iteration-count: infinite; /* Keep iteration count */
+    /* animation-duration will be set by JS */
+    will-change: transform; /* Performance hint for animation */
+    padding: 10px 0; /* Vertical padding for marquee items */
+}
+
+
+@keyframes marqueeAnimation {
+    0% {
+        transform: translateX(0%);
+    }
+    100% {
+        /* If marqueeRepetitions = 4, then 100/4 = 25% */
+        /* If marqueeRepetitions = N, then 100/N % */
+        transform: translateX(-25%); /* MODIFIED: This assumes marqueeRepetitions is 4 */
+    }
+}
+
+
+
+.marquee-item {
+    display: flex;
+    align-items: center;
+    padding: 0 60px; /* Increased spacing around each "Artist - Title RELEASE" unit */
+    margin: 0 40px; /* Margin between items for better spacing */
+    flex-shrink: 0; /* Prevent items from shrinking due to flex behavior */
+    gap: 20px; /* Space between main text and release tag */
+    justify-content: flex-start; /* Align items to the start */
+}
+
+.main-text {
+    font-size: 3.5rem; /* Large text */
+    font-weight: 700; /* Adjusted for better hierarchy */
+    margin-right: 40px; /* Increased spacing before the release tag */
+    text-transform: uppercase;
+    letter-spacing: 0px; /* Removed negative letter spacing to avoid smushed text */
+    /* Text color set by JS */
+    word-spacing: 5px; /* Add space between words */
+}
+
+.release-tag {
+    padding: 10px 28px;
+    border-radius: 30px; /* Pill shape */
+    font-size: 1.4rem; /* Slightly smaller than main text */
+    font-weight: 700; /* Bold */
+    text-transform: uppercase;
+    flex-shrink: 0;
+    line-height: 1; /* Ensure consistent height */
+    /* Background and text color set by JS */
+}
+
+@keyframes marqueeAnimation {
+    0% {
+        transform: translateX(0%);
+    }
+    100% {
+        /* Assumes content is duplicated once (2 .marquee-item children in .marquee-content) */
+        transform: translateX(-50%);
+    }
+}
+
+.scroller-expandable-content {
+    max-height: 0;
+    overflow: hidden;
+    /* Background color will match the section's background */
+    transition: max-height 0.6s ease-in-out, padding-top 0.6s ease-in-out, padding-bottom 0.6s ease-in-out, opacity 0.6s ease-in-out;
+    opacity: 0;
+    padding: 0 40px; /* Horizontal padding consistent with .marquee-item */
+    box-sizing: border-box;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 10px 15px; /* Row gap, Column gap */
+}
+
+/* Styling for the About Us content */
+.about-us-content {
+    font-family: "neue-haas-grotesk-display", sans-serif;
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.about-us-content p {
+    margin-bottom: 1.5rem;
+    line-height: 1.7;
+    font-size: 1.25rem;
+    text-transform: none;
+}
+
+/* Add class to pause animation on hover (optional) */
+.scroller-section:hover .marquee-content {
+    animation-play-state: paused;
+}
+
+/* Prevent text clipping in the About Us section */
+.about-us-content p:last-child {
+    margin-bottom: 0;
+}
+
+/* Ensure proper height for the scroller visible content */
+.scroller-visible-content {
+    min-height: 130px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+/* Add to your css/style.css */
+.links-prefix {
+    font-weight: 600; /* Or your desired font weight */
+    font-size: 1.2rem; /* Adjust as needed */
+    display: block; /* Takes full width before links */
+    width: 100%;
+    margin-bottom: 10px; /* Space below prefix */
+    /* color is set by JS to match data.textColor */
+}
+
+.scroller-expandable-content a {
+    margin: 0 5px 5px 0; /* Right and bottom margin for spacing */
+    padding: 5px 10px;
+    border: 1px solid currentColor; /* Uses parent's text color for border */
+    border-radius: 4px;
+    text-decoration: none;
+    display: inline-block; /* Allows margin/padding and wraps nicely */
+    transition: background-color 0.2s ease, color 0.2s ease; /* Hover effect */
+}
+
+.scroller-expandable-content a:hover {
+    background-color: rgba(0,0,0,0.1); /* Example: subtle dark overlay on hover */
+    /* Consider a text color change on hover if background significantly changes */
+}
+
+/* Ensure your .about-us-content p has appropriate text color for its background */
+.about-us-content p {
+  color: inherit; /* Or explicitly set if needed based on section.bgColor */
+  /* Other styles for about us paragraphs are already in your CSS */
+}
+
+.scroller-section-non-clickable {
+    cursor: default !important; /* Override the general cursor: pointer */
+}
+
+.nav-header-logo {
+  display: block;
+  height: 40px;   /* Default logo height */
+  width: auto;
+  max-width: 100%;
+}
+
+@media (min-width: 768px) {
+  .nav-header-logo {
+    height: 50px; /* Logo height on medium screens and up */
+  }
+}
+
+
+/* css/style.css */
+
+/* Ensure any existing specific #main-nav Tailwind overrides are removed or less specific if they conflict */
+
+/* Main Navbar Container */
+.custom-navbar {
+    position: sticky;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 98;
+    background-color: #FFA500; /* Orange Background */
+    border-bottom: 2px solid #231F20; /* Brand Black Border */
+    color: #231F20; /* Default text color for links */
+    padding-top: 10px;    /* Adjust for overall navbar thickness */
+    padding-bottom: 10px; /* Adjust for overall navbar thickness */
+    box-sizing: border-box;
+}
+
+/* Wrapper for content within the navbar (logo, links, checker) */
+.custom-navbar-content-wrapper {
+    max-width: 1280px; /* Or your preferred max-width, like screen-xl */
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 16px;  /* Horizontal padding for content within nav */
+    padding-right: 16px; /* Horizontal padding for content within nav */
+    display: flex;
+    align-items: center; /* Vertically align all items */
+    height: 100%; /* Ensure it tries to fill the parent's padding area */
+}
+
+/* Logo Area */
+.custom-navbar-logo-area {
+    flex-shrink: 0; /* Don't allow logo area to shrink */
+}
+
+.nav-header-logo { /* Your existing class for the image itself */
+  display: block;
+  height: 40px;   /* Adjust for desired logo height */
+  width: auto;
+  max-width: 100%;
+}
+@media (min-width: 768px) {
+  .nav-header-logo {
+    height: 50px; /* Adjust for desktop logo height */
+  }
+}
+
+/* css/style.css */
+
+/* ... (Keep your @font-face, body, .main-text, .release-tag,
+          .marquee-container, .marquee, .overlay, @keyframes scroll,
+          .initial-hidden, .initial-visible, .stagger-children,
+          .streaming-links-section, .wave-animation, .smoke animations,
+          .animate-in, .about-us-content, .scroller-expandable-content,
+          font classes, text size classes, .scroller-container, .scroller-section,
+          .scroller-visible-content, .marquee-content, .marquee-item,
+          .links-prefix, .scroller-expandable-content a,
+          .scroller-section-non-clickable
+          AS THEY ARE - unless they conflict directly with navbar)
+*/
+
+/* --- START: NAVBAR SPECIFIC CSS --- */
+
+/* Main Navbar Container */
+.custom-navbar {
+    position: sticky;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 98;
+    background-color: #FFA500; /* Orange Background */
+    border-bottom: 2px solid #231F20; /* Brand Black Border */
+    color: #231F20; /* Default text color for links */
+    padding-top: 10px;    /* Adjust for overall navbar thickness */
+    padding-bottom: 10px; /* Adjust for overall navbar thickness */
+    box-sizing: border-box;
+}
+
+/* Wrapper for content within the navbar (logo, links, checker) */
+.custom-navbar-content-wrapper {
+    max-width: 1280px; /* Or your preferred max-width, like screen-xl */
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 16px;  /* Horizontal padding for content within nav */
+    padding-right: 16px; /* Horizontal padding for content within nav */
+    display: flex;
+    align-items: center; /* Vertically align all items */
+    justify-content: space-between; /* Distributes space: logo left, checker right, links in middle */
+    height: 100%;
+}
+
+/* Logo Area */
+.custom-navbar-logo-area {
+    flex-shrink: 0; /* Don't allow logo area to shrink */
+}
+
+/* Single, Corrected .nav-header-logo rule */
+.nav-header-logo {
+  display: block;
+  height: 40px;   /* Adjust for desired logo height */
+  width: auto;
+  max-width: 100%;
+}
+@media (min-width: 768px) {
+  .nav-header-logo {
+    height: 50px; /* Adjust for desktop logo height */
+  }
+}
+
+/* Desktop Navigation Links Container */
+.custom-navbar-links {
+    display: none; /* Hidden on mobile by default */
+    /* No auto margins needed here due to justify-content: space-between on parent */
+    /* Add specific margins if you want to push it further from logo/checker */
+    /* margin-left: 20px; */
+    /* margin-right: 20px; */
+}
+
+.custom-navbar-links a.nav-link {
+    font-size: 0.875rem; /* text-sm */
+    font-weight: 600;   /* font-semibold */
+    text-decoration: none;
+    color: #231F20; /* Brand Black */
+    padding: 0 12px; /* Spacing between links, adjust as needed */
+}
+
+.custom-navbar-links a.nav-link:hover {
+    text-decoration: underline;
+}
+
+/* Checker Pattern Area */
+.custom-navbar-checker-pattern {
+    display: none; /* Hidden on mobile by default */
+    width: 100px;  /* Fixed width for checker pattern */
+    background-color: #231F20; /* Black background */
+    background-image: url('../static/checker.svg'); /* CHECK THIS PATH */
+    background-size: 1.5vmin 1.5vmin;
+    flex-shrink: 0; /* Don't allow checker area to shrink */
+    align-self: stretch; /* Make it fill the height of the navbar content wrapper */
+    min-height: 40px; /* Ensure it has a minimum height if align-self:stretch is tricky */
+}
+
+/* Mobile Menu Toggle Button */
+.custom-navbar-mobile-toggle {
+    background-color: #00C7C7; /* Teal background */
+    color: #231F20;           /* Black text */
+    border: 1px solid #231F20; /* Black border */
+    border-radius: 9999px;     /* Fully rounded */
+    padding: 6px 12px;
+    font-size: 0.875rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    margin-left: auto; /* Push to the right on mobile if desktop links are hidden */
+    display: block; /* Show on mobile */
+    cursor: pointer;
+}
+
+/* Desktop Layout Adjustments */
+@media (min-width: 768px) { /* 'md' breakpoint */
+    .custom-navbar-mobile-toggle {
+        display: none; /* Hide mobile toggle on desktop */
+    }
+    .custom-navbar-links {
+        display: flex; /* Show links on desktop */
+        align-items: center;
+    }
+    .custom-navbar-checker-pattern {
+        display: block; /* <<< THIS IS KEY: Show checker pattern on desktop */
+    }
+}
+/* --- END: NAVBAR SPECIFIC CSS --- */
+
+
+/* Single, Corrected @keyframes marqueeAnimation */
+@keyframes marqueeAnimation {
+    0% {
+        transform: translateX(0%);
+    }
+    100% {
+        /* This should match your JS marqueeRepetitions logic.
+           If marqueeRepetitions = 4, then translateX(-25%)
+           If marqueeRepetitions = 2 (original implicit), then translateX(-50%)
+        */
+        transform: translateX(-25%); /* Assuming marqueeRepetitions is still 4 */
+    }
+}
