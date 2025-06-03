@@ -127,24 +127,26 @@
             </a>
         </div>
 
-        <!-- Mobile Menu Button (HTML structure remains for JS, styling will hide/show) -->
+        <!-- Mobile Menu Toggle Button -->
         <button id="mobile-menu-toggle" class="custom-navbar-mobile-toggle">
             Menu
         </button>
 
-        <!-- Desktop Menu Links -->
-        <div id="desktop-menu-links" class="custom-navbar-links">
-            <a href="#section1" class="nav-link" data-target-scroller="section1">About Us</a>
-            <a href="#section2" class="nav-link" data-target-scroller="section2">Upcoming</a>
-            <a href="#section9" class="nav-link" data-target-scroller="section9">Released</a>
-            <a href="#section11" class="nav-link" data-target-scroller="section11">Contact Us</a>
-        </div>
+        <!-- This div will contain items for the mobile dropdown AND desktop inline display -->
+        <div id="navbar-menu-items" class="custom-navbar-menu-items-container">
+            <!-- Desktop Menu Links -->
+            <div class="custom-navbar-links"> <!-- Renamed from id="desktop-menu-links" to a class -->
+                <a href="#section1" class="nav-link" data-target-scroller="section1">About Us</a>
+                <a href="#section2" class="nav-link" data-target-scroller="section2">Upcoming</a>
+                <a href="#section9" class="nav-link" data-target-scroller="section9">Released</a>
+                <a href="#section11" class="nav-link" data-target-scroller="section11">Contact Us</a>
+            </div>
 
-        <!-- Checker Pattern -->
-        <div class="custom-navbar-checker-pattern">
-             
+            <!-- Checker Pattern (often hidden on mobile) -->
+            <div class="custom-navbar-checker-pattern">
+                 
+            </div>
         </div>
-
     </div>
 </nav>
             <!-- Main Content Sections -->

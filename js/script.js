@@ -303,61 +303,52 @@ document.addEventListener('DOMContentLoaded', () => {
         }, 50);
     }
 
-    // --- NEW: Navigation Link Click Handler ---
+    // --- Navigation Link Click Handler ---
     const navLinks = document.querySelectorAll('.nav-link');
     navLinks.forEach(link => {
         link.addEventListener('click', function(event) {
-            event.preventDefault(); // Prevent default hash jump
+            event.preventDefault();
             const targetScrollerId = this.dataset.targetScroller;
             const targetSectionElement = document.getElementById(targetScrollerId);
 
             if (targetSectionElement) {
-                // 1. Smooth scroll to the section
                 targetSectionElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
-
-                // 2. Open the dropdown for 'About Us' and 'Contact Us'
-                //    For 'Upcoming' and 'Released', they are just titles, so no dropdown to open.
                 const sectionData = sectionsData.find(s => s.id === targetScrollerId);
-                if (sectionData && sectionData.isClickable === true) { // Only try to open if it's clickable
-                    // Simulate a click on the visible part of the target scroller
-                    // to trigger its existing expansion logic
+                if (sectionData && sectionData.isClickable === true) {
                     const visibleContentOfTarget = targetSectionElement.querySelector('.scroller-visible-content');
                     if (visibleContentOfTarget) {
-                        // Ensure it's not already expanded before clicking to avoid immediate collapse
                         if (!targetSectionElement.classList.contains('expanded')) {
-                           setTimeout(() => { // Add a small delay for scroll to settle
+                           setTimeout(() => {
                                visibleContentOfTarget.click();
-                           }, 300); // Adjust delay if needed
-                        } else {
-                            // If already expanded, and it's the one we clicked, do nothing further.
-                            // If it's another one that was expanded, our loop above already closed it.
+                           }, 300);
                         }
                     }
                 }
             }
+            // Close mobile menu after clicking a link
+            const menuItemsContainer = document.getElementById('navbar-menu-items');
+            if (menuItemsContainer && menuItemsContainer.classList.contains('active')) {
+                menuItemsContainer.classList.remove('active');
+                // Optionally change toggle button text back to "Menu"
+                const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
+                if (mobileMenuToggle) mobileMenuToggle.textContent = 'Menu';
+            }
         });
     });
 
-    // --- Mobile Menu Toggle (if you keep the button) ---
+    // --- UPDATED Mobile Menu Toggle ---
     const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
-    const desktopMenuLinks = document.getElementById('desktop-menu-links'); // Assuming you want to show/hide this
-    if (mobileMenuToggle && desktopMenuLinks) {
+    const menuItemsContainer = document.getElementById('navbar-menu-items');
+
+    if (mobileMenuToggle && menuItemsContainer) {
         mobileMenuToggle.addEventListener('click', () => {
-            // This is a simple toggle, you might want a more sophisticated show/hide for mobile
-            desktopMenuLinks.classList.toggle('hidden');
-            desktopMenuLinks.classList.toggle('md:flex'); // This controls desktop visibility
-            // For mobile, you'd likely want it to be 'flex flex-col' or similar when active
-            if (!desktopMenuLinks.classList.contains('hidden')) {
-                // Example: make it a column for mobile if it becomes visible
-                desktopMenuLinks.classList.add('flex', 'flex-col', 'absolute', 'top-full', 'left-0', 'right-0', 'bg-[#FFA500]', 'p-4', 'space-y-2');
-                desktopMenuLinks.classList.remove('md:flex', 'md:items-center', 'md:ml-auto', 'md:space-x-6');
+            menuItemsContainer.classList.toggle('active');
+            // Optional: Change button text
+            if (menuItemsContainer.classList.contains('active')) {
+                mobileMenuToggle.textContent = 'Close';
             } else {
-                // Reset to desktop styles when hidden
-                desktopMenuLinks.classList.remove('flex', 'flex-col', 'absolute', 'top-full', 'left-0', 'right-0', 'bg-[#FFA500]', 'p-4', 'space-y-2');
-                desktopMenuLinks.classList.add('md:flex', 'md:items-center', 'md:ml-auto', 'md:space-x-6');
+                mobileMenuToggle.textContent = 'Menu';
             }
         });
     }
-
-
-}); // End of DOMContentLoaded
+});

@@ -511,8 +511,6 @@ body {
           AS THEY ARE - unless they conflict directly with navbar)
 */
 
-/* --- START: NAVBAR SPECIFIC CSS --- */
-
 /* Main Navbar Container */
 .custom-navbar {
     position: sticky;
@@ -522,117 +520,159 @@ body {
     z-index: 98;
     background-color: #FFA500; /* Orange Background */
     border-bottom: 2px solid #231F20; /* Brand Black Border */
-    color: #231F20; /* Default text color for links */
-    padding-top: 10px;    /* Adjust for overall navbar thickness */
-    padding-bottom: 10px; /* Adjust for overall navbar thickness */
+    color: #231F20;
+    padding-top: 8px;    /* Adjust for overall navbar thickness */
+    padding-bottom: 8px; /* Adjust for overall navbar thickness */
     box-sizing: border-box;
 }
 
 /* Wrapper for content within the navbar (logo, links, checker) */
 .custom-navbar-content-wrapper {
-    max-width: 1280px; /* Or your preferred max-width, like screen-xl */
+    max-width: 1280px;
     margin-left: auto;
     margin-right: auto;
-    padding-left: 16px;  /* Horizontal padding for content within nav */
-    padding-right: 16px; /* Horizontal padding for content within nav */
+    padding-left: 16px;
+    padding-right: 16px;
     display: flex;
-    align-items: center; /* Vertically align all items */
-    justify-content: space-between; /* Distributes space: logo left, checker right, links in middle */
-    height: 100%;
+    align-items: center;
+    position: relative; /* For absolute positioning of mobile menu */
+    /* justify-content: space-between; /* We'll control spacing more granularly */
 }
 
 /* Logo Area */
 .custom-navbar-logo-area {
-    flex-shrink: 0; /* Don't allow logo area to shrink */
+    flex-shrink: 0;
+    /* z-index: 10; /* Ensure logo is above mobile menu if it overlaps */
 }
 
-/* Single, Corrected .nav-header-logo rule */
 .nav-header-logo {
   display: block;
-  height: 40px;   /* Adjust for desired logo height */
+  height: 36px;   /* Slightly smaller default for mobile */
   width: auto;
   max-width: 100%;
-}
-@media (min-width: 768px) {
-  .nav-header-logo {
-    height: 50px; /* Adjust for desktop logo height */
-  }
-}
-
-/* Desktop Navigation Links Container */
-.custom-navbar-links {
-    display: none; /* Hidden on mobile by default */
-    /* No auto margins needed here due to justify-content: space-between on parent */
-    /* Add specific margins if you want to push it further from logo/checker */
-    /* margin-left: 20px; */
-    /* margin-right: 20px; */
-}
-
-.custom-navbar-links a.nav-link {
-    font-size: 0.875rem; /* text-sm */
-    font-weight: 600;   /* font-semibold */
-    text-decoration: none;
-    color: #231F20; /* Brand Black */
-    padding: 0 12px; /* Spacing between links, adjust as needed */
-}
-
-.custom-navbar-links a.nav-link:hover {
-    text-decoration: underline;
-}
-
-/* Checker Pattern Area */
-.custom-navbar-checker-pattern {
-    display: none; /* Hidden on mobile by default */
-    width: 100px;  /* Fixed width for checker pattern */
-    background-color: #231F20; /* Black background */
-    background-image: url('../static/checker.svg'); /* CHECK THIS PATH */
-    background-size: 1.5vmin 1.5vmin;
-    flex-shrink: 0; /* Don't allow checker area to shrink */
-    align-self: stretch; /* Make it fill the height of the navbar content wrapper */
-    min-height: 40px; /* Ensure it has a minimum height if align-self:stretch is tricky */
 }
 
 /* Mobile Menu Toggle Button */
 .custom-navbar-mobile-toggle {
     background-color: #00C7C7; /* Teal background */
     color: #231F20;           /* Black text */
-    border: 1px solid #231F20; /* Black border */
-    border-radius: 9999px;     /* Fully rounded */
+    border: 1px solid #231F20;
+    border-radius: 9999px;
     padding: 6px 12px;
     font-size: 0.875rem;
     font-weight: 600;
     text-transform: uppercase;
-    margin-left: auto; /* Push to the right on mobile if desktop links are hidden */
+    margin-left: auto; /* Pushes button to the right of the logo */
     display: block; /* Show on mobile */
     cursor: pointer;
+    z-index: 100; /* Ensure button is on top */
 }
 
-/* Desktop Layout Adjustments */
-@media (min-width: 768px) { /* 'md' breakpoint */
+/* Container for menu items (links and checker pattern) */
+/* This is what we show/hide and style for mobile dropdown */
+.custom-navbar-menu-items-container {
+    display: none; /* Hidden by default for mobile-first approach */
+    flex-direction: column; /* Stack items vertically for mobile dropdown */
+    position: absolute;
+    top: 100%; /* Position below the navbar */
+    left: 0;
+    right: 0;
+    background-color: #FFA500; /* Orange background for dropdown */
+    border-top: 1px solid #231F20; /* Separator line */
+    padding: 10px 0; /* Padding for the dropdown area */
+    z-index: 99; /* Below toggle button, above page content */
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.custom-navbar-menu-items-container.active {
+    display: flex; /* Show when active */
+}
+
+/* Desktop Navigation Links Container (inside menu-items-container) */
+.custom-navbar-links {
+    display: flex; /* Always flex for internal link layout */
+    flex-direction: column; /* Stack links vertically on mobile dropdown */
+    align-items: center; /* Center links in mobile dropdown */
+    width: 100%;
+}
+
+.custom-navbar-links a.nav-link {
+    font-size: 1rem; /* Larger font for mobile tap targets */
+    font-weight: 600;
+    text-decoration: none;
+    color: #231F20;
+    padding: 10px 20px; /* Generous padding for tap targets */
+    display: block; /* Make links take full width for easier tapping */
+    width: 100%;
+    text-align: center;
+    border-bottom: 1px solid rgba(35, 31, 32, 0.1); /* Subtle separator */
+}
+.custom-navbar-links a.nav-link:last-child {
+    border-bottom: none;
+}
+
+.custom-navbar-links a.nav-link:hover {
+    text-decoration: none; /* No underline needed for block links */
+    background-color: rgba(35, 31, 32, 0.05); /* Subtle hover */
+}
+
+/* Checker Pattern Area (inside menu-items-container) */
+.custom-navbar-checker-pattern {
+    display: none; /* Generally hidden on mobile dropdown, and on desktop until md breakpoint */
+    /* Desktop styles for checker will be in the media query */
+}
+
+
+/* --- Desktop Layout Adjustments (md breakpoint: 768px) --- */
+@media (min-width: 768px) {
+    .nav-header-logo {
+      height: 50px; /* Desktop logo height */
+    }
+
     .custom-navbar-mobile-toggle {
         display: none; /* Hide mobile toggle on desktop */
     }
+
+    /* Show and style the menu items container for desktop */
+    .custom-navbar-menu-items-container {
+        display: flex !important; /* Override display:none, ensure it's flex */
+        flex-direction: row; /* Arrange items horizontally on desktop */
+        position: static;    /* Not absolutely positioned on desktop */
+        background-color: transparent; /* No separate background needed on desktop */
+        border-top: none;
+        padding: 0;
+        box-shadow: none;
+        margin-left: auto; /* Push the whole block (links + checker) to the right of logo */
+        align-items: center; /* Vertically align links and checker */
+    }
+
     .custom-navbar-links {
-        display: flex; /* Show links on desktop */
+        flex-direction: row; /* Links side-by-side on desktop */
         align-items: center;
+        width: auto; /* Don't take full width on desktop */
+        /* margin-right: 24px; /* Space before checker pattern */
     }
+
+    .custom-navbar-links a.nav-link {
+        font-size: 0.875rem; /* text-sm for desktop */
+        padding: 0 12px; /* Horizontal padding between links */
+        width: auto;
+        border-bottom: none; /* No borders between links on desktop */
+    }
+    .custom-navbar-links a.nav-link:hover {
+        text-decoration: underline;
+        background-color: transparent;
+    }
+
     .custom-navbar-checker-pattern {
-        display: block; /* <<< THIS IS KEY: Show checker pattern on desktop */
-    }
-}
-/* --- END: NAVBAR SPECIFIC CSS --- */
-
-
-/* Single, Corrected @keyframes marqueeAnimation */
-@keyframes marqueeAnimation {
-    0% {
-        transform: translateX(0%);
-    }
-    100% {
-        /* This should match your JS marqueeRepetitions logic.
-           If marqueeRepetitions = 4, then translateX(-25%)
-           If marqueeRepetitions = 2 (original implicit), then translateX(-50%)
-        */
-        transform: translateX(-25%); /* Assuming marqueeRepetitions is still 4 */
+        display: block; /* Show checker pattern on desktop */
+        width: 100px;
+        background-color: #231F20;
+        background-image: url('../static/checker.svg');
+        background-size: 1.5vmin 1.5vmin;
+        flex-shrink: 0;
+        align-self: stretch;
+        min-height: 40px; /* Or match logo height */
+        margin-left: 24px; /* Space after links, before checker */
     }
 }
