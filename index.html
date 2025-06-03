@@ -76,6 +76,11 @@
         .tk-hwt-bulletin { font-family: "hwt-bulletin",sans-serif; }
         .tk-neue-haas-grotesk-display { font-family: "neue-haas-grotesk-display",sans-serif; }
     </style>
+
+<script
+      src="https://unpkg.com/@dotlottie/player-component@2.7.12/dist/dotlottie-player.mjs"
+      type="module"
+    ></script>
 </head>
 
 <body>
@@ -99,6 +104,7 @@
         <!-- Main Layout Wrapper -->
         <div id="layout-wrapper" class="inset-0 top-0 left-0 z-40 mx-auto" style="opacity: 1;">
             <!-- Header Section -->
+                        <!-- Header Section -->
             <header id="main-header" class="flex items-center justify-center border-b border-black">
                 <div class="header-logo-column border-[#00220b] text-[5vh] text-[#00220b] lg:text-[15vh]" style="flex:1.8;">
                     <div class="border-r border-forrestGreen [&>*]:border-forrestGreen">
@@ -112,7 +118,36 @@
                 </div>
                 <div class="header-pattern-column self-stretch bg-blend-difference mix-blend-difference" style="flex:1.5; background:url('static/pattern-c.svg');">
                 </div>
-                <div class="header-gradient-column self-stretch" style="flex:0.3; background:linear-gradient(180deg, rgba(255,255,255,1) 0%, rgba(0,0,0,1) 100%);">
+
+                                <!-- Gradient Column with Rotated Lottie Player -->
+                <div class="header-gradient-column self-stretch"
+                     style="flex:0.3;
+                            background:linear-gradient(180deg, rgba(255,255,255,1) 0%, rgba(0,0,0,1) 100%);
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+                            overflow: hidden; /* Crucial for cropping */
+                            position: relative;">
+                    <dotlottie-player
+                      src="https://lottie.host/c47fb2e3-ce6c-4618-9689-ad54c7dee7b8/xn3dnrgzhi.lottie"
+                      background="transparent"
+                      speed="1"
+                      style="
+                        width: 600px;   /* This is its original width. After rotation, it's the VISUAL HEIGHT. Make it TALL. */
+                        height: 150px;  /* This is its original height. After rotation, it's the VISUAL WIDTH. Make this WIDER. */
+                        transform: rotate(90deg);
+                        transform-origin: center center; /* Rotate around the center of these dimensions */
+                        /* The following are important to override any external constraints on the player itself */
+                        max-width: none !important;
+                        max-height: none !important;
+                        min-width: 0 !important;
+                        min-height: 0 !important;
+                        position: relative; /* Or absolute if fine-tuning needed, but relative should work with flex parent */
+                        z-index: 1;
+                      "
+                      loop
+                      autoplay
+                    ></dotlottie-player>
                 </div>
             </header>
 
