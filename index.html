@@ -31,8 +31,10 @@
     <link rel="mask-icon" href="static/safari-pinned-tab.svg" color="#174100" />
     <link rel="shortcut icon" href="static/favicon.ico" />
     <meta name="msapplication-TileColor" content="#08b4c2" />
-    <meta name="msapplication-config" content="static/browserconfig.xml" />
-    <meta name="theme-color" content="#ea366f" />
+    <meta name="msapplication-config" content="static/browserconfig.xml" />    <meta name="theme-color" content="#ea366f" />
+
+    <!-- Preload critical fonts -->
+    <link rel="preload" href="static/smakaran.TTF" as="font" type="font/ttf" crossorigin>
 
     <!-- Stylesheets -->
     <link rel="stylesheet" href="css/tailwind-output.css"> <!-- Placeholder for 87e3cc9906b404fa.css -->
@@ -244,8 +246,8 @@
 
 
         </div>
-    </div>
-    <script src="js/script.js"></script>
+    </div>    <script src="js/script.js"></script>
+    <script src="js/font-debug.js"></script>
 </body>
 
 </html>

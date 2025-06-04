@@ -7,9 +7,11 @@
 /* ADD THIS AT THE TOP OF YOUR CSS FILE (or near other @font-face rules if you have them) */
 @font-face {
     font-family: 'Smakaran'; /* You can name this whatever you like for CSS usage */
-    src: url('../static/smakaran.ttf') format('truetype'); /* Path relative to your CSS file */
+    src: url('../static/smakaran.TTF') format('truetype'),
+         url('/static/smakaran.TTF') format('truetype'); /* Added absolute path as fallback */
     font-weight: normal; /* Adjust if your font file has specific weights */
     font-style: normal;  /* Adjust if your font file has specific styles */
+    font-display: swap; /* Prevent text from being invisible while font loads */
 }
 
 /* ... (rest of your existing CSS like .marquee-container, .overlay, etc.) ... */
@@ -31,6 +33,12 @@ body {
     letter-spacing: 0px;
     word-spacing: 5px;
     /* Text color set by JS */
+}
+
+/* Fallback if Smakaran font doesn't load */
+.no-smakaran-font .main-text {
+    font-family: "hwt-bulletin", "neue-haas-grotesk-display", sans-serif;
+    font-weight: 600;
 }
 
 .release-tag {
