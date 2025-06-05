@@ -870,3 +870,42 @@ body {
     -webkit-mask-repeat: repeat;
     mask-repeat: repeat;
 }
+
+/* --- STYLES FOR FINAL STICKY VISUALIZER --- */
+
+#sticky-visualizer {
+    position: fixed;
+    z-index: 50;
+    
+    /* --- ALIGNMENT CONTROL --- */
+    top: 55%;
+    right: 1.5vw; /* <-- MOVED TO THE RIGHT. A smaller number moves it right. Try 1vw or 2vw. */
+    transform: translateY(-50%);
+
+    /* Sizing - Massively taller to fit all 80 bars */
+    width: 90px;
+    height: 800px; /* <-- KEY CHANGE: Matches the new SVG height */
+
+    /* Hide on smaller screens */
+    display: none;
+}
+
+/* Show the visualizer only on desktop screens */
+@media (min-width: 1024px) {
+    #sticky-visualizer {
+        display: block;
+    }
+}
+
+/* Style for the individual bars inside the SVG */
+.visualizer-bar {
+    transform-origin: left;
+    transition: width 0.1s linear;
+}
+
+/* Color rules (These are unchanged and will cycle through all 80 bars) */
+.visualizer-bar:nth-child(5n + 1) { fill: #FF2C84; }
+.visualizer-bar:nth-child(5n + 2) { fill: #00C7C7; }
+.visualizer-bar:nth-child(5n + 3) { fill: #FFDD4A; }
+.visualizer-bar:nth-child(5n + 4) { fill: #FFFFFF; }
+.visualizer-bar:nth-child(5n + 5) { fill: #231F20; }

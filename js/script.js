@@ -341,4 +341,33 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     }
+
+    const visualizer = document.querySelector("#sticky-visualizer");
+
+if (visualizer) {
+    const bars = document.querySelectorAll(".visualizer-bar");
+    const minBarWidth = 5;
+    const maxBarWidth = 105; // This is the only line we changed
+
+    const animateBars = () => {
+        const scrollableHeight = document.documentElement.scrollHeight - window.innerHeight;
+        const scrollProgress = scrollableHeight > 0 ? (window.scrollY / scrollableHeight) : 0;
+        
+        bars.forEach((bar, index) => {
+            const wave = Math.sin(scrollProgress * 15 + index * 1.5);
+            const widthPercent = (wave + 1) / 2;
+            const newWidth = minBarWidth + (widthPercent * maxBarWidth);
+            
+            bar.style.width = `${newWidth}px`;
+        });
+    };
+
+    window.addEventListener('scroll', () => {
+        window.requestAnimationFrame(animateBars);
+    });
+    
+    animateBars();
+}
+    // ===== END: NEW STICKY VISUALIZER LOGIC =====
+
 });
