@@ -685,13 +685,6 @@ body {
     }
 }
 
-
-/* --- FOOTER STYLES --- */
-/* ... (keep .custom-footer and .footer-checkerboard-top as they are) ... */
-/* In css/style.css */
-
-/* ... (Keep all your existing styles before the footer section) ... */
-
 /* --- FOOTER STYLES --- */
 .custom-footer {
     width: 100%;
@@ -701,88 +694,124 @@ body {
 .footer-checkerboard-top {
     height: 17px;
     background-color: #231F20;
-    background-image: url('../static/checker.svg'); /* Make sure this path is correct */
+    background-image: url('../static/checker.svg');
     background-size: 2.0vmin 2.0vmin;
     background-repeat: repeat-x;
 }
 
 .footer-content-area {
     background-color: #00C7C7; /* Teal background */
-    color: #231F20; /* Brand Black text for children unless overridden */
-    padding: 25px 20px;
+    color: #231F20;
+    padding: 25px; 
     display: flex;
-    align-items: center; /* Vertically align all items */
+    flex-wrap: wrap; 
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px 25px; 
+}
+
+/* Contact Us & Email group */
+.footer-contact-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.footer-contact-prefix {
+    font-size: 1rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    margin-bottom: 5px;
+    color: #231F20;
 }
 
 .footer-email {
     font-family: "neue-haas-grotesk-display", sans-serif;
-    font-size: clamp(1.8rem, 5vw, 3.5rem);
-    font-weight: 600;
-    color: #231F20; /* Explicitly set text color */
+    font-size: clamp(1.8rem, 4vw, 2.8rem);
+    font-weight: 700;
+    color: #231F20;
     text-decoration: none;
     text-transform: uppercase;
     letter-spacing: -0.02em;
     line-height: 1.1;
-    margin-right: auto; /* Pushes subsequent elements to the right */
-    flex-shrink: 0; /* Prevent email from shrinking */
 }
 
 .footer-email:hover {
     opacity: 0.8;
 }
 
-/* NEW: Instagram Icon Styles */
-.footer-social-icon {
+/* Base style for BOTH YouTube and Instagram widgets (black background by default) */
+.footer-media-widget {
+    background-color: #fff;
+    border-radius: 12px;
+    padding: 10px 15px;
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    /* color: #231F20; /* This is no longer needed to color the icon itself, as the SVG has its own fill */
-    text-decoration: none;
-    margin-right: 20px; /* Space BEFORE the YouTube counter */
+    min-height: 100px;
     flex-shrink: 0;
+}
+
+/* NEW: Modifier class to make the Instagram widget WHITE */
+.insta-widget {
+    background-color: #fff;
+    justify-content: flex-start; /* Align content to the left */
+}
+
+/* MODIFIED: Now also handles layout for icon + text */
+.footer-social-icon {
+    display: flex; /* Use flex to align icon and text */
+    align-items: center;
+    gap: 15px; /* Space between icon and text block */
+    text-decoration: none;
+    color: #231F20; /* Default text color for inside the link */
 }
 
 .footer-social-icon svg {
-    width: 64px;  /* INCREASED from 32px */
-    height: 64px; /* INCREASED from 32px */
-    display: block; /* Good practice for SVGs/images */
+    width: 50px;
+    height: 50px;
+    display: block;
+    flex-shrink: 0; /* Prevent icon from shrinking */
 }
 
 .footer-social-icon:hover {
-    opacity: 0.85; /* Slight adjustment for colored icon hover */
+    opacity: 0.85;
 }
 
+/* NEW: Container for the text in the Instagram widget */
+.widget-text-content {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+}
+
+/* NEW: Style for the username */
+.widget-title {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #231F20;
+}
+
+/* NEW: Style for the follower count */
+.widget-followers {
+    font-size: 1rem;
+    font-weight: 400;
+    color: #555; /* A slightly softer black/grey */
+}
+
+/* Styles for the YouTube container (no change needed) */
 .footer-youtube-subscribers {
-    flex-shrink: 0;
-    margin-right: 20px; /* Space AFTER YouTube counter, BEFORE copyright */
-}
-
-/* ... (.footer-copyright and responsive styles remain the same) ... */
-
-/* Responsive adjustments for footer content */
-@media (max-width: 768px) { /* md breakpoint */
-    /* ... (.footer-content-area, .footer-email styles remain the same) ... */
-
-    .footer-social-icon {
-        margin-left: 0;
-        margin-right: 0;
-        margin-bottom: 20px;
-    }
-    /* The SVG size defined above (44px) will apply here too, adjust if needed for mobile */
-
-    /* ... (.footer-youtube-subscribers, .footer-copyright responsive styles remain the same) ... */
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .footer-copyright {
     font-family: "neue-haas-grotesk-display", sans-serif;
     font-size: 1rem;
     line-height: 1.5;
-    color: #231F20; /* Explicitly set text color */
+    color: #231F20;
     text-align: right;
     flex-shrink: 0;
-    /* margin-left: 100px; /* REMOVED/REPLACED: Original 100px is now handled by youtube-subscriber's margin-right */
-                            /* The group [IG, YT, Copyright] is pushed right by email's margin-right:auto */
-                            /* Then IG has margin-right, YT has margin-right. Copyright needs no specific left margin for spacing. */
 }
 
 .footer-copyright div {
@@ -792,41 +821,29 @@ body {
     margin-bottom: 0;
 }
 
-/* Responsive adjustments for footer content */
-@media (max-width: 768px) { /* md breakpoint */
+/* Responsive adjustments */
+@media (max-width: 1250px) { /* Adjust breakpoint as needed */
     .footer-content-area {
-        flex-direction: column;
-        align-items: center; /* Center items when stacked */
-        text-align: center;
-        padding: 20px 15px;
-    }
-    .footer-email {
-        margin-right: 0; /* Remove auto margin when stacked */
-        margin-bottom: 20px;
-        text-align: center;
-    }
-
-    /* NEW: Responsive style for Instagram Icon */
-    .footer-social-icon {
-        margin-left: 0;   /* Reset horizontal margins for stacked layout */
-        margin-right: 0;
-        margin-bottom: 20px; /* Space below IG icon when stacked */
-    }
-    /* END NEW */
-
-    .footer-youtube-subscribers {
-        margin-right: 0; /* Remove horizontal margin when stacked */
-        margin-bottom: 20px;
-        width: 100%; /* Allow container to take full width to center iframe */
-    }
-    .footer-copyright {
-        text-align: center;
-        width: 100%;
-        margin-left: 0; /* Ensure no left margin when stacked */
+        justify-content: center; /* Center items when they start to wrap */
     }
 }
 
-/* ... (Keep your other existing styles, like @media (min-width: 768px) for .custom-navbar-checker-pattern if it's below this) ... */
+@media (max-width: 768px) {
+    .footer-content-area {
+        flex-direction: column;
+        align-items: center; 
+        text-align: center;
+        padding: 20px 15px;
+    }
+    .footer-contact-group,
+    .footer-copyright {
+        text-align: center;
+    }
+    .footer-copyright {
+        margin-top: 10px;
+    }
+}
+
 
 @media (min-width: 768px) {
     /* ... other styles ... */
@@ -844,5 +861,12 @@ body {
     }
 }
 
-
-
+.header-pattern-column {
+    background-color: #01C7C6; /* <<-- CHANGE THIS TO YOUR DESIRED COLOR (e.g., yellow) */
+    -webkit-mask-image: url('../static/pattern-c.svg');
+    mask-image: url('../static/pattern-c.svg');
+    -webkit-mask-size: auto;
+    mask-size: auto; /* You can also use 'cover', 'contain', or a specific size */
+    -webkit-mask-repeat: repeat;
+    mask-repeat: repeat;
+}
