@@ -135,7 +135,7 @@ document.addEventListener('DOMContentLoaded', () => {
         // Scroller 10: Song One (Released)
         {
             id: 'section10',
-            mainText: 'Song One',
+            mainText: 'Chand Da Tukda',
             bgColor: teal,
             textColor: brandWhite,
             releaseTagText: 'RELEASED',
@@ -158,8 +158,9 @@ document.addEventListener('DOMContentLoaded', () => {
             textColor: brandBlack,
             linksPrefix: null,
             links: [
-                { text: 'Call Us', url: 'tel:+1234567890' },
-                { text: 'Mail Us', url: 'mailto:info@example.com' }
+                { text: 'Mail Us', url: 'mailto:connect@uchivibe.com' },
+                { text: 'Press', url: 'mailto:press@uchivibe.com' },
+                { text: 'Talent', url: 'mailto:aurahunt@uchivibe.com' },
             ],
             isClickable: true,
             scrollDirection: 'normal'

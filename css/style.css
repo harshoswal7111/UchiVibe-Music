@@ -862,7 +862,7 @@ body {
 }
 
 .header-pattern-column {
-    background-color: #01C7C6; /* <<-- CHANGE THIS TO YOUR DESIRED COLOR (e.g., yellow) */
+    background-color: #f8ff7b; /* <<-- CHANGE THIS TO YOUR DESIRED COLOR (e.g., yellow) */
     -webkit-mask-image: url('../static/pattern-c.svg');
     mask-image: url('../static/pattern-c.svg');
     -webkit-mask-size: auto;
