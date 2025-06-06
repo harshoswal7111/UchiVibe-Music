@@ -909,3 +909,45 @@ body {
 .visualizer-bar:nth-child(5n + 3) { fill: #FFDD4A; }
 .visualizer-bar:nth-child(5n + 4) { fill: #FFFFFF; }
 .visualizer-bar:nth-child(5n + 5) { fill: #231F20; }
+
+
+
+
+.header-col-logo {
+  flex: 1.8;
+}
+.header-col-pattern {
+  flex: 1.5;
+}
+.header-col-gradient {
+  flex: 0.3;
+}
+
+
+@media (max-width: 767px) {
+  .header-col-logo {
+    flex: 3.5; /* Make the GIF column smaller on mobile */
+  }
+  .header-col-pattern {
+    flex: 2; /* Make the pattern column larger to fill the space */
+  }
+}
+
+
+@media (max-width: 767px) {
+  #white-circle {
+    right: 10vw!important; /* Adjusted to move the white circle off-screen on mobile */
+  }
+}
+
+.music-for-the-soul-text {
+  font-size: 1.15rem; /* Example: A custom size between lg and xl. */
+}
+
+/* 2. Desktop Override */
+/* This media query targets screens 768px wide and larger (Tailwind's 'md' breakpoint) */
+@media (min-width: 768px) {
+  .music-for-the-soul-text {
+    font-size: 3rem; /* This replicates the original md:text-5xl */
+  }
+}

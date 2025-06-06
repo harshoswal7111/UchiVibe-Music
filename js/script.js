@@ -169,7 +169,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // ... (rest of your script.js code remains the same) ...
 
     const marqueeRepetitions = 4;
-    const originalAnimationDuration = 5;
+    const originalAnimationDuration = 15;
     const adjustedAnimationDuration = originalAnimationDuration * (marqueeRepetitions / 2);
 
     sectionsData.forEach(data => {
