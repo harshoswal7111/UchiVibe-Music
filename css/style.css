@@ -936,7 +936,7 @@ body {
 
 @media (max-width: 767px) {
   #white-circle {
-    right: 10vw!important; /* Adjusted to move the white circle off-screen on mobile */
+    right: 5vw!important; /* Adjusted to move the white circle off-screen on mobile */
   }
 }
 
@@ -1000,4 +1000,10 @@ body {
 /* Layer 3 (Top): The Sticky Navbar */
 .custom-navbar {
     z-index: 30;
+}
+
+@media (max-width: 767px) {
+    .header-gradient-column {
+        display: none !important; /* MODIFIED: Added !important to override the inline style */
+    }
 }
