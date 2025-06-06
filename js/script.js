@@ -28,15 +28,13 @@ document.addEventListener('DOMContentLoaded', () => {
         },
         // Scroller 2: Upcoming Releases (Title - no release tag)
         {
-            id: 'section2',
-            mainText: 'Upcoming Releases',
-            bgColor: teal,
-            textColor: brandBlack,
-            linksPrefix: null,
-            links: [],
-            isClickable: false,
-            scrollDirection: 'reverse'
-        },
+           id: 'section2',
+            // CHANGE: use <span> with space, instead of <br>
+           mainText: 'Upcoming <span class="line-break">Releases</span>', 
+           bgColor: teal,
+           textColor: brandBlack,
+          //... rest of object
+       },
         // Scroller 3: Raatein Halatein (Upcoming Song)
         {
             id: 'section3',
@@ -122,16 +120,15 @@ document.addEventListener('DOMContentLoaded', () => {
             scrollDirection: 'reverse'
         },
         // Scroller 9: Current Releases (Title - no release tag)
-        {
-            id: 'section9',
-            mainText: 'Current Releases',
-            bgColor: hotPink,
-            textColor: brandBlack,
-            linksPrefix: null,
-            links: [],
-            isClickable: false,
-            scrollDirection: 'normal'
-        },
+         {
+           id: 'section9',
+            // CHANGE: use <span> with space, instead of <br>
+           mainText: 'Current <span class="line-break">Releases</span>', 
+           bgColor: hotPink,
+           textColor: brandBlack,
+            //... rest of object
+       },
+   
         // Scroller 10: Song One (Released)
         {
             id: 'section10',
@@ -167,8 +164,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     ];
 
-    // ... (rest of your script.js code remains the same) ...
-
     const marqueeRepetitions = 4;
     const originalAnimationDuration = 15;
     const adjustedAnimationDuration = originalAnimationDuration * (marqueeRepetitions / 2);
@@ -186,34 +181,51 @@ document.addEventListener('DOMContentLoaded', () => {
         const visibleContent = document.createElement('div');
         visibleContent.classList.add('scroller-visible-content');
 
-        const marqueeContent = document.createElement('div');
-        marqueeContent.classList.add('marquee-content');
-        marqueeContent.style.animationDuration = `${adjustedAnimationDuration}s`;
-        marqueeContent.style.animationDirection = data.scrollDirection || 'normal';
+        // ===== MODIFIED: Logic to handle static vs scrolling titles =====
+        const isStaticTitle = (data.id === 'section2' || data.id === 'section9');
 
-        for (let i = 0; i < marqueeRepetitions; i++) {
-            const marqueeItem = document.createElement('div');
-            marqueeItem.classList.add('marquee-item');
+        if (isStaticTitle) {
+        // It's a static title, so we center it and don't use the marquee
+        visibleContent.classList.add('static-title-section');
 
-            const mainTextSpan = document.createElement('span');
-            mainTextSpan.classList.add('main-text');
-            mainTextSpan.textContent = data.mainText;
-            mainTextSpan.style.color = data.textColor;
-            marqueeItem.appendChild(mainTextSpan);
+        const mainTextSpan = document.createElement('span');
+        mainTextSpan.classList.add('main-text');
+        // MODIFIED: Use innerHTML to render the <br> tag correctly
+        mainTextSpan.innerHTML = data.mainText; 
+        mainTextSpan.style.color = data.textColor;
+        visibleContent.appendChild(mainTextSpan);
 
-            if (data.releaseTagText) {
-                const releaseTagSpan = document.createElement('span');
-                releaseTagSpan.classList.add('release-tag');
-                releaseTagSpan.textContent = data.releaseTagText;
-                // These lines will now use the updated colors from sectionsData
-                releaseTagSpan.style.backgroundColor = data.releaseTagBgColor;
-                releaseTagSpan.style.color = data.releaseTagTextColor;
-                marqueeItem.appendChild(releaseTagSpan);
+    }else {
+            // It's a regular scrolling marquee
+            const marqueeContent = document.createElement('div');
+            marqueeContent.classList.add('marquee-content');
+            marqueeContent.style.animationDuration = `${adjustedAnimationDuration}s`;
+            marqueeContent.style.animationDirection = data.scrollDirection || 'normal';
+
+            for (let i = 0; i < marqueeRepetitions; i++) {
+                const marqueeItem = document.createElement('div');
+                marqueeItem.classList.add('marquee-item');
+
+                const mainTextSpan = document.createElement('span');
+                mainTextSpan.classList.add('main-text');
+                mainTextSpan.textContent = data.mainText;
+                mainTextSpan.style.color = data.textColor;
+                marqueeItem.appendChild(mainTextSpan);
+
+                if (data.releaseTagText) {
+                    const releaseTagSpan = document.createElement('span');
+                    releaseTagSpan.classList.add('release-tag');
+                    releaseTagSpan.textContent = data.releaseTagText;
+                    releaseTagSpan.style.backgroundColor = data.releaseTagBgColor;
+                    releaseTagSpan.style.color = data.releaseTagTextColor;
+                    marqueeItem.appendChild(releaseTagSpan);
+                }
+                marqueeContent.appendChild(marqueeItem);
             }
-            marqueeContent.appendChild(marqueeItem);
+            visibleContent.appendChild(marqueeContent);
         }
+        // ===== END MODIFICATION =====
 
-        visibleContent.appendChild(marqueeContent);
         section.appendChild(visibleContent);
 
         const expandableContent = document.createElement('div');
@@ -343,32 +355,43 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    // ===== MODIFIED: Sticky visualizer logic with mobile optimization =====
     const visualizer = document.querySelector("#sticky-visualizer");
+    if (visualizer) {
+        const bars = document.querySelectorAll(".visualizer-bar");
+        const minBarWidth = 5;
 
-if (visualizer) {
-    const bars = document.querySelectorAll(".visualizer-bar");
-    const minBarWidth = 5;
-    const maxBarWidth = 105; // This is the only line we changed
+        const animateBars = () => {
+            // Check screen size inside the animation function to be responsive
+            const isDesktop = window.matchMedia('(min-width: 1024px)').matches;
+            const maxBarWidth = isDesktop ? 105 : 35; // Use smaller max width on mobile
 
-    const animateBars = () => {
-        const scrollableHeight = document.documentElement.scrollHeight - window.innerHeight;
-        const scrollProgress = scrollableHeight > 0 ? (window.scrollY / scrollableHeight) : 0;
-        
-        bars.forEach((bar, index) => {
-            const wave = Math.sin(scrollProgress * 15 + index * 1.5);
-            const widthPercent = (wave + 1) / 2;
-            const newWidth = minBarWidth + (widthPercent * maxBarWidth);
+            const scrollableHeight = document.documentElement.scrollHeight - window.innerHeight;
+            const scrollProgress = scrollableHeight > 0 ? (window.scrollY / scrollableHeight) : 0;
             
-            bar.style.width = `${newWidth}px`;
-        });
-    };
+            bars.forEach((bar, index) => {
+                // The wave calculation remains the same, producing values from -1 to 1
+                const wave = Math.sin(scrollProgress * 15 + index * 1.5);
+                // The width calculation now scales based on the responsive maxBarWidth
+                const widthPercent = (wave + 1) / 2; // Normalize wave to 0-1 range
+                const newWidth = minBarWidth + (widthPercent * maxBarWidth);
+                
+                bar.style.width = `${newWidth}px`;
+            });
+        };
 
-    window.addEventListener('scroll', () => {
-        window.requestAnimationFrame(animateBars);
-    });
-    
-    animateBars();
-}
-    // ===== END: NEW STICKY VISUALIZER LOGIC =====
+        window.addEventListener('scroll', () => {
+            window.requestAnimationFrame(animateBars);
+        });
+
+        // Also listen for resize to re-evaluate on orientation change etc.
+        window.addEventListener('resize', () => {
+            window.requestAnimationFrame(animateBars);
+        });
+        
+        // Initial animation call
+        animateBars();
+    }
+    // ===== END MODIFICATION =====
 
 });

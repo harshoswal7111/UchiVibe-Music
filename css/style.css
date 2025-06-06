@@ -951,3 +951,53 @@ body {
     font-size: 3rem; /* This replicates the original md:text-5xl */
   }
 }
+
+/* ===== START: FINAL RESPONSIVE Center alignment for static titles ===== */
+
+/* Base centering for the container (applies always) */
+ .scroller-visible-content.static-title-section {
+     justify-content: center;
+ }
+
+/* MOBILE-FIRST: Text styles (text-align, line-height) */
+ .scroller-visible-content.static-title-section .main-text {
+     margin-right: 0;      /* Removes leftover margin */
+     text-align: center;   /* Centers the individual lines of text */
+     line-height: 1.0;     /* Tight spacing for the two lines on mobile */
+ }
+
+ /* MOBILE-FIRST: Make the span act like a block element, forcing a new line */
+  .scroller-visible-content.static-title-section .main-text .line-break {
+      display: block; 
+  }
+
+
+ /* DESKTOP OVERRIDE: Styles for screens 768px and wider */
+  @media (min-width: 768px) {
+  
+       /* DESKTOP: Revert text styles for single line */
+      .scroller-visible-content.static-title-section .main-text {
+          line-height: normal; /* Restore normal line height for single line */
+          white-space: nowrap; /* Ensure text never wraps accidentally on desktop */
+       }
+       
+      /* DESKTOP: Make the span act like an inline element, removing the break */
+       .scroller-visible-content.static-title-section .main-text .line-break {
+           display: inline; 
+       }
+  }
+  
+
+#sticky-visualizer {
+    z-index: 10;
+}
+
+.scroller-container {
+    position: relative;
+    z-index: 20;
+}
+
+/* Layer 3 (Top): The Sticky Navbar */
+.custom-navbar {
+    z-index: 30;
+}
