@@ -862,13 +862,35 @@ body {
 }
 
 .header-pattern-column {
-    background-color: #f8ff7b; /* <<-- CHANGE THIS TO YOUR DESIRED COLOR (e.g., yellow) */
+    background-color: #f8ff7b;
     -webkit-mask-image: url('../static/pattern-c.svg');
     mask-image: url('../static/pattern-c.svg');
     -webkit-mask-size: auto;
-    mask-size: auto; /* You can also use 'cover', 'contain', or a specific size */
+    mask-size: auto;
     -webkit-mask-repeat: repeat;
     mask-repeat: repeat;
+    position: relative;
+}
+
+/* ===== START: MODIFICATION ===== */
+/* Styles for the dancing character GIF */
+.dancing-char-gif {
+    position: absolute;
+    bottom: 0;
+    left: 10px;
+    width: 100px; /* Base size for mobile */
+    height: auto;
+    z-index: 10;
+    
+    /* ADDED: These two lines will create the black silhouette effect */
+    filter: brightness(0);
+    mix-blend-mode: normal;
+}
+
+@media (min-width: 768px) {
+    .dancing-char-gif {
+        width: 150px; /* Larger size for desktop */
+    }
 }
 
 /* --- STYLES FOR FINAL STICKY VISUALIZER --- */
@@ -952,40 +974,37 @@ body {
   }
 }
 
-/* ===== START: FINAL RESPONSIVE Center alignment for static titles ===== */
+/* ===== START: MODIFICATION 2 ===== */
+/* Responsive Center alignment for static titles */
 
 /* Base centering for the container (applies always) */
  .scroller-visible-content.static-title-section {
      justify-content: center;
  }
 
-/* MOBILE-FIRST: Text styles (text-align, line-height) */
+/* MOBILE-FIRST: Text styles (font-size, etc.) */
  .scroller-visible-content.static-title-section .main-text {
      margin-right: 0;      /* Removes leftover margin */
-     text-align: center;   /* Centers the individual lines of text */
-     line-height: 1.0;     /* Tight spacing for the two lines on mobile */
+     text-align: center;   /* Centers the text */
+     font-size: 2.8rem;    /* REDUCED: Smaller font size to fit on one line on mobile */
+     line-height: normal;
  }
 
- /* MOBILE-FIRST: Make the span act like a block element, forcing a new line */
+ /* Ensure the line-break span does NOT force a new line on any screen size */
   .scroller-visible-content.static-title-section .main-text .line-break {
-      display: block; 
+      display: inline; /* This keeps it on the same line as the text before it */
   }
 
 
  /* DESKTOP OVERRIDE: Styles for screens 768px and wider */
   @media (min-width: 768px) {
-  
-       /* DESKTOP: Revert text styles for single line */
+       /* Restore the larger font size for desktop */
       .scroller-visible-content.static-title-section .main-text {
-          line-height: normal; /* Restore normal line height for single line */
+          font-size: 3.8rem; /* Restore original larger font size for desktop */
           white-space: nowrap; /* Ensure text never wraps accidentally on desktop */
        }
-       
-      /* DESKTOP: Make the span act like an inline element, removing the break */
-       .scroller-visible-content.static-title-section .main-text .line-break {
-           display: inline; 
-       }
   }
+/* ===== END: MODIFICATION 2 ===== */
   
 
 #sticky-visualizer {
