@@ -902,6 +902,12 @@ body {
     }
 }
 
+@media (max-width: 767px) {
+    .dancing-char-gif {
+ transform: translateX(calc(-50% + 10px));
+    }
+}
+
 /* --- STYLES FOR FINAL STICKY VISUALIZER --- */
 
 #sticky-visualizer {
