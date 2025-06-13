@@ -6,12 +6,17 @@
 
 /* ADD THIS AT THE TOP OF YOUR CSS FILE (or near other @font-face rules if you have them) */
 @font-face {
-    font-family: 'Smakaran'; /* You can name this whatever you like for CSS usage */
+    font-family: 'Smakaran';
+    /* You can name this whatever you like for CSS usage */
     src: url('../static/smakaran.TTF') format('truetype'),
-         url('/static/smakaran.TTF') format('truetype'); /* Added absolute path as fallback */
-    font-weight: normal; /* Adjust if your font file has specific weights */
-    font-style: normal;  /* Adjust if your font file has specific styles */
-    font-display: swap; /* Prevent text from being invisible while font loads */
+        url('/static/smakaran.TTF') format('truetype');
+    /* Added absolute path as fallback */
+    font-weight: normal;
+    /* Adjust if your font file has specific weights */
+    font-style: normal;
+    /* Adjust if your font file has specific styles */
+    font-display: swap;
+    /* Prevent text from being invisible while font loads */
 }
 
 /* ... (rest of your existing CSS like .marquee-container, .overlay, etc.) ... */
@@ -26,8 +31,10 @@ body {
 .main-text {
     /* MODIFIED: Add Smakaran as the primary font, with fallbacks */
     font-family: 'Smakaran', "neue-haas-grotesk-display", sans-serif;
-    font-size: 3.8rem; /* Slightly adjusted for potentially different font metrics, tune as needed */
-    font-weight: normal; /* Smakaran might have its own inherent weight, adjust if needed */
+    font-size: 3.8rem;
+    /* Slightly adjusted for potentially different font metrics, tune as needed */
+    font-weight: normal;
+    /* Smakaran might have its own inherent weight, adjust if needed */
     margin-right: 40px;
     text-transform: uppercase;
     letter-spacing: 0px;
@@ -44,9 +51,12 @@ body {
 .release-tag {
     padding: 10px 28px;
     border-radius: 30px;
-    font-size: 1.2rem; /* Consider if Smakaran is readable here, or keep a more standard font */
-    font-weight: 700; /* For standard fonts, Smakaran might not have a 'bold' */
-    font-family: "neue-haas-grotesk-display", sans-serif; /* Kept standard for readability */
+    font-size: 1.2rem;
+    /* Consider if Smakaran is readable here, or keep a more standard font */
+    font-weight: 700;
+    /* For standard fonts, Smakaran might not have a 'bold' */
+    font-family: "neue-haas-grotesk-display", sans-serif;
+    /* Kept standard for readability */
     text-transform: uppercase;
     flex-shrink: 0;
     line-height: 1;
@@ -54,105 +64,130 @@ body {
 }
 
 .nav-header-logo {
-  display: block; /* Important for height and width to be respected properly */
-  height: 64px;   /* Default height for smaller screens (equivalent to Tailwind h-16) */
-  width: auto;    /* Maintain aspect ratio */
-  max-width: 100%; /* Ensures it doesn't overflow its container if width is constrained */
+    display: block;
+    /* Important for height and width to be respected properly */
+    height: 64px;
+    /* Default height for smaller screens (equivalent to Tailwind h-16) */
+    width: auto;
+    /* Maintain aspect ratio */
+    max-width: 100%;
+    /* Ensures it doesn't overflow its container if width is constrained */
 }
 
 /* Responsive size for medium screens and up (Tailwind's 'md' breakpoint is 768px) */
 @media (min-width: 768px) {
-  .nav-header-logo {
-    height: 80px; /* Larger height for medium screens and up (equivalent to Tailwind h-20) */
-  }
+    .nav-header-logo {
+        height: 80px;
+        /* Larger height for medium screens and up (equivalent to Tailwind h-20) */
+    }
 }
 
 /* Marquee CSS from ReactFastMarquee */
 .marquee-container {
-  overflow-x: hidden !important;
-  display: flex !important;
-  flex-direction: row !important;
-  position: relative;
-  width: 100%;
-  --pause-on-hover: running; /* Default state */
-  --pause-on-click: running; /* Default state */
+    overflow-x: hidden !important;
+    display: flex !important;
+    flex-direction: row !important;
+    position: relative;
+    width: 100%;
+    --pause-on-hover: running;
+    /* Default state */
+    --pause-on-click: running;
+    /* Default state */
 }
-.marquee-container:hover .marquee { /* Target .marquee directly */
-  animation-play-state: var(--pause-on-hover);
+
+.marquee-container:hover .marquee {
+    /* Target .marquee directly */
+    animation-play-state: var(--pause-on-hover);
 }
-.marquee-container:active .marquee { /* Target .marquee directly */
-  animation-play-state: var(--pause-on-click);
+
+.marquee-container:active .marquee {
+    /* Target .marquee directly */
+    animation-play-state: var(--pause-on-click);
 }
 
 .overlay {
-  position: absolute;
-  width: 100%;
-  height: 100%;
+    position: absolute;
+    width: 100%;
+    height: 100%;
 }
-.overlay::before, .overlay::after {
-  /* background: linear-gradient(to right, var(--gradient-color)); */ /* Handled by Tailwind if gradient is used */
-  content: "";
-  height: 100%;
-  position: absolute;
-  /* width: var(--gradient-width); */ /* Handled by Tailwind if gradient is used */
-  z-index: 2;
-}
+
+.overlay::before,
 .overlay::after {
-  right: 0;
-  top: 0;
-  transform: rotateZ(180deg);
+    /* background: linear-gradient(to right, var(--gradient-color)); */
+    /* Handled by Tailwind if gradient is used */
+    content: "";
+    height: 100%;
+    position: absolute;
+    /* width: var(--gradient-width); */
+    /* Handled by Tailwind if gradient is used */
+    z-index: 2;
 }
+
+.overlay::after {
+    right: 0;
+    top: 0;
+    transform: rotateZ(180deg);
+}
+
 .overlay::before {
-  left: 0;
-  top: 0;
+    left: 0;
+    top: 0;
 }
 
 .marquee {
-  flex: 0 0 auto;
-  min-width: 100%; /* Ensure it's wide enough for the animation */
-  z-index: 1;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  animation: scroll var(--duration) linear var(--delay) var(--iteration-count);
-  animation-play-state: var(--play);
-  animation-delay: var(--delay);
-  animation-direction: var(--direction);
+    flex: 0 0 auto;
+    min-width: 100%;
+    /* Ensure it's wide enough for the animation */
+    z-index: 1;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    animation: scroll var(--duration) linear var(--delay) var(--iteration-count);
+    animation-play-state: var(--play);
+    animation-delay: var(--delay);
+    animation-direction: var(--direction);
 }
+
 @keyframes scroll {
-  0% {
-    transform: translateX(0%);
-  }
-  100% {
-    transform: translateX(-100%);
-  }
+    0% {
+        transform: translateX(0%);
+    }
+
+    100% {
+        transform: translateX(-100%);
+    }
 }
 
 /* Styling for entry animations (example) */
 .initial-hidden {
-  opacity: 0;
-  transform: translateY(20px) skewY(2deg);
+    opacity: 0;
+    transform: translateY(20px) skewY(2deg);
 }
+
 .initial-visible {
-  opacity: 1;
-  transform: translateY(0) skewY(0);
-  transition: opacity 1.75s cubic-bezier(0.6, -0.05, 0.01, 0.99), transform 1.75s cubic-bezier(0.6, -0.05, 0.01, 0.99);
+    opacity: 1;
+    transform: translateY(0) skewY(0);
+    transition: opacity 1.75s cubic-bezier(0.6, -0.05, 0.01, 0.99), transform 1.75s cubic-bezier(0.6, -0.05, 0.01, 0.99);
 }
-.stagger-children > * {
-  opacity: 0;
+
+.stagger-children>* {
+    opacity: 0;
 }
 
 /* Streaming links animation */
 .streaming-links-section {
-  overflow: hidden;
-  max-height: 0;
-  transition: max-height 0.5s ease-in-out, opacity 0.5s ease-in-out;
-  opacity: 0;
-  will-change: max-height, opacity; /* Performance hint */
+    overflow: hidden;
+    max-height: 0;
+    transition: max-height 0.5s ease-in-out, opacity 0.5s ease-in-out;
+    opacity: 0;
+    will-change: max-height, opacity;
+    /* Performance hint */
 }
+
 .streaming-links-section.open {
-  max-height: 500px; /* Adjust as needed, should be larger than content */
-  opacity: 1;
+    max-height: 500px;
+    /* Adjust as needed, should be larger than content */
+    opacity: 1;
 }
 
 
@@ -163,30 +198,54 @@ body {
 
 /* Cigarette smoke animations */
 .smoke {
-    opacity: 0.3; /* Base opacity */
+    opacity: 0.3;
+    /* Base opacity */
 }
+
 .smoke1 {
     animation: smokeAnim1 25s infinite cubic-bezier(0.6, -0.05, 0.01, 0.99);
 }
+
 .smoke2 {
     animation: smokeAnim2 15s infinite cubic-bezier(0.6, -0.05, 0.01, 0.99);
 }
 
 @keyframes smokeAnim1 {
-    0%, 100% { opacity: 0.3; transform: skewY(0deg) scaleY(1); }
-    50% { opacity: 0.5; transform: skewY(20deg) scaleY(4); }
+
+    0%,
+    100% {
+        opacity: 0.3;
+        transform: skewY(0deg) scaleY(1);
+    }
+
+    50% {
+        opacity: 0.5;
+        transform: skewY(20deg) scaleY(4);
+    }
 }
+
 @keyframes smokeAnim2 {
-    0%, 100% { opacity: 0; transform: skewY(0deg) scaleY(1); }
-    50% { opacity: 0.5; transform: skewY(-20deg) scaleY(3); }
+
+    0%,
+    100% {
+        opacity: 0;
+        transform: skewY(0deg) scaleY(1);
+    }
+
+    50% {
+        opacity: 0.5;
+        transform: skewY(-20deg) scaleY(3);
+    }
 }
 
 /* General class for elements to animate in on load */
 .animate-in {
     opacity: 0;
-    transform: translateY(30px); /* Example starting position */
+    transform: translateY(30px);
+    /* Example starting position */
     transition: opacity 0.8s ease-out, transform 0.8s ease-out;
 }
+
 .animate-in.visible {
     opacity: 1;
     transform: translateY(0);
@@ -225,7 +284,7 @@ body {
 
 /* Improved expandable content for About Us */
 .scroller-expandable-content {
-    padding: 0; 
+    padding: 0;
     box-sizing: border-box;
     display: block;
     width: 100%;
@@ -241,12 +300,17 @@ body {
 /* Ensure clsx generated classes apply */
 /* (This file should be mostly Tailwind classes or specific overrides) */
 body {
-    font-family: "neue-haas-grotesk-display", sans-serif; /* Default font */
+    font-family: "neue-haas-grotesk-display", sans-serif;
+    /* Default font */
 }
-.font-perfetto { /* From Next.js: release == t ? "font-perfetto" : "font-bulletin" */
-    font-family: "neue-haas-grotesk-display", sans-serif; /* Assuming perfetto is their default or a specific weight */
+
+.font-perfetto {
+    /* From Next.js: release == t ? "font-perfetto" : "font-bulletin" */
+    font-family: "neue-haas-grotesk-display", sans-serif;
+    /* Assuming perfetto is their default or a specific weight */
     /* If 'perfetto' is a distinct font, its @font-face would be needed */
 }
+
 .font-bulletin {
     font-family: "hwt-bulletin", sans-serif;
 }
@@ -256,21 +320,30 @@ body {
    text-[10vh] uppercase leading-[90%] tracking-tighter text-[#092109] lg:text-[15vh] for main content
    For marquee: lg:text-12xl
 */
-.lg-text-12xl { /* Custom class to mimic lg:text-12xl if not standard tailwind */
-    font-size: 12rem; /* Example, adjust as per original design */
+.lg-text-12xl {
+    /* Custom class to mimic lg:text-12xl if not standard tailwind */
+    font-size: 12rem;
+    /* Example, adjust as per original design */
     line-height: 1;
 }
-@media (min-width: 1024px) { /* lg breakpoint */
+
+@media (min-width: 1024px) {
+
+    /* lg breakpoint */
     .lg-text-12xl-mq {
-        font-size: 12rem; /* Adjust to match original 12xl */
+        font-size: 12rem;
+        /* Adjust to match original 12xl */
     }
+
     .lg-text-15vh-mq {
         font-size: 15vh;
     }
 }
 
-.text-7xl { /* From footer mailto */
-    font-size: 5rem; /* Adjust based on actual rendering of 'text-7xl' */
+.text-7xl {
+    /* From footer mailto */
+    font-size: 5rem;
+    /* Adjust based on actual rendering of 'text-7xl' */
 }
 
 
@@ -280,30 +353,44 @@ body {
 
 .scroller-section {
     cursor: pointer;
-    overflow: hidden; /* Essential for the max-height transition and clipping marquee */
-    border-bottom: 1px solid rgba(0,0,0,0.2); /* Subtle separator between sections */
+    overflow: hidden;
+    /* Essential for the max-height transition and clipping marquee */
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+    /* Subtle separator between sections */
     /* Background color set by JS */
 }
 
 .scroller-visible-content {
-    display: flex; /* Aligns items if needed, but marquee-content handles layout */
+    display: flex;
+    /* Aligns items if needed, but marquee-content handles layout */
     align-items: center;
-    height: 130px; /* Taller bands for better spacing */
-    overflow: hidden; /* Crucial for the marquee effect within the band */
-    position: relative; /* For potential absolute positioning inside if needed */
-    min-height: 130px; /* Ensure consistent height across sections */
+    height: 130px;
+    /* Taller bands for better spacing */
+    overflow: hidden;
+    /* Crucial for the marquee effect within the band */
+    position: relative;
+    /* For potential absolute positioning inside if needed */
+    min-height: 130px;
+    /* Ensure consistent height across sections */
 }
 
 .marquee-content {
-    display: flex; /* Lays out marquee-items side-by-side */
-    white-space: nowrap; /* Prevents items from wrapping */
+    display: flex;
+    /* Lays out marquee-items side-by-side */
+    white-space: nowrap;
+    /* Prevents items from wrapping */
     /* animation: marqueeAnimation 35s linear infinite; /* Original animation line */
-    animation-name: marqueeAnimation; /* Keep name */
-    animation-timing-function: linear; /* Keep timing function */
-    animation-iteration-count: infinite; /* Keep iteration count */
+    animation-name: marqueeAnimation;
+    /* Keep name */
+    animation-timing-function: linear;
+    /* Keep timing function */
+    animation-iteration-count: infinite;
+    /* Keep iteration count */
     /* animation-duration will be set by JS */
-    will-change: transform; /* Performance hint for animation */
-    padding: 10px 0; /* Vertical padding for marquee items */
+    will-change: transform;
+    /* Performance hint for animation */
+    padding: 10px 0;
+    /* Vertical padding for marquee items */
 }
 
 
@@ -311,10 +398,12 @@ body {
     0% {
         transform: translateX(0%);
     }
+
     100% {
         /* If marqueeRepetitions = 4, then 100/4 = 25% */
         /* If marqueeRepetitions = N, then 100/N % */
-        transform: translateX(-25%); /* MODIFIED: This assumes marqueeRepetitions is 4 */
+        transform: translateX(-25%);
+        /* MODIFIED: This assumes marqueeRepetitions is 4 */
     }
 }
 
@@ -323,31 +412,45 @@ body {
 .marquee-item {
     display: flex;
     align-items: center;
-    padding: 0 60px; /* Increased spacing around each "Artist - Title RELEASE" unit */
-    margin: 0 40px; /* Margin between items for better spacing */
-    flex-shrink: 0; /* Prevent items from shrinking due to flex behavior */
-    gap: 20px; /* Space between main text and release tag */
-    justify-content: flex-start; /* Align items to the start */
+    padding: 0 60px;
+    /* Increased spacing around each "Artist - Title RELEASE" unit */
+    margin: 0 40px;
+    /* Margin between items for better spacing */
+    flex-shrink: 0;
+    /* Prevent items from shrinking due to flex behavior */
+    gap: 20px;
+    /* Space between main text and release tag */
+    justify-content: flex-start;
+    /* Align items to the start */
 }
 
 .main-text {
-    font-size: 3.5rem; /* Large text */
-    font-weight: 700; /* Adjusted for better hierarchy */
-    margin-right: 40px; /* Increased spacing before the release tag */
+    font-size: 3.5rem;
+    /* Large text */
+    font-weight: 700;
+    /* Adjusted for better hierarchy */
+    margin-right: 40px;
+    /* Increased spacing before the release tag */
     text-transform: uppercase;
-    letter-spacing: 0px; /* Removed negative letter spacing to avoid smushed text */
+    letter-spacing: 0px;
+    /* Removed negative letter spacing to avoid smushed text */
     /* Text color set by JS */
-    word-spacing: 5px; /* Add space between words */
+    word-spacing: 5px;
+    /* Add space between words */
 }
 
 .release-tag {
     padding: 10px 28px;
-    border-radius: 30px; /* Pill shape */
-    font-size: 1.4rem; /* Slightly smaller than main text */
-    font-weight: 700; /* Bold */
+    border-radius: 30px;
+    /* Pill shape */
+    font-size: 1.4rem;
+    /* Slightly smaller than main text */
+    font-weight: 700;
+    /* Bold */
     text-transform: uppercase;
     flex-shrink: 0;
-    line-height: 1; /* Ensure consistent height */
+    line-height: 1;
+    /* Ensure consistent height */
     /* Background and text color set by JS */
 }
 
@@ -355,6 +458,7 @@ body {
     0% {
         transform: translateX(0%);
     }
+
     100% {
         /* Assumes content is duplicated once (2 .marquee-item children in .marquee-content) */
         transform: translateX(-50%);
@@ -367,12 +471,14 @@ body {
     /* Background color will match the section's background */
     transition: max-height 0.6s ease-in-out, padding-top 0.6s ease-in-out, padding-bottom 0.6s ease-in-out, opacity 0.6s ease-in-out;
     opacity: 0;
-    padding: 0 40px; /* Horizontal padding consistent with .marquee-item */
+    padding: 0 40px;
+    /* Horizontal padding consistent with .marquee-item */
     box-sizing: border-box;
     display: flex;
     flex-wrap: wrap;
     align-items: center;
-    gap: 10px 15px; /* Row gap, Column gap */
+    gap: 10px 15px;
+    /* Row gap, Column gap */
 }
 
 /* Styling for the About Us content */
@@ -410,50 +516,63 @@ body {
 
 /* Add to your css/style.css */
 .links-prefix {
-    font-weight: 600; /* Or your desired font weight */
-    font-size: 1.2rem; /* Adjust as needed */
-    display: block; /* Takes full width before links */
+    font-weight: 600;
+    /* Or your desired font weight */
+    font-size: 1.2rem;
+    /* Adjust as needed */
+    display: block;
+    /* Takes full width before links */
     width: 100%;
-    margin-bottom: 10px; /* Space below prefix */
+    margin-bottom: 10px;
+    /* Space below prefix */
     /* color is set by JS to match data.textColor */
 }
 
 .scroller-expandable-content a {
-    margin: 0 5px 5px 0; /* Right and bottom margin for spacing */
+    margin: 0 5px 5px 0;
+    /* Right and bottom margin for spacing */
     padding: 5px 10px;
-    border: 1px solid currentColor; /* Uses parent's text color for border */
+    border: 1px solid currentColor;
+    /* Uses parent's text color for border */
     border-radius: 4px;
     text-decoration: none;
-    display: inline-block; /* Allows margin/padding and wraps nicely */
-    transition: background-color 0.2s ease, color 0.2s ease; /* Hover effect */
+    display: inline-block;
+    /* Allows margin/padding and wraps nicely */
+    transition: background-color 0.2s ease, color 0.2s ease;
+    /* Hover effect */
 }
 
 .scroller-expandable-content a:hover {
-    background-color: rgba(0,0,0,0.1); /* Example: subtle dark overlay on hover */
+    background-color: rgba(0, 0, 0, 0.1);
+    /* Example: subtle dark overlay on hover */
     /* Consider a text color change on hover if background significantly changes */
 }
 
 /* Ensure your .about-us-content p has appropriate text color for its background */
 .about-us-content p {
-  color: inherit; /* Or explicitly set if needed based on section.bgColor */
-  /* Other styles for about us paragraphs are already in your CSS */
+    color: inherit;
+    /* Or explicitly set if needed based on section.bgColor */
+    /* Other styles for about us paragraphs are already in your CSS */
 }
 
 .scroller-section-non-clickable {
-    cursor: default !important; /* Override the general cursor: pointer */
+    cursor: default !important;
+    /* Override the general cursor: pointer */
 }
 
 .nav-header-logo {
-  display: block;
-  height: 40px;   /* Default logo height */
-  width: auto;
-  max-width: 100%;
+    display: block;
+    height: 40px;
+    /* Default logo height */
+    width: auto;
+    max-width: 100%;
 }
 
 @media (min-width: 768px) {
-  .nav-header-logo {
-    height: 50px; /* Logo height on medium screens and up */
-  }
+    .nav-header-logo {
+        height: 50px;
+        /* Logo height on medium screens and up */
+    }
 }
 
 
@@ -468,41 +587,56 @@ body {
     left: 0;
     width: 100%;
     z-index: 98;
-    background-color: #FFA500; /* Orange Background */
-    border-bottom: 2px solid #231F20; /* Brand Black Border */
-    color: #231F20; /* Default text color for links */
-    padding-top: 10px;    /* Adjust for overall navbar thickness */
-    padding-bottom: 10px; /* Adjust for overall navbar thickness */
+    background-color: #FFA500;
+    /* Orange Background */
+    border-bottom: 2px solid #231F20;
+    /* Brand Black Border */
+    color: #231F20;
+    /* Default text color for links */
+    padding-top: 10px;
+    /* Adjust for overall navbar thickness */
+    padding-bottom: 10px;
+    /* Adjust for overall navbar thickness */
     box-sizing: border-box;
 }
 
 /* Wrapper for content within the navbar (logo, links, checker) */
 .custom-navbar-content-wrapper {
-    max-width: 1280px; /* Or your preferred max-width, like screen-xl */
+    max-width: 1280px;
+    /* Or your preferred max-width, like screen-xl */
     margin-left: auto;
     margin-right: auto;
-    padding-left: 16px;  /* Horizontal padding for content within nav */
-    padding-right: 16px; /* Horizontal padding for content within nav */
+    padding-left: 16px;
+    /* Horizontal padding for content within nav */
+    padding-right: 16px;
+    /* Horizontal padding for content within nav */
     display: flex;
-    align-items: center; /* Vertically align all items */
-    height: 100%; /* Ensure it tries to fill the parent's padding area */
+    align-items: center;
+    /* Vertically align all items */
+    height: 100%;
+    /* Ensure it tries to fill the parent's padding area */
 }
 
 /* Logo Area */
 .custom-navbar-logo-area {
-    flex-shrink: 0; /* Don't allow logo area to shrink */
+    flex-shrink: 0;
+    /* Don't allow logo area to shrink */
 }
 
-.nav-header-logo { /* Your existing class for the image itself */
-  display: block;
-  height: 40px;   /* Adjust for desired logo height */
-  width: auto;
-  max-width: 100%;
+.nav-header-logo {
+    /* Your existing class for the image itself */
+    display: block;
+    height: 40px;
+    /* Adjust for desired logo height */
+    width: auto;
+    max-width: 100%;
 }
+
 @media (min-width: 768px) {
-  .nav-header-logo {
-    height: 50px; /* Adjust for desktop logo height */
-  }
+    .nav-header-logo {
+        height: 50px;
+        /* Adjust for desktop logo height */
+    }
 }
 
 /* css/style.css */
@@ -526,11 +660,15 @@ body {
     left: 0;
     width: 100%;
     z-index: 98;
-    background-color: #FFA500; /* Orange Background */
-    border-bottom: 2px solid #231F20; /* Brand Black Border */
+    background-color: #FFA500;
+    /* Orange Background */
+    border-bottom: 2px solid #231F20;
+    /* Brand Black Border */
     color: #231F20;
-    padding-top: 8px;    /* Adjust for overall navbar thickness */
-    padding-bottom: 8px; /* Adjust for overall navbar thickness */
+    padding-top: 8px;
+    /* Adjust for overall navbar thickness */
+    padding-bottom: 8px;
+    /* Adjust for overall navbar thickness */
     box-sizing: border-box;
 }
 
@@ -543,7 +681,8 @@ body {
     padding-right: 16px;
     display: flex;
     align-items: center;
-    position: relative; /* For absolute positioning of mobile menu */
+    position: relative;
+    /* For absolute positioning of mobile menu */
     /* justify-content: space-between; /* We'll control spacing more granularly */
 }
 
@@ -554,79 +693,104 @@ body {
 }
 
 .nav-header-logo {
-  display: block;
-  height: 36px;   /* Slightly smaller default for mobile */
-  width: auto;
-  max-width: 100%;
+    display: block;
+    height: 36px;
+    /* Slightly smaller default for mobile */
+    width: auto;
+    max-width: 100%;
 }
 
 /* Mobile Menu Toggle Button */
 .custom-navbar-mobile-toggle {
-    background-color: #00C7C7; /* Teal background */
-    color: #231F20;           /* Black text */
+    background-color: #00C7C7;
+    /* Teal background */
+    color: #231F20;
+    /* Black text */
     border: 1px solid #231F20;
     border-radius: 9999px;
     padding: 6px 12px;
     font-size: 0.875rem;
     font-weight: 600;
     text-transform: uppercase;
-    margin-left: auto; /* Pushes button to the right of the logo */
-    display: block; /* Show on mobile */
+    margin-left: auto;
+    /* Pushes button to the right of the logo */
+    display: block;
+    /* Show on mobile */
     cursor: pointer;
-    z-index: 100; /* Ensure button is on top */
+    z-index: 100;
+    /* Ensure button is on top */
 }
 
 /* Container for menu items (links and checker pattern) */
 /* This is what we show/hide and style for mobile dropdown */
 .custom-navbar-menu-items-container {
-    display: none; /* Hidden by default for mobile-first approach */
-    flex-direction: column; /* Stack items vertically for mobile dropdown */
+    display: none;
+    /* Hidden by default for mobile-first approach */
+    flex-direction: column;
+    /* Stack items vertically for mobile dropdown */
     position: absolute;
-    top: 100%; /* Position below the navbar */
+    top: 100%;
+    /* Position below the navbar */
     left: 0;
     right: 0;
-    background-color: #FFA500; /* Orange background for dropdown */
-    border-top: 1px solid #231F20; /* Separator line */
-    padding: 10px 0; /* Padding for the dropdown area */
-    z-index: 99; /* Below toggle button, above page content */
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    background-color: #FFA500;
+    /* Orange background for dropdown */
+    border-top: 1px solid #231F20;
+    /* Separator line */
+    padding: 10px 0;
+    /* Padding for the dropdown area */
+    z-index: 99;
+    /* Below toggle button, above page content */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 .custom-navbar-menu-items-container.active {
-    display: flex; /* Show when active */
+    display: flex;
+    /* Show when active */
 }
 
 /* Desktop Navigation Links Container (inside menu-items-container) */
 .custom-navbar-links {
-    display: flex; /* Always flex for internal link layout */
-    flex-direction: column; /* Stack links vertically on mobile dropdown */
-    align-items: center; /* Center links in mobile dropdown */
+    display: flex;
+    /* Always flex for internal link layout */
+    flex-direction: column;
+    /* Stack links vertically on mobile dropdown */
+    align-items: center;
+    /* Center links in mobile dropdown */
     width: 100%;
 }
 
 .custom-navbar-links a.nav-link {
-    font-size: 1rem; /* Larger font for mobile tap targets */
+    font-size: 1rem;
+    /* Larger font for mobile tap targets */
     font-weight: 600;
     text-decoration: none;
     color: #231F20;
-    padding: 10px 20px; /* Generous padding for tap targets */
-    display: block; /* Make links take full width for easier tapping */
+    padding: 10px 20px;
+    /* Generous padding for tap targets */
+    display: block;
+    /* Make links take full width for easier tapping */
     width: 100%;
     text-align: center;
-    border-bottom: 1px solid rgba(35, 31, 32, 0.1); /* Subtle separator */
+    border-bottom: 1px solid rgba(35, 31, 32, 0.1);
+    /* Subtle separator */
 }
+
 .custom-navbar-links a.nav-link:last-child {
     border-bottom: none;
 }
 
 .custom-navbar-links a.nav-link:hover {
-    text-decoration: none; /* No underline needed for block links */
-    background-color: rgba(35, 31, 32, 0.05); /* Subtle hover */
+    text-decoration: none;
+    /* No underline needed for block links */
+    background-color: rgba(35, 31, 32, 0.05);
+    /* Subtle hover */
 }
 
 /* Checker Pattern Area (inside menu-items-container) */
 .custom-navbar-checker-pattern {
-    display: none; /* Generally hidden on mobile dropdown, and on desktop until md breakpoint */
+    display: none;
+    /* Generally hidden on mobile dropdown, and on desktop until md breakpoint */
     /* Desktop styles for checker will be in the media query */
 }
 
@@ -634,54 +798,71 @@ body {
 /* --- Desktop Layout Adjustments (md breakpoint: 768px) --- */
 @media (min-width: 768px) {
     .nav-header-logo {
-      height: 50px; /* Desktop logo height */
+        height: 50px;
+        /* Desktop logo height */
     }
 
     .custom-navbar-mobile-toggle {
-        display: none; /* Hide mobile toggle on desktop */
+        display: none;
+        /* Hide mobile toggle on desktop */
     }
 
     /* Show and style the menu items container for desktop */
     .custom-navbar-menu-items-container {
-        display: flex !important; /* Override display:none, ensure it's flex */
-        flex-direction: row; /* Arrange items horizontally on desktop */
-        position: static;    /* Not absolutely positioned on desktop */
-        background-color: transparent; /* No separate background needed on desktop */
+        display: flex !important;
+        /* Override display:none, ensure it's flex */
+        flex-direction: row;
+        /* Arrange items horizontally on desktop */
+        position: static;
+        /* Not absolutely positioned on desktop */
+        background-color: transparent;
+        /* No separate background needed on desktop */
         border-top: none;
         padding: 0;
         box-shadow: none;
-        margin-left: auto; /* Push the whole block (links + checker) to the right of logo */
-        align-items: center; /* Vertically align links and checker */
+        margin-left: auto;
+        /* Push the whole block (links + checker) to the right of logo */
+        align-items: center;
+        /* Vertically align links and checker */
     }
 
     .custom-navbar-links {
-        flex-direction: row; /* Links side-by-side on desktop */
+        flex-direction: row;
+        /* Links side-by-side on desktop */
         align-items: center;
-        width: auto; /* Don't take full width on desktop */
+        width: auto;
+        /* Don't take full width on desktop */
         /* margin-right: 24px; /* Space before checker pattern */
     }
 
     .custom-navbar-links a.nav-link {
-        font-size: 0.875rem; /* text-sm for desktop */
-        padding: 0 12px; /* Horizontal padding between links */
+        font-size: 0.875rem;
+        /* text-sm for desktop */
+        padding: 0 12px;
+        /* Horizontal padding between links */
         width: auto;
-        border-bottom: none; /* No borders between links on desktop */
+        border-bottom: none;
+        /* No borders between links on desktop */
     }
+
     .custom-navbar-links a.nav-link:hover {
         text-decoration: underline;
         background-color: transparent;
     }
 
     .custom-navbar-checker-pattern {
-        display: block; /* Show checker pattern on desktop */
+        display: block;
+        /* Show checker pattern on desktop */
         width: 100px;
         background-color: #231F20;
         background-image: url('../static/checker.svg');
         background-size: 1.5vmin 1.5vmin;
         flex-shrink: 0;
         align-self: stretch;
-        min-height: 40px; /* Or match logo height */
-        margin-left: 24px; /* Space after links, before checker */
+        min-height: 40px;
+        /* Or match logo height */
+        margin-left: 24px;
+        /* Space after links, before checker */
     }
 }
 
@@ -700,14 +881,15 @@ body {
 }
 
 .footer-content-area {
-    background-color: #00C7C7; /* Teal background */
+    background-color: #00C7C7;
+    /* Teal background */
     color: #231F20;
-    padding: 25px; 
+    padding: 25px;
     display: flex;
-    flex-wrap: wrap; 
+    flex-wrap: wrap;
     align-items: center;
     justify-content: space-between;
-    gap: 20px 25px; 
+    gap: 20px 25px;
 }
 
 /* Contact Us & Email group */
@@ -754,23 +936,28 @@ body {
 /* NEW: Modifier class to make the Instagram widget WHITE */
 .insta-widget {
     background-color: #fff;
-    justify-content: flex-start; /* Align content to the left */
+    justify-content: flex-start;
+    /* Align content to the left */
 }
 
 /* MODIFIED: Now also handles layout for icon + text */
 .footer-social-icon {
-    display: flex; /* Use flex to align icon and text */
+    display: flex;
+    /* Use flex to align icon and text */
     align-items: center;
-    gap: 15px; /* Space between icon and text block */
+    gap: 15px;
+    /* Space between icon and text block */
     text-decoration: none;
-    color: #231F20; /* Default text color for inside the link */
+    color: #231F20;
+    /* Default text color for inside the link */
 }
 
 .footer-social-icon svg {
     width: 50px;
     height: 50px;
     display: block;
-    flex-shrink: 0; /* Prevent icon from shrinking */
+    flex-shrink: 0;
+    /* Prevent icon from shrinking */
 }
 
 .footer-social-icon:hover {
@@ -795,7 +982,8 @@ body {
 .widget-followers {
     font-size: 1rem;
     font-weight: 400;
-    color: #555; /* A slightly softer black/grey */
+    color: #555;
+    /* A slightly softer black/grey */
 }
 
 /* Styles for the YouTube container (no change needed) */
@@ -817,28 +1005,34 @@ body {
 .footer-copyright div {
     margin-bottom: 4px;
 }
+
 .footer-copyright div:last-child {
     margin-bottom: 0;
 }
 
 /* Responsive adjustments */
-@media (max-width: 1250px) { /* Adjust breakpoint as needed */
+@media (max-width: 1250px) {
+
+    /* Adjust breakpoint as needed */
     .footer-content-area {
-        justify-content: center; /* Center items when they start to wrap */
+        justify-content: center;
+        /* Center items when they start to wrap */
     }
 }
 
 @media (max-width: 768px) {
     .footer-content-area {
         flex-direction: column;
-        align-items: center; 
+        align-items: center;
         text-align: center;
         padding: 20px 15px;
     }
+
     .footer-contact-group,
     .footer-copyright {
         text-align: center;
     }
+
     .footer-copyright {
         margin-top: 10px;
     }
@@ -846,9 +1040,11 @@ body {
 
 
 @media (min-width: 768px) {
+
     /* ... other styles ... */
     .custom-navbar-checker-pattern {
-        display: block; /* Or its original display type */
+        display: block;
+        /* Or its original display type */
         width: 100px;
         background-color: #231F20;
         background-image: url('../static/checker.svg');
@@ -862,7 +1058,8 @@ body {
 }
 
 .header-pattern-column {
-    position: relative; /* This is crucial for positioning children */
+    position: relative;
+    /* This is crucial for positioning children */
 }
 
 .header-pattern-column::before {
@@ -872,13 +1069,14 @@ body {
     left: 0;
     right: 0;
     bottom: 0;
-    z-index: 1; /* Place it in the background */
+    z-index: 1;
+    /* Place it in the background */
     background-color: #f8ff7b;
     -webkit-mask-image: url('../static/pattern-c.svg');
     mask-image: url('../static/pattern-c.svg');
     mask-repeat: repeat;
     /* Apply the blend mode ONLY to this pseudo-element */
-    mix-blend-mode: difference; 
+    mix-blend-mode: difference;
 }
 
 /* ===== START: MODIFICATION ===== */
@@ -888,23 +1086,26 @@ body {
     bottom: 0;
     left: 45%;
     transform: translateX(-50%);
-    width: 100px; /* Base size for mobile */
+    width: 100px;
+    /* Base size for mobile */
     height: auto;
-    z-index: 2; /* Sits on top of the ::before pseudo-element */
-    
+    z-index: 2;
+    /* Sits on top of the ::before pseudo-element */
+
     /* This filter makes the character a solid black silhouette */
     filter: brightness(0);
 }
 
 @media (min-width: 768px) {
     .dancing-char-gif {
-        width: 150px; /* Larger size for desktop */
+        width: 150px;
+        /* Larger size for desktop */
     }
 }
 
 @media (max-width: 767px) {
     .dancing-char-gif {
- transform: translateX(calc(-50% + 10px));
+        transform: translateX(calc(-50% + 10px));
     }
 }
 
@@ -913,15 +1114,17 @@ body {
 #sticky-visualizer {
     position: fixed;
     z-index: 50;
-    
+
     /* --- ALIGNMENT CONTROL --- */
     top: 55%;
-    right: 1.5vw; /* <-- MOVED TO THE RIGHT. A smaller number moves it right. Try 1vw or 2vw. */
+    right: 1.5vw;
+    /* <-- MOVED TO THE RIGHT. A smaller number moves it right. Try 1vw or 2vw. */
     transform: translateY(-50%);
 
     /* Sizing - Massively taller to fit all 80 bars */
     width: 90px;
-    height: 800px; /* <-- KEY CHANGE: Matches the new SVG height */
+    height: 800px;
+    /* <-- KEY CHANGE: Matches the new SVG height */
 
     /* Hide on smaller screens */
     display: none;
@@ -941,86 +1144,116 @@ body {
 }
 
 /* Color rules (These are unchanged and will cycle through all 80 bars) */
-.visualizer-bar:nth-child(5n + 1) { fill: #FF2C84; }
-.visualizer-bar:nth-child(5n + 2) { fill: #00C7C7; }
-.visualizer-bar:nth-child(5n + 3) { fill: #FFDD4A; }
-.visualizer-bar:nth-child(5n + 4) { fill: #FFFFFF; }
-.visualizer-bar:nth-child(5n + 5) { fill: #231F20; }
+.visualizer-bar:nth-child(5n + 1) {
+    fill: #FF2C84;
+}
+
+.visualizer-bar:nth-child(5n + 2) {
+    fill: #00C7C7;
+}
+
+.visualizer-bar:nth-child(5n + 3) {
+    fill: #FFDD4A;
+}
+
+.visualizer-bar:nth-child(5n + 4) {
+    fill: #FFFFFF;
+}
+
+.visualizer-bar:nth-child(5n + 5) {
+    fill: #231F20;
+}
 
 
 
 
 .header-col-logo {
-  flex: 1.8;
+    flex: 1.8;
 }
+
 .header-col-pattern {
-  flex: 1.5;
+    flex: 1.5;
 }
+
 .header-col-gradient {
-  flex: 0.3;
+    flex: 0.3;
 }
 
 
 @media (max-width: 767px) {
-  .header-col-logo {
-    flex: 3.5; /* Make the GIF column smaller on mobile */
-  }
-  .header-col-pattern {
-    flex: 2; /* Make the pattern column larger to fill the space */
-  }
+    .header-col-logo {
+        flex: 3.5;
+        /* Make the GIF column smaller on mobile */
+    }
+
+    .header-col-pattern {
+        flex: 2;
+        /* Make the pattern column larger to fill the space */
+    }
 }
 
 
 @media (max-width: 767px) {
-  #white-circle {
-    right: 5vw!important; /* Adjusted to move the white circle off-screen on mobile */
-  }
+    #white-circle {
+        right: 5vw !important;
+        /* Adjusted to move the white circle off-screen on mobile */
+    }
 }
 
 .music-for-the-soul-text {
-  font-size: 1.15rem; /* Example: A custom size between lg and xl. */
+    font-size: 1.15rem;
+    /* Example: A custom size between lg and xl. */
 }
 
 /* 2. Desktop Override */
 /* This media query targets screens 768px wide and larger (Tailwind's 'md' breakpoint) */
 @media (min-width: 768px) {
-  .music-for-the-soul-text {
-    font-size: 3rem; /* This replicates the original md:text-5xl */
-  }
+    .music-for-the-soul-text {
+        font-size: 3rem;
+        /* This replicates the original md:text-5xl */
+    }
 }
 
 /* ===== START: MODIFICATION 2 ===== */
 /* Responsive Center alignment for static titles */
 
 /* Base centering for the container (applies always) */
- .scroller-visible-content.static-title-section {
-     justify-content: center;
- }
+.scroller-visible-content.static-title-section {
+    justify-content: center;
+}
 
 /* MOBILE-FIRST: Text styles (font-size, etc.) */
- .scroller-visible-content.static-title-section .main-text {
-     margin-right: 0;      /* Removes leftover margin */
-     text-align: center;   /* Centers the text */
-     font-size: 2.8rem;    /* REDUCED: Smaller font size to fit on one line on mobile */
-     line-height: normal;
- }
+.scroller-visible-content.static-title-section .main-text {
+    margin-right: 0;
+    /* Removes leftover margin */
+    text-align: center;
+    /* Centers the text */
+    font-size: 2.8rem;
+    /* REDUCED: Smaller font size to fit on one line on mobile */
+    line-height: normal;
+}
 
- /* Ensure the line-break span does NOT force a new line on any screen size */
-  .scroller-visible-content.static-title-section .main-text .line-break {
-      display: inline; /* This keeps it on the same line as the text before it */
-  }
+/* Ensure the line-break span does NOT force a new line on any screen size */
+.scroller-visible-content.static-title-section .main-text .line-break {
+    display: inline;
+    /* This keeps it on the same line as the text before it */
+}
 
 
- /* DESKTOP OVERRIDE: Styles for screens 768px and wider */
-  @media (min-width: 768px) {
-       /* Restore the larger font size for desktop */
-      .scroller-visible-content.static-title-section .main-text {
-          font-size: 3.8rem; /* Restore original larger font size for desktop */
-          white-space: nowrap; /* Ensure text never wraps accidentally on desktop */
-       }
-  }
+/* DESKTOP OVERRIDE: Styles for screens 768px and wider */
+@media (min-width: 768px) {
+
+    /* Restore the larger font size for desktop */
+    .scroller-visible-content.static-title-section .main-text {
+        font-size: 3.8rem;
+        /* Restore original larger font size for desktop */
+        white-space: nowrap;
+        /* Ensure text never wraps accidentally on desktop */
+    }
+}
+
 /* ===== END: MODIFICATION 2 ===== */
-  
+
 
 #sticky-visualizer {
     z-index: 10;
@@ -1038,6 +1271,7 @@ body {
 
 @media (max-width: 767px) {
     .header-gradient-column {
-        display: none !important; /* MODIFIED: Added !important to override the inline style */
+        display: none !important;
+        /* MODIFIED: Added !important to override the inline style */
     }
 }

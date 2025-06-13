@@ -122,14 +122,14 @@ document.addEventListener('DOMContentLoaded', () => {
         },
         // Scroller 9: Current Releases (Title - no release tag)
         {
-   id: 'section9',
-    // CHANGE: use <span> with space, instead of <br>
-   mainText: 'Current <span class="line-break">Releases</span>', 
-   bgColor: hotPink,
-   textColor: brandBlack,
-   isClickable: false, // <-- ADD THIS LINE
-    //... rest of object
-},
+            id: 'section9',
+            // CHANGE: use <span> with space, instead of <br>
+            mainText: 'Current <span class="line-break">Releases</span>',
+            bgColor: hotPink,
+            textColor: brandBlack,
+            isClickable: false, // <-- ADD THIS LINE
+            //... rest of object
+        },
 
         // Scroller 10: Song One (Released)
         {
