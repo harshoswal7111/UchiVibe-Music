@@ -862,14 +862,23 @@ body {
 }
 
 .header-pattern-column {
+    position: relative; /* This is crucial for positioning children */
+}
+
+.header-pattern-column::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1; /* Place it in the background */
     background-color: #f8ff7b;
     -webkit-mask-image: url('../static/pattern-c.svg');
     mask-image: url('../static/pattern-c.svg');
-    -webkit-mask-size: auto;
-    mask-size: auto;
-    -webkit-mask-repeat: repeat;
     mask-repeat: repeat;
-    position: relative;
+    /* Apply the blend mode ONLY to this pseudo-element */
+    mix-blend-mode: difference; 
 }
 
 /* ===== START: MODIFICATION ===== */
@@ -877,14 +886,14 @@ body {
 .dancing-char-gif {
     position: absolute;
     bottom: 0;
-    left: 10px;
+    left: 45%;
+    transform: translateX(-50%);
     width: 100px; /* Base size for mobile */
     height: auto;
-    z-index: 10;
+    z-index: 2; /* Sits on top of the ::before pseudo-element */
     
-    /* ADDED: These two lines will create the black silhouette effect */
+    /* This filter makes the character a solid black silhouette */
     filter: brightness(0);
-    mix-blend-mode: normal;
 }
 
 @media (min-width: 768px) {
