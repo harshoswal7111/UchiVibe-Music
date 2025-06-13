@@ -28,13 +28,14 @@ document.addEventListener('DOMContentLoaded', () => {
         },
         // Scroller 2: Upcoming Releases (Title - no release tag)
         {
-           id: 'section2',
+            id: 'section2',
             // CHANGE: use <span> with space, instead of <br>
-           mainText: 'Upcoming <span class="line-break">Releases</span>', 
-           bgColor: teal,
-           textColor: brandBlack,
-          //... rest of object
-       },
+            mainText: 'Upcoming <span class="line-break">Releases</span>',
+            bgColor: teal,
+            textColor: brandBlack,
+            isClickable: false, // <-- ADD THIS LINE
+            //... rest of object
+        },
         // Scroller 3: Raatein Halatein (Upcoming Song)
         {
             id: 'section3',
@@ -45,7 +46,7 @@ document.addEventListener('DOMContentLoaded', () => {
             releaseTagBgColor: brandOrange, // CHANGED
             releaseTagTextColor: brandBlack, // CHANGED (or keep sunshineYellow if preferred for this specific one)
             linksPrefix: 'release date:',
-            links: [ { text: '20 JULY 2025', url: '#' } ],
+            links: [{ text: '20 JULY 2025', url: '#' }],
             isClickable: true,
             scrollDirection: 'normal'
         },
@@ -59,7 +60,7 @@ document.addEventListener('DOMContentLoaded', () => {
             releaseTagBgColor: brandOrange, // CHANGED
             releaseTagTextColor: brandBlack, // CHANGED
             linksPrefix: 'release date:',
-            links: [ { text: '20 JULY 2025', url: '#' } ],
+            links: [{ text: '20 JULY 2025', url: '#' }],
             isClickable: true,
             scrollDirection: 'reverse'
         },
@@ -73,7 +74,7 @@ document.addEventListener('DOMContentLoaded', () => {
             releaseTagBgColor: brandOrange, // CHANGED
             releaseTagTextColor: brandBlack, // CHANGED
             linksPrefix: 'release date:',
-            links: [ { text: '20 JULY 2025', url: '#' } ],
+            links: [{ text: '20 JULY 2025', url: '#' }],
             isClickable: true,
             scrollDirection: 'normal'
         },
@@ -87,7 +88,7 @@ document.addEventListener('DOMContentLoaded', () => {
             releaseTagBgColor: brandOrange, // CHANGED
             releaseTagTextColor: brandBlack, // CHANGED
             linksPrefix: 'release date:',
-            links: [ { text: '20 JULY 2025', url: '#' } ],
+            links: [{ text: '20 JULY 2025', url: '#' }],
             isClickable: true,
             scrollDirection: 'reverse'
         },
@@ -101,7 +102,7 @@ document.addEventListener('DOMContentLoaded', () => {
             releaseTagBgColor: brandOrange, // CHANGED
             releaseTagTextColor: brandBlack, // CHANGED
             linksPrefix: 'release date:',
-            links: [ { text: '20 JULY 2025', url: '#' } ],
+            links: [{ text: '20 JULY 2025', url: '#' }],
             isClickable: true,
             scrollDirection: 'normal'
         },
@@ -115,20 +116,21 @@ document.addEventListener('DOMContentLoaded', () => {
             releaseTagBgColor: brandOrange, // CHANGED
             releaseTagTextColor: brandBlack, // CHANGED
             linksPrefix: 'release date:',
-            links: [ { text: '20 JULY 2025', url: '#' } ],
+            links: [{ text: '20 JULY 2025', url: '#' }],
             isClickable: true,
             scrollDirection: 'reverse'
         },
         // Scroller 9: Current Releases (Title - no release tag)
-         {
-           id: 'section9',
-            // CHANGE: use <span> with space, instead of <br>
-           mainText: 'Current <span class="line-break">Releases</span>', 
-           bgColor: hotPink,
-           textColor: brandBlack,
-            //... rest of object
-       },
-   
+        {
+   id: 'section9',
+    // CHANGE: use <span> with space, instead of <br>
+   mainText: 'Current <span class="line-break">Releases</span>', 
+   bgColor: hotPink,
+   textColor: brandBlack,
+   isClickable: false, // <-- ADD THIS LINE
+    //... rest of object
+},
+
         // Scroller 10: Song One (Released)
         {
             id: 'section10',
@@ -185,17 +187,17 @@ document.addEventListener('DOMContentLoaded', () => {
         const isStaticTitle = (data.id === 'section2' || data.id === 'section9');
 
         if (isStaticTitle) {
-        // It's a static title, so we center it and don't use the marquee
-        visibleContent.classList.add('static-title-section');
+            // It's a static title, so we center it and don't use the marquee
+            visibleContent.classList.add('static-title-section');
 
-        const mainTextSpan = document.createElement('span');
-        mainTextSpan.classList.add('main-text');
-        // MODIFIED: Use innerHTML to render the <br> tag correctly
-        mainTextSpan.innerHTML = data.mainText; 
-        mainTextSpan.style.color = data.textColor;
-        visibleContent.appendChild(mainTextSpan);
+            const mainTextSpan = document.createElement('span');
+            mainTextSpan.classList.add('main-text');
+            // MODIFIED: Use innerHTML to render the <br> tag correctly
+            mainTextSpan.innerHTML = data.mainText;
+            mainTextSpan.style.color = data.textColor;
+            visibleContent.appendChild(mainTextSpan);
 
-    }else {
+        } else {
             // It's a regular scrolling marquee
             const marqueeContent = document.createElement('div');
             marqueeContent.classList.add('marquee-content');
@@ -313,7 +315,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const navLinks = document.querySelectorAll('.nav-link');
     navLinks.forEach(link => {
-        link.addEventListener('click', function(event) {
+        link.addEventListener('click', function (event) {
             event.preventDefault();
             const targetScrollerId = this.dataset.targetScroller;
             const targetSectionElement = document.getElementById(targetScrollerId);
@@ -325,9 +327,9 @@ document.addEventListener('DOMContentLoaded', () => {
                     const visibleContentOfTarget = targetSectionElement.querySelector('.scroller-visible-content');
                     if (visibleContentOfTarget) {
                         if (!targetSectionElement.classList.contains('expanded')) {
-                           setTimeout(() => {
-                               visibleContentOfTarget.click();
-                           }, 300);
+                            setTimeout(() => {
+                                visibleContentOfTarget.click();
+                            }, 300);
                         }
                     }
                 }
@@ -368,14 +370,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
             const scrollableHeight = document.documentElement.scrollHeight - window.innerHeight;
             const scrollProgress = scrollableHeight > 0 ? (window.scrollY / scrollableHeight) : 0;
-            
+
             bars.forEach((bar, index) => {
                 // The wave calculation remains the same, producing values from -1 to 1
                 const wave = Math.sin(scrollProgress * 15 + index * 1.5);
                 // The width calculation now scales based on the responsive maxBarWidth
                 const widthPercent = (wave + 1) / 2; // Normalize wave to 0-1 range
                 const newWidth = minBarWidth + (widthPercent * maxBarWidth);
-                
+
                 bar.style.width = `${newWidth}px`;
             });
         };
@@ -388,7 +390,7 @@ document.addEventListener('DOMContentLoaded', () => {
         window.addEventListener('resize', () => {
             window.requestAnimationFrame(animateBars);
         });
-        
+
         // Initial animation call
         animateBars();
     }
