@@ -157,9 +157,9 @@ document.addEventListener('DOMContentLoaded', () => {
             textColor: brandBlack,
             linksPrefix: null,
             links: [
-                { text: 'Mail Us', url: 'mailto:connect@uchivibe.com' },
-                { text: 'Press', url: 'mailto:press@uchivibe.com' },
-                { text: 'Talent', url: 'mailto:aurahunt@uchivibe.com' },
+                { text: 'Mail Us', url: 'mailto:connect@uchivibemusic.com' },
+                { text: 'Press', url: 'mailto:press@uchivibemusic.com' },
+                { text: 'Talent', url: 'mailto:aurahunt@uchivibemusic.com' },
             ],
             isClickable: true,
             scrollDirection: 'normal'
