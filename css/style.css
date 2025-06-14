@@ -870,6 +870,8 @@ body {
 .custom-footer {
     width: 100%;
     border-bottom: 6px solid #231F20;
+    position: relative;
+    z-index: 45;
 }
 
 .footer-checkerboard-top {
@@ -1273,5 +1275,16 @@ body {
     .header-gradient-column {
         display: none !important;
         /* MODIFIED: Added !important to override the inline style */
+    }
+}
+
+@media (max-height: 500px) and (orientation: landscape) {
+    .header-gradient-column {
+        display: none !important;
+    }
+
+    /* ADD THIS PART to hide the circle */
+    #white-circle {
+        right: 12vw !important
     }
 }
