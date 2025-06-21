@@ -836,9 +836,9 @@ body {
     }
 
     .custom-navbar-links a.nav-link {
-        font-size: 0.875rem;
+        font-size: 1.125rem;
         /* text-sm for desktop */
-        padding: 0 12px;
+        padding: 0 16px;
         /* Horizontal padding between links */
         width: auto;
         border-bottom: none;
@@ -1042,7 +1042,10 @@ body {
 
 
 @media (min-width: 768px) {
-
+.custom-navbar {
+        padding-top: 16px;    /* Increased from 8px. Adjust to your liking. */
+        padding-bottom: 16px; /* Increased from 8px. Adjust to your liking. */
+    }
     /* ... other styles ... */
     .custom-navbar-checker-pattern {
         display: block;
