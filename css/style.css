@@ -672,7 +672,6 @@ body {
     box-sizing: border-box;
 }
 
-/* Wrapper for content within the navbar (logo, links, checker) */
 .custom-navbar-content-wrapper {
     max-width: 1280px;
     margin-left: auto;
@@ -682,14 +681,15 @@ body {
     display: flex;
     align-items: center;
     position: relative;
-    /* For absolute positioning of mobile menu */
-    /* justify-content: space-between; /* We'll control spacing more granularly */
+    justify-content: space-between; /* ADDED: Pushes items to opposite ends */
+    flex-direction: row-reverse;    /* ADDED: Reverses the order of items */
 }
 
 /* Logo Area */
 .custom-navbar-logo-area {
     flex-shrink: 0;
     /* z-index: 10; /* Ensure logo is above mobile menu if it overlaps */
+    
 }
 
 .nav-header-logo {
@@ -712,7 +712,6 @@ body {
     font-size: 0.875rem;
     font-weight: 600;
     text-transform: uppercase;
-    margin-left: auto;
     /* Pushes button to the right of the logo */
     display: block;
     /* Show on mobile */
@@ -810,20 +809,15 @@ body {
     /* Show and style the menu items container for desktop */
     .custom-navbar-menu-items-container {
         display: flex !important;
-        /* Override display:none, ensure it's flex */
-        flex-direction: row;
-        /* Arrange items horizontally on desktop */
-        position: static;
-        /* Not absolutely positioned on desktop */
-        background-color: transparent;
-        /* No separate background needed on desktop */
-        border-top: none;
-        padding: 0;
-        box-shadow: none;
-        margin-left: auto;
-        /* Push the whole block (links + checker) to the right of logo */
-        align-items: center;
-        /* Vertically align links and checker */
+    flex-direction: row-reverse; /* <-- CHANGED from 'row' */
+    position: static;
+    background-color: transparent;
+    border-top: none;
+    padding: 0;
+    box-shadow: none;
+    /* REMOVED margin-left: auto; */
+    align-items: center;
+    margin-right: 24px; /* <-- ADDED for spacing */
     }
 
     .custom-navbar-links {
@@ -1046,10 +1040,49 @@ body {
         padding-top: 16px;    /* Increased from 8px. Adjust to your liking. */
         padding-bottom: 16px; /* Increased from 8px. Adjust to your liking. */
     }
-    /* ... other styles ... */
+
+     .custom-navbar-content-wrapper {
+        justify-content: space-between; /* Pushes children to opposite ends */
+        flex-direction: row-reverse;    /* KEY: Reverses the order of children */
+    }
+
+    .custom-navbar-mobile-toggle {
+        display: none;
+    }
+     .custom-navbar-menu-items-container {
+        display: flex !important;
+        flex-direction: row-reverse; /* Flips checker and links to correct order */
+        position: static;
+        background-color: transparent;
+        border-top: none;
+        padding: 0;
+        box-shadow: none;
+        align-items: center;
+        margin: 0; /* Clear any leftover margins */
+    }
+
+    /* 5. Style the individual links */
+    .custom-navbar-links {
+        flex-direction: row;
+        align-items: center;
+        width: auto;
+    }
+
+    .custom-navbar-links a.nav-link {
+        font-size: 1.125rem; /* Larger font size */
+        padding: 0 16px;     /* More space between links */
+        width: auto;
+        border-bottom: none;
+    }
+
+    .custom-navbar-links a.nav-link:hover {
+        text-decoration: underline;
+        background-color: transparent;
+    }
+
+    /* 6. Style the checker pattern */
     .custom-navbar-checker-pattern {
         display: block;
-        /* Or its original display type */
         width: 100px;
         background-color: #231F20;
         background-image: url('../static/checker.svg');
@@ -1057,9 +1090,9 @@ body {
         flex-shrink: 0;
         align-self: stretch;
         min-height: 40px;
-        margin-left: 24px;
-        /* Ensure no flex centering properties here if they were only for the icon */
+        margin-left: 24px; /* Space between checker and links */
     }
+
 }
 
 .header-pattern-column {
