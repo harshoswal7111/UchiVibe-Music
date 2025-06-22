@@ -700,6 +700,10 @@ body {
     max-width: 100%;
 }
 
+.logo-section{
+    background: #FFA500;
+}
+
 /* Mobile Menu Toggle Button */
 .custom-navbar-mobile-toggle {
     background-color: #00C7C7;
