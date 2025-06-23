@@ -35,7 +35,7 @@ document.addEventListener('DOMContentLoaded', () => {
             aboutUsText: "We don't chase trends. We discover moments. Could your track be the next one?\n\nNext up? Might be you.",
             links: [{
                 // MODIFIED: Button text updated
-                text: 'SUBMIT YOUR DEMO',
+                text: 'Discovery Form',
                 url: 'https://docs.google.com/forms/d/e/1FAIpQLScNjMldLsDTSAq9mUBsLd9IRnO6MxCasVmfGhYO_m2ehhH45g/viewform?usp=header',
                 isButton: true
             }],
@@ -147,14 +147,16 @@ document.addEventListener('DOMContentLoaded', () => {
             mainText: 'Chand Da Tukda',
             bgColor: teal,
             textColor: brandWhite,
-            releaseTagText: 'RELEASED',
+            releaseTagText: 'Single Release',
             releaseTagBgColor: brandOrange,
             releaseTagTextColor: brandBlack,
             linksPrefix: 'Streaming On:',
             links: [
-                { text: 'Spotify', url: '#' },
-                { text: 'Jio Music', url: '#' },
-                { text: 'Gaana', url: '#' }
+                { text: 'Spotify', url: 'https://open.spotify.com/track/5zEf3LAM3zCdffpgiQkJZW' },
+                { text: 'YouTube', url: 'https://www.youtube.com/watch?v=DrKF1gPQEP4' },
+                { text: 'JioSaavn', url: 'https://www.jiosaavn.com/album/chand-da-tukda-feat.-dipessh-kashyap/G7tKAK8mL8E_' },
+                { text: 'Gaana', url: 'https://gaana.com/song/chand-da-tukda-feat-dipessh-kashyap' },
+                { text: 'Apple Music', url: 'https://music.apple.com/us/album/chand-da-tukda-feat-dipessh-kashyap-single/1767809809' }
             ],
             isClickable: true,
             scrollDirection: 'reverse'
@@ -163,16 +165,15 @@ document.addEventListener('DOMContentLoaded', () => {
         // "Uchi Artist Wall" Section
         {
             id: 'sectionArtistWall',
-            mainText: 'Uchi Artist Wall',
+            mainText: 'UVM Artist Wall',
             bgColor: hotPink,
             textColor: brandBlack,
             linksPrefix: 'Our Artists:',
             links: [
-                { text: 'Artist One', url: 'https://open.spotify.com' },
-                { text: 'Artist Two', url: 'https://open.spotify.com' },
-                { text: 'Artist Three', url: 'https://open.spotify.com' },
-                { text: 'Another Artist Name', url: 'https://open.spotify.com' },
-                { text: 'And Another', url: 'https://open.spotify.com' },
+                { text: 'Hritik Dutta', url: 'https://www.instagram.com/hritik.ep?igsh=OHRocjJvZXN4NzV0' },
+                { text: 'Tushar Joshi', url: 'https://www.instagram.com/tusharjoshiii?igsh=MTBnbmQ3NHI3azJ5cw==' },
+                { text: 'Dipesh Kashyap', url: 'https://www.instagram.com/dipesshkashyap?igsh=YTIydmppZXh3MGlm' },
+                { text: 'Hriday Gattani', url: 'https://www.instagram.com/hridaygattani?igsh=MXI2bzZqazR0dDR6Nw==' }
             ],
             isClickable: true,
             scrollDirection: 'normal'
@@ -253,9 +254,7 @@ document.addEventListener('DOMContentLoaded', () => {
         // --- ADDED LOGIC FOR CUSTOM LAYOUT ---
         if (data.customLayout) {
             expandableContent.classList.add(data.customLayout);
-        }
-
-        if (data.isClickable !== false && data.aboutUsText) {
+        }        if (data.isClickable !== false && data.aboutUsText) {
             const aboutUsContainer = document.createElement('div');
             aboutUsContainer.classList.add('about-us-content');
             // MODIFIED: Use the section's main text color for the paragraphs for readability
@@ -267,33 +266,62 @@ document.addEventListener('DOMContentLoaded', () => {
                     aboutUsContainer.appendChild(p);
                 }
             });
+            
+            // For 'Next Up' section, append the button inside the text container
+            if (data.customLayout === 'next-up-layout' && data.links && data.links.length > 0) {
+                data.links.forEach(linkInfo => {
+                    if (linkInfo.isButton) {
+                        const a = document.createElement('a');
+                        a.href = linkInfo.url;
+                        a.textContent = linkInfo.text;
+                        if (linkInfo.url.startsWith('http')) {
+                            a.target = '_blank';
+                            a.rel = 'noopener noreferrer';
+                        }
+                        a.classList.add('cta-button');
+                        // Add to about us container for proper stacking
+                        aboutUsContainer.appendChild(a);
+                    }
+                });
+            }
+            
             expandableContent.appendChild(aboutUsContainer);
         }
 
         if (data.isClickable !== false && data.links && data.links.length > 0) {
-            if (data.linksPrefix) {
-                const prefixLabel = document.createElement('span');
-                prefixLabel.classList.add('links-prefix');
-                prefixLabel.textContent = data.linksPrefix;
-                prefixLabel.style.color = data.textColor;
-                expandableContent.appendChild(prefixLabel);
+            // Skip buttons for Next Up section as they're handled above
+            const shouldAddLinks = !(data.customLayout === 'next-up-layout' && 
+                                   data.links.every(link => link.isButton));
+            
+            if (shouldAddLinks) {
+                if (data.linksPrefix) {
+                    const prefixLabel = document.createElement('span');
+                    prefixLabel.classList.add('links-prefix');
+                    prefixLabel.textContent = data.linksPrefix;
+                    prefixLabel.style.color = data.textColor;
+                    expandableContent.appendChild(prefixLabel);
+                }
+               data.links.forEach(linkInfo => {
+                    // Skip buttons for Next Up layout as they're handled above
+                    if (data.customLayout === 'next-up-layout' && linkInfo.isButton) {
+                        return;
+                    }
+                    
+                    const a = document.createElement('a');
+                    a.href = linkInfo.url;
+                    a.textContent = linkInfo.text;
+                    if (linkInfo.url.startsWith('http')) {
+                        a.target = '_blank';
+                        a.rel = 'noopener noreferrer';
+                    }
+                    if (linkInfo.isButton) {
+                        a.classList.add('cta-button');
+                    } else {
+                        a.style.color = data.textColor;
+                    }
+                    expandableContent.appendChild(a);
+                });
             }
-           data.links.forEach(linkInfo => {
-                const a = document.createElement('a');
-                a.href = linkInfo.url;
-                a.textContent = linkInfo.text;
-                if (linkInfo.url.startsWith('http')) {
-                    a.target = '_blank';
-                    a.rel = 'noopener noreferrer';
-                }
-                if (linkInfo.isButton) {
-                    a.classList.add('cta-button');
-                    // The styling is now 100% handled by CSS
-                } else {
-                    a.style.color = data.textColor;
-                }
-                expandableContent.appendChild(a);
-            });
         }
         section.appendChild(expandableContent);
 
@@ -324,7 +352,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 expandableContent.style.paddingTop = '20px';
                 expandableContent.style.paddingBottom = '20px';
                 expandableContent.style.opacity = '1';
-                const desiredMinHeight = 150;
+                const desiredMinHeight = 250;
                 const actualScrollHeight = expandableContent.scrollHeight;
                 expandableContent.style.maxHeight = Math.max(desiredMinHeight, actualScrollHeight) + 'px';
             }

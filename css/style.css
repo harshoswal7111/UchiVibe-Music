@@ -639,20 +639,6 @@ body {
     }
 }
 
-/* css/style.css */
-
-/* ... (Keep your @font-face, body, .main-text, .release-tag,
-          .marquee-container, .marquee, .overlay, @keyframes scroll,
-          .initial-hidden, .initial-visible, .stagger-children,
-          .streaming-links-section, .wave-animation, .smoke animations,
-          .animate-in, .about-us-content, .scroller-expandable-content,
-          font classes, text size classes, .scroller-container, .scroller-section,
-          .scroller-visible-content, .marquee-content, .marquee-item,
-          .links-prefix, .scroller-expandable-content a,
-          .scroller-section-non-clickable
-          AS THEY ARE - unless they conflict directly with navbar)
-*/
-
 /* Main Navbar Container */
 .custom-navbar {
     position: sticky;
@@ -1330,22 +1316,27 @@ body {
 }
 .next-up-layout {
     display: flex;
-    justify-content: space-between; /* Pushes items apart on desktop */
-    align-items: center;          /* Vertically centers them on desktop */
-    gap: 40px;                    /* Default gap for desktop */
+    flex-direction: column; /* Stack everything vertically for consistent layout */
+    align-items: center;    /* Center align everything */
+    justify-content: center;
+    gap: 20px;             /* Gap between elements */
+    padding: 20px;
+    width: 100%;
 }
 
 /* 2. Styles for the text block */
 .next-up-layout .about-us-content {
-    flex-basis: 60%; 
-    flex-grow: 1;    
-    margin: 0;      
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
 }
 
 /* 3. Spacing for paragraphs within the text block */
 .next-up-layout .about-us-content p {
     margin-bottom: 0.75em;
     line-height: 1.6;
+    text-align: center; /* Center align text on both mobile and desktop */
 }
 .next-up-layout .about-us-content p:last-child {
     margin-bottom: 0; 
@@ -1355,31 +1346,132 @@ body {
 /* 4. Styles for the button */
 .cta-button {
     display: inline-block;
-    padding: 12px 24px !important;
+    padding: 14px 28px !important;
     font-weight: 700;
     text-transform: uppercase;
     text-decoration: none !important;
     border-radius: 10px !important;
     border: none !important;
-    transition: transform 0.2s ease, opacity 0.2s ease !important;
+    transition: all 0.3s ease !important;
     background-color: #FFFFFF; 
     color: #231F20 !important;
-    flex-shrink: 0; 
+    flex-shrink: 0;
+    margin-top: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    letter-spacing: 0.5px;
 }
 
 .cta-button:hover {
-    transform: scale(1.05);
-    opacity: 0.9;
+    transform: translateY(-2px) scale(1.03);
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
     background-color: #FFFFFF !important;
 }
 
 
-/* --- THIS IS THE KEY FIX --- */
-/* 5. Media Query for Mobile Screens */
-@media (max-width: 767px) {
+/* --- RESPONSIVE LAYOUT FIXES --- */
+/* Desktop Specific Styles */
+@media (min-width: 768px) {
     .next-up-layout {
-        flex-direction: column;      /* Stack items vertically */
-        align-items: flex-start;     /* Align them to the left */
-        gap: 20px;                   /* REDUCED gap for a tighter mobile look */
+        padding: 0px;               /* More padding on desktop */
+    }
+    
+    .next-up-layout .about-us-content {
+        margin-bottom: 20px;         /* Space between text and button */
+    }
+    
+    .next-up-layout .about-us-content p {
+        font-size: 1.4rem;           /* Larger text on desktop */
+    }
+    
+    .next-up-layout .cta-button {
+        font-size: 1.1rem;           /* Slightly larger button text */
+        padding: 14px 28px !important; /* Larger button */
+    }
+}
+
+/* Mobile-specific layout adjustments */
+@media (max-width: 768px) {
+    .next-up-layout {
+        padding: 20px 15px; /* Less padding on mobile */
+    }
+    
+    .next-up-layout .scroller-expandable-content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+    }
+
+    .next-up-layout .about-us-content {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        text-align: center;
+        margin-bottom: 10px;
+    }
+
+    .next-up-layout .about-us-content p {
+        margin-bottom: 0.75em;
+        text-align: center;
+        font-size: 1.1rem; /* Slightly smaller text on mobile */
+    }
+
+    /* Ensure button is properly styled on mobile */
+    .next-up-layout .about-us-content .cta-button {
+        margin-top: 15px;
+        padding: 12px 24px !important; /* Slightly smaller button on mobile */
+        font-size: 1rem;
+        width: fit-content;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+/* Small mobile device optimizations */
+@media (max-width: 480px) {
+    .next-up-layout {
+        padding: 10px;
+    }
+    
+    .next-up-layout .about-us-content p {
+        font-size: 1rem;
+        line-height: 1.5;
+    }
+    
+    .next-up-layout .about-us-content .cta-button {
+        padding: 10px 20px !important;
+        font-size: 0.9rem;
+    }
+}
+
+/* Enhanced Desktop Styling for Next Up Section */
+@media (min-width: 769px) {
+    .next-up-layout {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        width: 100%;
+    }
+    
+    .next-up-layout .about-us-content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        max-width: 800px;
+    }
+    
+    .next-up-layout .about-us-content p {
+        text-align: center;
+        max-width: 600px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    
+    .next-up-layout .cta-button {
+        margin-top: 15px;
     }
 }
