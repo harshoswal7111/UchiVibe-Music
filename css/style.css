@@ -1328,3 +1328,58 @@ body {
         right: 12vw !important
     }
 }
+.next-up-layout {
+    display: flex;
+    justify-content: space-between; /* Pushes items apart on desktop */
+    align-items: center;          /* Vertically centers them on desktop */
+    gap: 40px;                    /* Default gap for desktop */
+}
+
+/* 2. Styles for the text block */
+.next-up-layout .about-us-content {
+    flex-basis: 60%; 
+    flex-grow: 1;    
+    margin: 0;      
+}
+
+/* 3. Spacing for paragraphs within the text block */
+.next-up-layout .about-us-content p {
+    margin-bottom: 0.75em;
+    line-height: 1.6;
+}
+.next-up-layout .about-us-content p:last-child {
+    margin-bottom: 0; 
+}
+
+
+/* 4. Styles for the button */
+.cta-button {
+    display: inline-block;
+    padding: 12px 24px !important;
+    font-weight: 700;
+    text-transform: uppercase;
+    text-decoration: none !important;
+    border-radius: 10px !important;
+    border: none !important;
+    transition: transform 0.2s ease, opacity 0.2s ease !important;
+    background-color: #FFFFFF; 
+    color: #231F20 !important;
+    flex-shrink: 0; 
+}
+
+.cta-button:hover {
+    transform: scale(1.05);
+    opacity: 0.9;
+    background-color: #FFFFFF !important;
+}
+
+
+/* --- THIS IS THE KEY FIX --- */
+/* 5. Media Query for Mobile Screens */
+@media (max-width: 767px) {
+    .next-up-layout {
+        flex-direction: column;      /* Stack items vertically */
+        align-items: flex-start;     /* Align them to the left */
+        gap: 20px;                   /* REDUCED gap for a tighter mobile look */
+    }
+}

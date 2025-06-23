@@ -11,126 +11,136 @@ document.addEventListener('DOMContentLoaded', () => {
     const sunshineYellow = '#FFDD4A';
     const brandBlack = '#231F20';
     const brandWhite = '#FFFFFF';
-    const brandOrange = '#FFA500'; // Your orange color
+    const brandOrange = '#FFA500';
 
     const sectionsData = [
-        // Scroller 1: About Us (no release tag)
+        // Scroller 1: About Us (No change)
         {
             id: 'section1',
             mainText: 'About Us',
             bgColor: hotPink,
             textColor: brandBlack,
             aboutUsText: "We're Uchi Vibe Music — Certified Vibe Dealers since day one.\nBorn in Pune, raised by chaos, bass drops, and 3 a.m. brainstorms, we're here to turn your \"maybe this is cool?\" into \"yo, this SLAPS.\"\n\nNo suits. No scripts. Just a bunch of music-heads on a mission to find the unfound, vibe with the unheard, and drop tracks that hit harder than Monday blues.\n\nPull up. Plug in. Welcome to the Uchi side.",
-            linksPrefix: null,
-            links: [],
             isClickable: true,
             scrollDirection: 'normal'
         },
-        // Scroller 2: Upcoming Releases (Title - no release tag)
+
+        // --- MOVED & MODIFIED: "Next Up" Section ---
+        {
+            id: 'sectionNextUp',
+            mainText: 'Next Up? Might Be You',
+            bgColor: brandBlack,
+            textColor: brandWhite,
+            // MODIFIED: Text updated to match image, with line breaks
+            aboutUsText: "We don't chase trends. We discover moments. Could your track be the next one?\n\nNext up? Might be you.",
+            links: [{
+                // MODIFIED: Button text updated
+                text: 'SUBMIT YOUR DEMO',
+                url: 'https://docs.google.com/forms/d/e/1FAIpQLScNjMldLsDTSAq9mUBsLd9IRnO6MxCasVmfGhYO_m2ehhH45g/viewform?usp=header',
+                isButton: true
+            }],
+            isClickable: true,
+            scrollDirection: 'normal',
+            // ADDED: Special layout identifier for CSS
+            customLayout: 'next-up-layout'
+        },
+
+        // Scroller 2: Upcoming Releases Title
         {
             id: 'section2',
-            // CHANGE: use <span> with space, instead of <br>
             mainText: 'Upcoming <span class="line-break">Releases</span>',
             bgColor: teal,
             textColor: brandBlack,
-            isClickable: false, // <-- ADD THIS LINE
-            //... rest of object
+            isClickable: false,
         },
-        // Scroller 3: Raatein Halatein (Upcoming Song)
+        // ... (rest of the songs)
         {
             id: 'section3',
             mainText: 'Raatein Halatein',
             bgColor: sunshineYellow,
             textColor: brandBlack,
             releaseTagText: 'UPCOMING',
-            releaseTagBgColor: brandOrange, // CHANGED
-            releaseTagTextColor: brandBlack, // CHANGED (or keep sunshineYellow if preferred for this specific one)
+            releaseTagBgColor: brandOrange,
+            releaseTagTextColor: brandBlack,
             linksPrefix: 'release date:',
             links: [{ text: '20 JULY 2025', url: '#' }],
             isClickable: true,
             scrollDirection: 'normal'
         },
-        // Scroller 4: Besabri (Upcoming Song)
         {
             id: 'section4',
             mainText: 'Besabri',
             bgColor: brandBlack,
             textColor: brandWhite,
             releaseTagText: 'UPCOMING',
-            releaseTagBgColor: brandOrange, // CHANGED
-            releaseTagTextColor: brandBlack, // CHANGED
+            releaseTagBgColor: brandOrange,
+            releaseTagTextColor: brandBlack,
             linksPrefix: 'release date:',
             links: [{ text: '20 JULY 2025', url: '#' }],
             isClickable: true,
             scrollDirection: 'reverse'
         },
-        // Scroller 5: Zillat (Upcoming Song)
         {
             id: 'section5',
             mainText: 'Zillat',
             bgColor: hotPink,
             textColor: brandWhite,
             releaseTagText: 'UPCOMING',
-            releaseTagBgColor: brandOrange, // CHANGED
-            releaseTagTextColor: brandBlack, // CHANGED
+            releaseTagBgColor: brandOrange,
+            releaseTagTextColor: brandBlack,
             linksPrefix: 'release date:',
             links: [{ text: '20 JULY 2025', url: '#' }],
             isClickable: true,
             scrollDirection: 'normal'
         },
-        // Scroller 6: Dil Zakhmi (Upcoming Song)
         {
             id: 'section6',
             mainText: 'Dil Zakhmi',
             bgColor: teal,
             textColor: brandBlack,
             releaseTagText: 'UPCOMING',
-            releaseTagBgColor: brandOrange, // CHANGED
-            releaseTagTextColor: brandBlack, // CHANGED
+            releaseTagBgColor: brandOrange,
+            releaseTagTextColor: brandBlack,
             linksPrefix: 'release date:',
             links: [{ text: '20 JULY 2025', url: '#' }],
             isClickable: true,
             scrollDirection: 'reverse'
         },
-        // Scroller 7: Heath (Upcoming Song)
         {
             id: 'section7',
             mainText: 'Heath',
             bgColor: sunshineYellow,
             textColor: brandBlack,
             releaseTagText: 'UPCOMING',
-            releaseTagBgColor: brandOrange, // CHANGED
-            releaseTagTextColor: brandBlack, // CHANGED
+            releaseTagBgColor: brandOrange,
+            releaseTagTextColor: brandBlack,
             linksPrefix: 'release date:',
             links: [{ text: '20 JULY 2025', url: '#' }],
             isClickable: true,
             scrollDirection: 'normal'
         },
-        // Scroller 8: Waqt he mera (Upcoming Song)
         {
             id: 'section8',
             mainText: 'Waqt he mera',
             bgColor: brandBlack,
             textColor: brandWhite,
             releaseTagText: 'UPCOMING',
-            releaseTagBgColor: brandOrange, // CHANGED
-            releaseTagTextColor: brandBlack, // CHANGED
+            releaseTagBgColor: brandOrange,
+            releaseTagTextColor: brandBlack,
             linksPrefix: 'release date:',
             links: [{ text: '20 JULY 2025', url: '#' }],
             isClickable: true,
             scrollDirection: 'reverse'
         },
-        // Scroller 9: Current Releases (Title - no release tag)
+
+        // Scroller 9: Current Releases Title
         {
             id: 'section9',
-            // CHANGE: use <span> with space, instead of <br>
             mainText: 'Current <span class="line-break">Releases</span>',
             bgColor: hotPink,
             textColor: brandBlack,
-            isClickable: false, // <-- ADD THIS LINE
-            //... rest of object
+            isClickable: false,
         },
-
         // Scroller 10: Song One (Released)
         {
             id: 'section10',
@@ -138,8 +148,8 @@ document.addEventListener('DOMContentLoaded', () => {
             bgColor: teal,
             textColor: brandWhite,
             releaseTagText: 'RELEASED',
-            releaseTagBgColor: brandOrange, // CHANGED
-            releaseTagTextColor: brandBlack, // CHANGED
+            releaseTagBgColor: brandOrange,
+            releaseTagTextColor: brandBlack,
             linksPrefix: 'Streaming On:',
             links: [
                 { text: 'Spotify', url: '#' },
@@ -149,13 +159,31 @@ document.addEventListener('DOMContentLoaded', () => {
             isClickable: true,
             scrollDirection: 'reverse'
         },
-        // Scroller 11: Contact Us (no release tag)
+
+        // "Uchi Artist Wall" Section
+        {
+            id: 'sectionArtistWall',
+            mainText: 'Uchi Artist Wall',
+            bgColor: hotPink,
+            textColor: brandBlack,
+            linksPrefix: 'Our Artists:',
+            links: [
+                { text: 'Artist One', url: 'https://open.spotify.com' },
+                { text: 'Artist Two', url: 'https://open.spotify.com' },
+                { text: 'Artist Three', url: 'https://open.spotify.com' },
+                { text: 'Another Artist Name', url: 'https://open.spotify.com' },
+                { text: 'And Another', url: 'https://open.spotify.com' },
+            ],
+            isClickable: true,
+            scrollDirection: 'normal'
+        },
+
+        // Scroller 11: Contact Us
         {
             id: 'section11',
             mainText: 'Contact Us',
             bgColor: sunshineYellow,
             textColor: brandBlack,
-            linksPrefix: null,
             links: [
                 { text: 'Mail Us', url: 'mailto:connect@uchivibemusic.com' },
                 { text: 'Press', url: 'mailto:press@uchivibemusic.com' },
@@ -183,37 +211,28 @@ document.addEventListener('DOMContentLoaded', () => {
         const visibleContent = document.createElement('div');
         visibleContent.classList.add('scroller-visible-content');
 
-        // ===== MODIFIED: Logic to handle static vs scrolling titles =====
         const isStaticTitle = (data.id === 'section2' || data.id === 'section9');
 
         if (isStaticTitle) {
-            // It's a static title, so we center it and don't use the marquee
             visibleContent.classList.add('static-title-section');
-
             const mainTextSpan = document.createElement('span');
             mainTextSpan.classList.add('main-text');
-            // MODIFIED: Use innerHTML to render the <br> tag correctly
             mainTextSpan.innerHTML = data.mainText;
             mainTextSpan.style.color = data.textColor;
             visibleContent.appendChild(mainTextSpan);
-
         } else {
-            // It's a regular scrolling marquee
             const marqueeContent = document.createElement('div');
             marqueeContent.classList.add('marquee-content');
             marqueeContent.style.animationDuration = `${adjustedAnimationDuration}s`;
             marqueeContent.style.animationDirection = data.scrollDirection || 'normal';
-
             for (let i = 0; i < marqueeRepetitions; i++) {
                 const marqueeItem = document.createElement('div');
                 marqueeItem.classList.add('marquee-item');
-
                 const mainTextSpan = document.createElement('span');
                 mainTextSpan.classList.add('main-text');
                 mainTextSpan.textContent = data.mainText;
                 mainTextSpan.style.color = data.textColor;
                 marqueeItem.appendChild(mainTextSpan);
-
                 if (data.releaseTagText) {
                     const releaseTagSpan = document.createElement('span');
                     releaseTagSpan.classList.add('release-tag');
@@ -226,16 +245,21 @@ document.addEventListener('DOMContentLoaded', () => {
             }
             visibleContent.appendChild(marqueeContent);
         }
-        // ===== END MODIFICATION =====
-
         section.appendChild(visibleContent);
 
         const expandableContent = document.createElement('div');
         expandableContent.classList.add('scroller-expandable-content');
 
-        if (data.isClickable !== false && data.id === 'section1' && data.aboutUsText) {
+        // --- ADDED LOGIC FOR CUSTOM LAYOUT ---
+        if (data.customLayout) {
+            expandableContent.classList.add(data.customLayout);
+        }
+
+        if (data.isClickable !== false && data.aboutUsText) {
             const aboutUsContainer = document.createElement('div');
             aboutUsContainer.classList.add('about-us-content');
+            // MODIFIED: Use the section's main text color for the paragraphs for readability
+            aboutUsContainer.style.color = data.textColor;
             data.aboutUsText.split('\n\n').forEach(paragraphText => {
                 if (paragraphText.trim()) {
                     const p = document.createElement('p');
@@ -244,15 +268,17 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
             });
             expandableContent.appendChild(aboutUsContainer);
-        } else if (data.isClickable !== false && data.links && data.links.length > 0) {
+        }
+
+        if (data.isClickable !== false && data.links && data.links.length > 0) {
             if (data.linksPrefix) {
                 const prefixLabel = document.createElement('span');
                 prefixLabel.classList.add('links-prefix');
                 prefixLabel.textContent = data.linksPrefix;
-                prefixLabel.style.color = data.textColor; // Use section's main text color for prefix
+                prefixLabel.style.color = data.textColor;
                 expandableContent.appendChild(prefixLabel);
             }
-            data.links.forEach(linkInfo => {
+           data.links.forEach(linkInfo => {
                 const a = document.createElement('a');
                 a.href = linkInfo.url;
                 a.textContent = linkInfo.text;
@@ -260,17 +286,20 @@ document.addEventListener('DOMContentLoaded', () => {
                     a.target = '_blank';
                     a.rel = 'noopener noreferrer';
                 }
-                a.style.color = data.textColor; // Use section's main text color for links
+                if (linkInfo.isButton) {
+                    a.classList.add('cta-button');
+                    // The styling is now 100% handled by CSS
+                } else {
+                    a.style.color = data.textColor;
+                }
                 expandableContent.appendChild(a);
             });
         }
         section.appendChild(expandableContent);
 
+        // ... (Click handler and rest of script remain the same)
         visibleContent.addEventListener('click', () => {
-            if (data.isClickable === false) {
-                return;
-            }
-
+            if (data.isClickable === false) { return; }
             const isExpanded = section.classList.contains('expanded');
             document.querySelectorAll('.scroller-section.expanded').forEach(expandedSec => {
                 if (expandedSec !== section) {
@@ -284,7 +313,6 @@ document.addEventListener('DOMContentLoaded', () => {
                     }
                 }
             });
-
             if (isExpanded) {
                 section.classList.remove('expanded');
                 expandableContent.style.opacity = '0';
@@ -303,7 +331,8 @@ document.addEventListener('DOMContentLoaded', () => {
         });
         scrollerContainer.appendChild(section);
     });
-
+    
+    // ... (rest of the script)
     const whiteCircle = document.getElementById('white-circle');
     if (whiteCircle) {
         setTimeout(() => {
@@ -357,27 +386,20 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // ===== MODIFIED: Sticky visualizer logic with mobile optimization =====
     const visualizer = document.querySelector("#sticky-visualizer");
     if (visualizer) {
         const bars = document.querySelectorAll(".visualizer-bar");
         const minBarWidth = 5;
 
         const animateBars = () => {
-            // Check screen size inside the animation function to be responsive
             const isDesktop = window.matchMedia('(min-width: 1024px)').matches;
-            const maxBarWidth = isDesktop ? 105 : 35; // Use smaller max width on mobile
-
+            const maxBarWidth = isDesktop ? 105 : 35;
             const scrollableHeight = document.documentElement.scrollHeight - window.innerHeight;
             const scrollProgress = scrollableHeight > 0 ? (window.scrollY / scrollableHeight) : 0;
-
             bars.forEach((bar, index) => {
-                // The wave calculation remains the same, producing values from -1 to 1
                 const wave = Math.sin(scrollProgress * 15 + index * 1.5);
-                // The width calculation now scales based on the responsive maxBarWidth
-                const widthPercent = (wave + 1) / 2; // Normalize wave to 0-1 range
+                const widthPercent = (wave + 1) / 2;
                 const newWidth = minBarWidth + (widthPercent * maxBarWidth);
-
                 bar.style.width = `${newWidth}px`;
             });
         };
@@ -385,15 +407,9 @@ document.addEventListener('DOMContentLoaded', () => {
         window.addEventListener('scroll', () => {
             window.requestAnimationFrame(animateBars);
         });
-
-        // Also listen for resize to re-evaluate on orientation change etc.
         window.addEventListener('resize', () => {
             window.requestAnimationFrame(animateBars);
         });
-
-        // Initial animation call
         animateBars();
     }
-    // ===== END MODIFICATION =====
-
 });
