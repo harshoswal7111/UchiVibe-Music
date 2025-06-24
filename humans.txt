@@ -1,0 +1,11 @@
+/* TEAM */
+    Developer: Projection Developers
+    Contact: connect@uchivibemusic.com
+    Website: https://uchivibemusic.com
+    From: Planet Earth
+
+/* SITE */
+    Last update: 2025/06/24
+    Language: English
+    Doctype: HTML5
+    IDE: Visual Studio Code

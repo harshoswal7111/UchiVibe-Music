@@ -1,0 +1,36 @@
+{
+  "siteInfo": {
+    "name": "UchiVibe Music",
+    "domain": "uchivibemusic.com",
+    "description": "A premier electronic music label curating the finest music for the soul.",
+    "founded": "2025"
+  },
+  "seo": {
+    "primaryKeywords": [
+      "electronic music label",
+      "UchiVibe Music",
+      "music for the soul",
+      "electronic music artists",
+      "upcoming music releases"
+    ],
+    "secondaryKeywords": [
+      "music label",
+      "electronic artists",
+      "music releases",
+      "artist collaboration",
+      "music production"
+    ],
+    "targetLocations": ["Global"],
+    "competitors": [
+      "Example Music Label 1",
+      "Example Music Label 2"
+    ]
+  },
+  "socialMedia": {
+    "instagram": "https://www.instagram.com/uchivibe_music/",
+    "youtube": "https://www.youtube.com/channel/UCwn9U-PMMKI5bO0smMs-3kw"
+  },
+  "analytics": {
+    "googleAnalyticsId": "G-XXXXXXXXXX"
+  }
+}

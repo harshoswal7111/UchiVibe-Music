@@ -3,27 +3,23 @@
 
 <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>UchiVibe Music</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />    <title>UchiVibe Music | Electronic Music Label | Music For The Soul</title>
 
     <!-- SEO and Social Meta Tags -->
     <meta name="robots" content="index,follow" />
     <meta name="description"
-        content="UchiVibe Music, 2025. The finest electronic music curated for your listening pleasure." />
+        content="UchiVibe Music - A premier electronic music label curating the finest music for the soul. Discover upcoming releases, featured artists, and our latest music projects." />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:site" content="@uchivibe" />
-    <meta name="twitter:creator" content="@uchivibe" />
-    <meta property="og:title" content="UchiVibe Music" />
+    <meta name="twitter:creator" content="@uchivibe" />    <meta property="og:title" content="UchiVibe Music | Electronic Music Label | Music For The Soul" />
     <meta property="og:description"
-        content="UchiVibe Music, 2025. The finest electronic music curated for your listening pleasure." />
-    <meta property="og:url" content="index.html" /> <!-- Assuming this will be the final URL -->
-    <meta property="og:image" content="static/og.jpg" />
+        content="UchiVibe Music - A premier electronic music label curating the finest music for the soul. Discover upcoming releases, featured artists, and our latest music projects." />
+    <meta property="og:url" content="https://uchivibemusic.com/" /> <!-- Updated to absolute URL -->
+    <meta property="og:image" content="https://uchivibemusic.com/static/og.jpg" /> <!-- Updated to absolute URL -->
     <meta property="og:image:alt" content="UchiVibe Music" />
     <meta property="og:image:width" content="1200" />
-    <meta property="og:image:height" content="630" />
-
-    <!-- Favicon and App Icons -->
-    <link rel="canonical" href="index.html" /> <!-- Assuming this will be the final URL -->
+    <meta property="og:image:height" content="630" />    <!-- Favicon and App Icons -->
+    <link rel="canonical" href="https://uchivibemusic.com/" /> <!-- Updated canonical URL -->
     <link rel="uchi_logo" sizes="180x180" href="static/uchi_logo.png" />
     <link rel="icon" type="image/png" sizes="32x32" href="static/favicon-32x32.png" />
     <link rel="icon" type="image/png" sizes="16x16" href="static/favicon-16x16.png" />
@@ -31,9 +27,9 @@
     <link rel="mask-icon" href="static/safari-pinned-tab.svg" color="#174100" />
     <link rel="shortcut icon" href="static/favicon.ico" />
     <meta name="msapplication-TileColor" content="#08b4c2" />
-    <meta name="msapplication-config" content="static/browserconfig.xml" />
-    <meta name="theme-color" content="#ea366f" />
-
+    <meta name="msapplication-config" content="static/browserconfig.xml" />    <meta name="theme-color" content="#ea366f" />
+    <link rel="author" type="text/plain" href="humans.txt" />
+    
     <!-- Preload critical fonts -->
     <link rel="preload" href="static/smakaran.TTF" as="font" type="font/ttf" crossorigin>
 
@@ -91,6 +87,34 @@
     </style>
 
     <script src="https://unpkg.com/@dotlottie/player-component@2.7.12/dist/dotlottie-player.mjs" type="module"></script>
+
+    <!-- Google Analytics (GA4) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-XXXXXXXXXX'); // Replace with your actual GA4 measurement ID
+    </script>
+
+    <!-- Schema.org structured data for Music Organization -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "MusicGroup",
+        "name": "UchiVibe Music",
+        "url": "https://uchivibemusic.com",
+        "logo": "https://uchivibemusic.com/static/uchi_logo_new.png",
+        "sameAs": [
+            "https://www.instagram.com/uchivibe_music/",
+            "https://www.youtube.com/channel/UCwn9U-PMMKI5bO0smMs-3kw"
+        ],
+        "description": "UchiVibe Music - A premier electronic music label curating the finest music for the soul.",
+        "genre": "Electronic Music",
+        "email": "connect@uchivibemusic.com",
+        "foundingDate": "2025"
+    }
+    </script>
 </head>
 
 <body>
