@@ -152,11 +152,11 @@ document.addEventListener('DOMContentLoaded', () => {
             releaseTagTextColor: brandBlack,
             linksPrefix: 'Streaming On:',
             links: [
+                { text: 'Apple Music', url: 'http://music.apple.com/us/album/chand-da-tukda-feat-dipessh-kashyap-single/1767809809' },
                 { text: 'Spotify', url: 'https://open.spotify.com/track/5zEf3LAM3zCdffpgiQkJZW' },
-                { text: 'YouTube', url: 'https://www.youtube.com/watch?v=DrKF1gPQEP4' },
                 { text: 'JioSaavn', url: 'https://www.jiosaavn.com/album/chand-da-tukda-feat.-dipessh-kashyap/G7tKAK8mL8E_' },
-                { text: 'Gaana', url: 'https://gaana.com/song/chand-da-tukda-feat-dipessh-kashyap' },
-                { text: 'Apple Music', url: 'https://music.apple.com/us/album/chand-da-tukda-feat-dipessh-kashyap-single/1767809809' }
+                { text: 'YT Music', url: 'https://music.youtube.com/browse/MPREb_VyDASIZEhEP' },
+                { text: 'Youtube', url: 'https://www.youtube.com/watch?v=DrKF1gPQEP4' },
             ],
             isClickable: true,
             scrollDirection: 'reverse'
