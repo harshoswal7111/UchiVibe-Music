@@ -168,12 +168,11 @@ document.addEventListener('DOMContentLoaded', () => {
             mainText: 'UVM Artist Wall',
             bgColor: hotPink,
             textColor: brandBlack,
-            linksPrefix: 'Our Artists:',
-            links: [
-                { text: 'Hritik Dutta', url: 'https://www.instagram.com/hritik.ep?igsh=OHRocjJvZXN4NzV0' },
-                { text: 'Tushar Joshi', url: 'https://www.instagram.com/tusharjoshiii?igsh=MTBnbmQ3NHI3azJ5cw==' },
+            linksPrefix: 'Our Artists:', links: [
                 { text: 'Dipesh Kashyap', url: 'https://www.instagram.com/dipesshkashyap?igsh=YTIydmppZXh3MGlm' },
-                { text: 'Hriday Gattani', url: 'https://www.instagram.com/hridaygattani?igsh=MXI2bzZqazR0dDR6Nw==' }
+                { text: 'Hriday Gattani', url: 'https://www.instagram.com/hridaygattani?igsh=MXI2bzZqazR0dDR6Nw==' },
+                { text: 'Hritik Dutta', url: 'https://www.instagram.com/hritik.ep?igsh=OHRocjJvZXN4NzV0' },
+                { text: 'Tushar Joshi', url: 'https://www.instagram.com/tusharjoshiii?igsh=MTBnbmQ3NHI3azJ5cw==' }
             ],
             isClickable: true,
             scrollDirection: 'normal'
@@ -254,7 +253,7 @@ document.addEventListener('DOMContentLoaded', () => {
         // --- ADDED LOGIC FOR CUSTOM LAYOUT ---
         if (data.customLayout) {
             expandableContent.classList.add(data.customLayout);
-        }        if (data.isClickable !== false && data.aboutUsText) {
+        } if (data.isClickable !== false && data.aboutUsText) {
             const aboutUsContainer = document.createElement('div');
             aboutUsContainer.classList.add('about-us-content');
             // MODIFIED: Use the section's main text color for the paragraphs for readability
@@ -266,7 +265,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     aboutUsContainer.appendChild(p);
                 }
             });
-            
+
             // For 'Next Up' section, append the button inside the text container
             if (data.customLayout === 'next-up-layout' && data.links && data.links.length > 0) {
                 data.links.forEach(linkInfo => {
@@ -284,15 +283,15 @@ document.addEventListener('DOMContentLoaded', () => {
                     }
                 });
             }
-            
+
             expandableContent.appendChild(aboutUsContainer);
         }
 
         if (data.isClickable !== false && data.links && data.links.length > 0) {
             // Skip buttons for Next Up section as they're handled above
-            const shouldAddLinks = !(data.customLayout === 'next-up-layout' && 
-                                   data.links.every(link => link.isButton));
-            
+            const shouldAddLinks = !(data.customLayout === 'next-up-layout' &&
+                data.links.every(link => link.isButton));
+
             if (shouldAddLinks) {
                 if (data.linksPrefix) {
                     const prefixLabel = document.createElement('span');
@@ -301,12 +300,12 @@ document.addEventListener('DOMContentLoaded', () => {
                     prefixLabel.style.color = data.textColor;
                     expandableContent.appendChild(prefixLabel);
                 }
-               data.links.forEach(linkInfo => {
+                data.links.forEach(linkInfo => {
                     // Skip buttons for Next Up layout as they're handled above
                     if (data.customLayout === 'next-up-layout' && linkInfo.isButton) {
                         return;
                     }
-                    
+
                     const a = document.createElement('a');
                     a.href = linkInfo.url;
                     a.textContent = linkInfo.text;
@@ -359,7 +358,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
         scrollerContainer.appendChild(section);
     });
-    
+
     // ... (rest of the script)
     const whiteCircle = document.getElementById('white-circle');
     if (whiteCircle) {
