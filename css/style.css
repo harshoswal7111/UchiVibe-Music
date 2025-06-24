@@ -1210,12 +1210,12 @@ body {
 
 @media (max-width: 767px) {
     .header-col-logo {
-        flex: 3.5;
+        flex: 1;
         /* Make the GIF column smaller on mobile */
     }
 
     .header-col-pattern {
-        flex: 2;
+        flex: 1;
         /* Make the pattern column larger to fill the space */
     }
 }
@@ -1223,7 +1223,7 @@ body {
 
 @media (max-width: 767px) {
     #white-circle {
-        right: 5vw !important;
+        right: 12.5vw !important;
         /* Adjusted to move the white circle off-screen on mobile */
     }
 }
