@@ -3,23 +3,23 @@
 
 <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />    <title>UchiVibe Music | Electronic Music Label | Music For The Soul</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />    <title>UchiVibe Music | Electronic Label | Sounds For The Soul</title>
 
     <!-- SEO and Social Meta Tags -->
-    <meta name="robots" content="index,follow" />
-    <meta name="description"
-        content="UchiVibe Music - A premier electronic music label curating the finest music for the soul. Discover upcoming releases, featured artists, and our latest music projects." />
+    <meta name="robots" content="index,follow" />    <meta name="description"
+        content="UchiVibe Music - Premier electronic music label curating finest sounds for the soul. Discover new releases, artists and upcoming projects." />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:site" content="@uchivibe" />
-    <meta name="twitter:creator" content="@uchivibe" />    <meta property="og:title" content="UchiVibe Music | Electronic Music Label | Music For The Soul" />
+    <meta name="twitter:creator" content="@uchivibe" />    <meta property="og:title" content="UchiVibe Music | Electronic Label | Sounds For The Soul" />
     <meta property="og:description"
-        content="UchiVibe Music - A premier electronic music label curating the finest music for the soul. Discover upcoming releases, featured artists, and our latest music projects." />
-    <meta property="og:url" content="https://uchivibemusic.com/" /> <!-- Updated to absolute URL -->
-    <meta property="og:image" content="https://uchivibemusic.com/static/og.jpg" /> <!-- Updated to absolute URL -->
+        content="UchiVibe Music - Premier electronic music label curating finest sounds for the soul. Discover new releases, artists and upcoming projects." />
+    <meta property="og:url" content="https://uchivibemusic.com/" /> <!-- Final domain URL -->
+    <meta property="og:image" content="https://uchivibemusic.com/static/og.jpg" /> <!-- Final domain image URL -->
     <meta property="og:image:alt" content="UchiVibe Music" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />    <!-- Favicon and App Icons -->
-    <link rel="canonical" href="https://uchivibemusic.com/" /> <!-- Updated canonical URL -->
+    <link rel="canonical" href="https://uchivibemusic.com/" /> <!-- Updated canonical URL to match final domain -->
+    <link rel="apple-touch-icon" sizes="180x180" href="static/apple-touch-icon.png" />
     <link rel="uchi_logo" sizes="180x180" href="static/uchi_logo.png" />
     <link rel="icon" type="image/png" sizes="32x32" href="static/favicon-32x32.png" />
     <link rel="icon" type="image/png" sizes="16x16" href="static/favicon-16x16.png" />
@@ -97,8 +97,7 @@
         gtag('config', 'G-XXXXXXXXXX'); // Replace with your actual GA4 measurement ID
     </script>
 
-    <!-- Schema.org structured data for Music Organization -->
-    <script type="application/ld+json">
+    <!-- Schema.org structured data for Music Organization -->    <script type="application/ld+json">
     {
         "@context": "https://schema.org",
         "@type": "MusicGroup",
@@ -109,10 +108,25 @@
             "https://www.instagram.com/uchivibe_music/",
             "https://www.youtube.com/channel/UCwn9U-PMMKI5bO0smMs-3kw"
         ],
-        "description": "UchiVibe Music - A premier electronic music label curating the finest music for the soul.",
-        "genre": "Electronic Music",
+        "description": "UchiVibe Music - Premier electronic music label curating finest sounds for the soul. Discover new releases, artists and upcoming projects.",
+        "genre": ["Electronic Music", "House Music", "Techno", "Ambient"],
         "email": "connect@uchivibemusic.com",
-        "foundingDate": "2025"
+        "foundingDate": "2025",
+        "location": {
+            "@type": "Place",
+            "name": "UchiVibe Studios"
+        },
+        "potentialAction": {
+            "@type": "ListenAction",
+            "target": {
+                "@type": "EntryPoint",
+                "urlTemplate": "https://uchivibemusic.com/#section9"
+            }
+        },
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https://uchivibemusic.com/"
+        }
     }
     </script>
 </head>
@@ -166,8 +180,7 @@
 
             <nav id="main-nav" class="custom-navbar">
                 <div class="custom-navbar-content-wrapper">
-                    <div class="custom-navbar-logo-area">
-                        <a href="index.html" aria-label="UchiVibe Music Home">
+                    <div class="custom-navbar-logo-area">                        <a href="https://uchivibemusic.com/" aria-label="UchiVibe Music Home">
                             <img src="static/uchi_logo_new.png" alt="UchiVibe Music Logo" class="nav-header-logo" />
                         </a>
                     </div>
@@ -189,9 +202,22 @@
                         <div class="custom-navbar-checker-pattern"></div>
                     </div>
                 </div>
-            </nav>
-
-            <main>
+            </nav>            <main>                <h1 class="sr-only">UchiVibe Music - Electronic Music Label For The Soul</h1>
+                <div class="seo-content sr-only">
+                    <p>Welcome to UchiVibe Music, a premier electronic music label dedicated to showcasing talented artists and producing exceptional electronic music. Our mission is to curate the finest sounds that resonate with the soul and create memorable listening experiences.</p>
+                    
+                    <h2>Our Electronic Music Collection</h2>
+                    <p>UchiVibe Music specializes in various electronic music genres including house, techno, ambient, and experimental electronic sounds. We believe in musical innovation and supporting artists who push the boundaries of electronic production.</p>
+                    
+                    <h2>Artist Collaborations</h2>
+                    <p>Our UVM Artist Wall features emerging and established electronic music producers who bring unique perspectives to the genre. Through collaborative projects and solo releases, we aim to build a community of forward-thinking musicians.</p>
+                    
+                    <h2>Music Releases</h2>
+                    <p>Explore our catalog of electronic music releases spanning from atmospheric ambient pieces to dance-floor ready tracks. Each release is carefully crafted and represents our commitment to quality production and artistic expression.</p>
+                    
+                    <h2>Upcoming Events and Releases</h2>
+                    <p>Stay updated with our upcoming music releases, artist showcases, and electronic music events. UchiVibe Music regularly presents new talent and innovative sounds to our growing audience of electronic music enthusiasts.</p>
+                </div>
                 <div class="relative border-t border-black uppercase leading-normal tracking-tighter">
                     <div class="scroller-container"></div>
                 </div>
@@ -223,10 +249,16 @@
                                 <span class="widget-followers">1.5K subscribers</span>
                             </div>
                         </a>
-                    </div>
-                    <div class="footer-copyright">
+                    </div>                    <div class="footer-copyright">
                         <div>© 2025 UchiVibe Music.</div>
                         <div>Developed By Projection Developers.</div>
+                    </div>                    <div class="footer-links sr-only">
+                        <a href="https://uchivibemusic.com/#section1">About UchiVibe Music</a>
+                        <a href="https://uchivibemusic.com/#section2">Electronic Music Releases</a>
+                        <a href="https://uchivibemusic.com/#sectionNextUp">Our Next Releases</a>
+                        <a href="https://uchivibemusic.com/#sectionArtistWall">Featured Electronic Artists</a>
+                        <a href="https://uchivibemusic.com/#section9">Latest Music Projects</a>
+                        <a href="https://uchivibemusic.com/#section11">Contact UchiVibe Team</a>
                     </div>
                 </div>
             </footer>
