@@ -55,19 +55,6 @@ document.addEventListener('DOMContentLoaded', () => {
         },
         // ... (rest of the songs)
         {
-            id: 'section3',
-            mainText: 'Raatein Halatein',
-            bgColor: sunshineYellow,
-            textColor: brandBlack,
-            releaseTagText: 'UPCOMING',
-            releaseTagBgColor: brandOrange,
-            releaseTagTextColor: brandBlack,
-            linksPrefix: 'release date:',
-            links: [{ text: '17 JULY 2025', url: '#' }],
-            isClickable: true,
-            scrollDirection: 'normal'
-        },
-        {
             id: 'section4',
             mainText: 'Besabri',
             bgColor: brandBlack,
@@ -143,6 +130,29 @@ document.addEventListener('DOMContentLoaded', () => {
         },
         // Scroller 10: Song One (Released)
         {
+            id: 'section11',
+            mainText: 'Raatein Halatein',
+            bgColor: sunshineYellow,
+            textColor: brandBlack,
+            releaseTagText: 'Single Release',
+            releaseTagBgColor: brandOrange,
+            releaseTagTextColor: brandBlack,
+            linksPrefix: 'Streaming On:',
+            links: [
+                      { text: 'Youtube', url: 'https://www.youtube.com/watch?v=xUbjenoV8HQ' },
+                { text: 'Apple Music', url: 'https://music.apple.com/in/album/raatein-haalatein/1825389922?i=1825389926' },
+                { text: 'Spotify', url: 'https://open.spotify.com/track/6d1dCPeqwVEIJPguvKuBKo?si=LiWw8QIvR_y84pO5GcGk1w&nd=1&dlsi=4fea4292d3f14688' },
+                { text: 'JioSaavn', url: 'https://www.jiosaavn.com/song/raatein-halaatein/SBgvdyZfZkQ' },
+                { text: 'YT Music', url: 'https://music.youtube.com/watch?v=gd26wqsrrY0&si=t9RRUzI--tGPYeN8' },
+          
+            ],
+            isClickable: true,
+            scrollDirection: 'normal'
+        },
+     
+
+        // Scroller 11: Raatein Halatein (Moved to Current Releases)
+           {
             id: 'section10',
             mainText: 'Chand Da Tukda',
             bgColor: teal,
@@ -179,9 +189,9 @@ document.addEventListener('DOMContentLoaded', () => {
             scrollDirection: 'normal'
         },
 
-        // Scroller 11: Contact Us
+        // Scroller 12: Contact Us
         {
-            id: 'section11',
+            id: 'section12',
             mainText: 'Contact Us',
             bgColor: sunshineYellow,
             textColor: brandBlack,
